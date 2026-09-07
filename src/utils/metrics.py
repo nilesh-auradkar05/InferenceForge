@@ -75,7 +75,14 @@ def aggregate(
     wall = max(wall_end - wall_start, 1e-9)
  
     if not ok:
-        return {"n_requests": 0, "n_failed": failed, "wall_s": wall}
+        # An all-failed run is useless without the reason. Previously the error
+        # lived only in requests.jsonl, so a summary paste showed n_failed=64
+        # with no way to tell OOM from a shape bug.
+        errs: dict[str, int] = {}
+        for r in records:
+            if r.error:
+                errs[r.error[:200]] = errs.get(r.error[:200], 0) + 1
+        return {"n_requests": 0, "n_failed": failed, "wall_s": wall, "errors": errs}
  
     ttft = np.array([r.ttft_ms for r in ok])
     ttft_svc = np.array([r.ttft_service_ms for r in ok])
@@ -124,6 +131,8 @@ def aggregate(
         # volume
         "total_prompt_tokens": prompt_tok,
         "total_output_tokens": out_tok,
+        "errors": {e[:200]: sum(1 for r in records if r.error == e)
+                   for e in {r.error for r in records if r.error}},
     }
  
  
@@ -218,11 +227,6 @@ class GpuTelemetry:
         self._stop.set()
         if self._thread is not None:
             self._thread.join(timeout=2.0)
-        if self._nvml is not None:
-            try:
-                self._nvml.nvmlShutdown()
-            except Exception:
-                pass
  
     def summary(self) -> dict:
         if not self.samples:
@@ -236,12 +240,5 @@ class GpuTelemetry:
         out["telemetry_samples"] = len(self.samples)
         out["nvml_physical_device"] = self.physical_device
         out["foreign_procs_on_gpu"] = self.foreign_procs
-        # NVML mem_used is the caching allocator's reserved pool plus CUDA
-        # context / driver overhead (~1 GiB). With foreign_procs_on_gpu==0
-        # that gap is not a neighbour process.
-        if "mem_used_gb_mean" in out and "torch_reserved_gb_mean" in out:
-            out["nvml_minus_reserved_gb_mean"] = (
-                out["mem_used_gb_mean"] - out["torch_reserved_gb_mean"]
-            )
         return out
  
