@@ -1,0 +1,29 @@
+[project]
+name = "inferenceforge"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "nvidia-ml-py>=13.610.43",
+    "pydantic>=2.13.5",
+    "pytest>=9.1.1",
+    "torch>=2.13.0",
+    "transformers>=5.16.1",
+    "wandb>=0.29.0",
+]
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["src*", "configs*"]
+namespaces = true
+
+[tool.setuptools]
+py-modules = ["fake_run", "run_bench"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
