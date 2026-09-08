@@ -8,6 +8,7 @@ __pycache__/
 
 # Distribution / packaging
 .Python
+.python-version
 build/
 develop-eggs/
 dist/
@@ -216,3 +217,11 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Custom Folders
+copy_2/
+tests/
+
+# Custom Files
+results.txt
+analyze_result.py
