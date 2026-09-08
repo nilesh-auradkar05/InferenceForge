@@ -21,7 +21,6 @@ from __future__ import annotations
 import argparse
 import asyncio
 import json
-from dataclasses import dataclass
 from datetime import datetime
  
 from configs.config import (
@@ -35,8 +34,9 @@ ENGINES = {
     "fake": ("fake_run", "FakeEngine"),
     "b0_naive_no_cache": ("src.naive_no_cache", "NaiveNoCacheEngine"),
     "b1_hf_generate": ("src.hf_baseline", "HFBaselineEngine"),
-    "p1_scratch_kv": ("src.kv_cache_src.kv_scratch", "ScratchKVEngine"),
+    "p1_scratch_kv": ("src.kv_scratch_src.kv_scratch", "ScratchKVEngine"),
     "p2_static_batch": ("src.static_batching", "StaticBatchEngine"),
+    "p3_continuous_batch": ("src.continuous_batching", "ContinuousBatchEngine"),
 }
  
  
@@ -57,43 +57,9 @@ WORKLOADS = {
     # Tiny, for smoke tests.
     "tiny": dict(prompt_len_mean=32, prompt_len_std=8, output_len_mean=16, output_len_std=4),
 }
-
-
-def csv_ints(s: str) -> list[int]:
-    try:
-        vals = [int(p.strip()) for p in s.split(",") if p.strip() != ""]
-    except ValueError as e:
-        raise ValueError(f"expected comma-separated ints, got {s!r}") from e
-    if not vals or any(v <= 0 for v in vals):
-        raise ValueError("values must be positive integers")
-    return vals
-
-
-@dataclass(frozen=True, slots=True)
-class SweepPoint:
-    concurrency: int
-    rate: float | None
-    max_batch: int
-
-
-def sweep_points(
-    *,
-    concurrency: int,
-    rate: float | None,
-    sweep_concurrency: str | None,
-    sweep_rate: str | None,
-    batch_sizes: list[int],
-) -> list[SweepPoint]:
-    if sweep_concurrency:
-        concs = csv_ints(sweep_concurrency)
-        return [SweepPoint(c, None, b) for b in batch_sizes for c in concs]
-    if sweep_rate:
-        rates = [float(r) for r in sweep_rate.split(",") if r.strip()]
-        return [SweepPoint(concurrency, r, b) for b in batch_sizes for r in rates]
-    return [SweepPoint(concurrency, rate, b) for b in batch_sizes]
-
-
-def parse_args(argv: list[str] | None = None):
+ 
+ 
+def parse_args():
     p = argparse.ArgumentParser()
     p.add_argument("--engine", required=True, choices=list(ENGINES))
     p.add_argument("--phase", default="p0_baseline")
@@ -119,17 +85,18 @@ def parse_args(argv: list[str] | None = None):
                    help="Cap KV cache size. Your 48GB card has too much headroom "
                         "for paging/eviction to be observable -- cap it on purpose.")
     p.add_argument("--max-len", type=int, default=4096)
-    p.add_argument(
-        "--max-batch-size",
-        type=csv_ints,
-        default=[1],
-        help="Single int, or a comma-separated sweep: 1,2,4,8,16",
-    )
+    p.add_argument("--max-batch-size", type=int, default=1,
+                   help="p2: fixed batch. p3: max concurrently RUNNING sequences.")
+    p.add_argument("--block-size", type=int, default=16,
+                   help="KV block granularity. Smaller = less internal waste, "
+                        "more index overhead. Sweep it.")
+    p.add_argument("--profile-gather-every", type=int, default=50,
+                   help="Sample the gather cost every N decode steps. 0 = off.")
     p.add_argument("--batch-timeout-ms", type=float, default=10.0,
                    help="How long the scheduler waits to fill a batch. "
                         "Pure latency-vs-throughput knob -- sweep it.")
     p.add_argument("--extra", default="{}", help="JSON dict of engine knobs")
-    return p.parse_args(argv)
+    return p.parse_args()
  
  
 def _engine_extra(a) -> dict:
@@ -138,17 +105,12 @@ def _engine_extra(a) -> dict:
     if a.kv_budget_gb is not None:
         extra.setdefault("kv_budget_gb", a.kv_budget_gb)
     extra.setdefault("batch_timeout_s", a.batch_timeout_ms / 1e3)
+    extra.setdefault("block_size", a.block_size)
+    extra.setdefault("profile_gather_every", a.profile_gather_every)
     return extra
  
  
-def make_config(
-    a,
-    *,
-    concurrency: int,
-    rate: float | None,
-    stamp: str,
-    max_batch_size: int,
-) -> RunConfig:
+def make_config(a, *, concurrency: int, rate: float | None, stamp: str) -> RunConfig:
     wl = WorkloadSpec(
         name=a.workload,
         num_requests=a.num_requests,
@@ -161,14 +123,12 @@ def make_config(
         rate_rps=rate, warmup_requests=a.warmup,
     )
     tag = f"c{concurrency}" if a.mode == "closed" else f"r{rate}"
-    if len(a.max_batch_size) > 1 or max_batch_size != 1:
-        tag = f"b{max_batch_size}-{tag}"
     return RunConfig(
         run_name=f"{a.engine}-{a.workload}-{tag}-{stamp}",
         phase=a.phase,
         engine=EngineConfig(
             engine=a.engine, model_id=a.model, dtype=Dtype(a.dtype),
-            device=a.device, max_batch_size=max_batch_size,
+            device=a.device, max_batch_size=a.max_batch_size,
             extra=_engine_extra(a),
         ),
         workload=wl,
@@ -185,33 +145,28 @@ def main() -> None:
     env = EnvFingerprint.capture()
     print(json.dumps(env.model_dump(), indent=2))
  
-    points = sweep_points(
-        concurrency=a.concurrency,
-        rate=a.rate_rps,
-        sweep_concurrency=a.sweep_concurrency,
-        sweep_rate=a.sweep_rate,
-        batch_sizes=a.max_batch_size,
-    )
+    if a.max_batch_size > a.concurrency and not a.sweep_concurrency:
+        print(f"[warn] max_batch_size={a.max_batch_size} > concurrency={a.concurrency}: "
+              f"the batch can never fill. Raise --concurrency to at least the batch "
+              f"size or the engine measures partial batches.")
+ 
+    if a.sweep_concurrency:
+        points = [(int(c), None) for c in a.sweep_concurrency.split(",")]
+    elif a.sweep_rate:
+        points = [(a.concurrency, float(r)) for r in a.sweep_rate.split(",")]
+    else:
+        points = [(a.concurrency, a.rate_rps)]
  
     # Engine is built ONCE and reused across sweep points: reloading weights
-    # between points would re-pay warmup and inject allocator noise. Batch-size
-    # changes reallocate KV only -- see Engine.reconfigure.
-    first = points[0]
-    first_cfg = make_config(
-        a, concurrency=first.concurrency, rate=first.rate,
-        stamp=stamp, max_batch_size=first.max_batch,
-    )
+    # between points would re-pay warmup and inject allocator noise.
+    first_cfg = make_config(a, concurrency=points[0][0], rate=points[0][1], stamp=stamp)
     engine = build_engine(first_cfg.engine)
     # setup() is INSIDE the try: loading 8 GB of weights is the single most
     # likely place to OOM, and a half-built engine still holds GPU memory.
     try:
         engine.setup()
-        for pt in points:
-            cfg = make_config(
-                a, concurrency=pt.concurrency, rate=pt.rate,
-                stamp=stamp, max_batch_size=pt.max_batch,
-            )
-            engine.reconfigure(cfg.engine)
+        for conc, rate in points:
+            cfg = make_config(a, concurrency=conc, rate=rate, stamp=stamp)
             reqs = build_trace(cfg.workload, cfg.load, vocab_size=engine.vocab_size)
             tstats = trace_summary(reqs)
             print(f"\n=== {cfg.run_name} ===")
@@ -230,3 +185,4 @@ def main() -> None:
  
 if __name__ == "__main__":
     main()
+ 
