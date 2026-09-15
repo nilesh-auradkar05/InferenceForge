@@ -1,0 +1,50 @@
+{
+  "schema_version": "0.1.0",
+  "run_name": "p3_continuous_batch-chat_short-c16-0915-124846",
+  "phase": "p3_continuous",
+  "engine": {
+    "engine": "p3_continuous_batch",
+    "model_id": "Qwen/Qwen3-4B-Instruct-2507",
+    "dtype": "bfloat16",
+    "device": "cuda",
+    "greedy": true,
+    "max_batch_size": 32,
+    "extra": {
+      "max_len": 4096,
+      "kv_budget_gb": 4.0,
+      "batch_timeout_s": 0.01,
+      "block_size": 16,
+      "profile_gather_every": 50
+    }
+  },
+  "workload": {
+    "name": "chat_short",
+    "num_requests": 64,
+    "seed": 1234,
+    "prompt_source": "synthetic",
+    "prompt_len_mean": 256,
+    "prompt_len_std": 96.0,
+    "prompt_len_min": 8,
+    "prompt_len_max": 8192,
+    "shared_prefix_frac": 0.0,
+    "output_len_mean": 128,
+    "output_len_std": 48.0,
+    "output_len_min": 1,
+    "output_len_max": 2048,
+    "force_exact_output_len": true
+  },
+  "load": {
+    "mode": "closed",
+    "concurrency": 16,
+    "rate_rps": null,
+    "warmup_requests": 8
+  },
+  "slo": {
+    "ttft_p99_ms": 1000.0,
+    "tpot_p99_ms": 100.0
+  },
+  "wandb_project": "llm-inference-from-scratch",
+  "wandb_entity": null,
+  "telemetry_interval_s": 0.25,
+  "output_dir": "runs"
+}

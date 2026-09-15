@@ -137,6 +137,7 @@ class EnvFingerprint(BaseModel):
     git_sha: str | None = None
     git_dirty: bool = False
     cuda_visible_devices: str | None = None
+    pytorch_cuda_alloc_conf: str | None = None
     torch_device_index: int | None = None
     nvml_physical_device: int | None = None
 
@@ -153,6 +154,9 @@ class EnvFingerprint(BaseModel):
             info["torch"] = torch.__version__
             info["cuda"] = torch.version.cuda
             info["cuda_visible_devices"] = os.environ.get("CUDA_VISIBLE_DEVICES")
+            info["pytorch_cuda_alloc_conf"] = os.environ.get(
+                "PYTORCH_CUDA_ALLOC_CONF"
+            )
             try:
                 info["cudnn"] = str(torch.backends.cudnn.version())
             except Exception:

@@ -21,8 +21,13 @@ from __future__ import annotations
 import argparse
 import asyncio
 import json
+import os
 from datetime import datetime
- 
+
+# Variable B/T decode workspaces otherwise leave unusable slivers in separate
+# CUDA allocator segments. Respect an explicit user configuration.
+os.environ.setdefault("PYTORCH_CUDA_ALLOC_CONF", "expandable_segments:True")
+
 from configs.config import (
     Dtype, EngineConfig, EnvFingerprint, LoadMode, LoadSpec, RunConfig, SLOSpec, WorkloadSpec,
 )

@@ -227,6 +227,13 @@ class GpuTelemetry:
         self._stop.set()
         if self._thread is not None:
             self._thread.join(timeout=2.0)
+        if self._nvml is not None:
+            try:
+                self._nvml.nvmlShutdown()
+            except Exception:
+                pass
+            self._nvml = None
+            self._handle = None
  
     def summary(self) -> dict:
         if not self.samples:
@@ -237,6 +244,16 @@ class GpuTelemetry:
             if vals.size:
                 out[f"{key}_mean"] = float(vals.mean())
                 out[f"{key}_max"] = float(vals.max())
+        nvml_overhead = np.array(
+            [
+                s["mem_used_gb"] - s["torch_reserved_gb"]
+                for s in self.samples
+                if "mem_used_gb" in s and "torch_reserved_gb" in s
+            ]
+        )
+        if nvml_overhead.size:
+            out["nvml_minus_reserved_gb_mean"] = float(nvml_overhead.mean())
+            out["nvml_minus_reserved_gb_max"] = float(nvml_overhead.max())
         out["telemetry_samples"] = len(self.samples)
         out["nvml_physical_device"] = self.physical_device
         out["foreign_procs_on_gpu"] = self.foreign_procs
