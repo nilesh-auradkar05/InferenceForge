@@ -1,0 +1,184 @@
+_wandb:
+    value:
+        cli_version: 0.29.0
+        e:
+            ko2ufvdnb2enpir8fguw4x878ztnxfox:
+                args:
+                    - --engine
+                    - p3_continuous_batch
+                    - --phase
+                    - p3_continuous
+                    - --workload
+                    - chat_short
+                    - --concurrency
+                    - "64"
+                    - --max-batch-size
+                    - "64"
+                    - --kv-budget-gb
+                    - "4"
+                codePath: run_bench.py
+                codePathLocal: run_bench.py
+                cpu_count: 48
+                cpu_count_logical: 96
+                cudaVersion: "13.0"
+                disk:
+                    /:
+                        total: "1859048194048"
+                        used: "46979182592"
+                email: nilesh.auradkar.0599@gmail.com
+                executable: /home/nilesh/InferenceForge/.venv/bin/python3
+                git:
+                    commit: f5a97080229a2879bbbd68cf59dadf6b0718c437
+                    remote: git@github.com:nilesh-auradkar05/InferenceForge.git
+                gpu: NVIDIA RTX 6000 Ada Generation
+                gpu_count: 6
+                gpu_nvidia:
+                    - architecture: Ada
+                      cudaCores: 18176
+                      memoryTotal: "51527024640"
+                      name: NVIDIA RTX 6000 Ada Generation
+                      uuid: GPU-3b0af780-6c09-53c2-2dce-6e473570e531
+                    - architecture: Ada
+                      cudaCores: 18176
+                      memoryTotal: "51527024640"
+                      name: NVIDIA RTX 6000 Ada Generation
+                      uuid: GPU-df9db3ab-2190-19bb-b80e-6a4b33562973
+                    - architecture: Ada
+                      cudaCores: 18176
+                      memoryTotal: "51527024640"
+                      name: NVIDIA RTX 6000 Ada Generation
+                      uuid: GPU-45f76d6b-fe2c-a80d-a837-be99c58bdd35
+                    - architecture: Ada
+                      cudaCores: 18176
+                      memoryTotal: "51527024640"
+                      name: NVIDIA RTX 6000 Ada Generation
+                      uuid: GPU-7a33663c-31e9-7fbd-63c1-2c4c0ca97115
+                    - architecture: Ada
+                      cudaCores: 18176
+                      memoryTotal: "51527024640"
+                      name: NVIDIA RTX 6000 Ada Generation
+                      uuid: GPU-e3b64bce-f77c-8601-03bc-efc334bdea9c
+                    - architecture: Ada
+                      cudaCores: 18176
+                      memoryTotal: "51527024640"
+                      name: NVIDIA RTX 6000 Ada Generation
+                      uuid: GPU-4e8bfe20-3260-9847-02d4-0074c8bc89fa
+                host: craft-1
+                memory:
+                    total: "1081862373376"
+                os: Linux-6.12.43+deb12-amd64-x86_64-with-glibc2.36
+                program: /home/nilesh/InferenceForge/run_bench.py
+                python: CPython 3.12.13
+                root: /home/nilesh/InferenceForge
+                startedAt: "2026-09-15T18:57:12.100518Z"
+                writerId: ko2ufvdnb2enpir8fguw4x878ztnxfox
+        m: []
+        python_version: 3.12.13
+        t:
+            "1":
+                - 1
+                - 11
+                - 49
+            "2":
+                - 1
+                - 11
+                - 49
+            "3":
+                - 2
+                - 13
+                - 15
+                - 16
+                - 62
+                - 78
+            "4": 3.12.13
+            "5": 0.29.0
+            "6": 5.16.1
+            "10":
+                - 20
+            "12": 0.29.0
+            "13": linux-x86_64
+comparison_key:
+    value: 2535f8f51c8a|closed|64|None
+engine:
+    value:
+        device: cuda
+        dtype: bfloat16
+        engine: p3_continuous_batch
+        extra:
+            batch_timeout_s: 0.01
+            block_size: 16
+            kv_budget_gb: 4
+            max_len: 4096
+            profile_gather_every: 50
+        greedy: true
+        max_batch_size: 64
+        model_id: Qwen/Qwen3-4B-Instruct-2507
+env:
+    value:
+        cuda: "13.0"
+        cuda_visible_devices: null
+        cudnn: "92000"
+        driver: 580.95.05
+        git_dirty: true
+        git_sha: f5a97080229a2879bbbd68cf59dadf6b0718c437
+        gpu_capability: "8.9"
+        gpu_count: 6
+        gpu_mem_total_gb: 47.37
+        gpu_name: NVIDIA RTX 6000 Ada Generation
+        nvml_physical_device: 0
+        platform: Linux-6.12.43+deb12-amd64-x86_64-with-glibc2.36
+        python: 3.12.13
+        pytorch_cuda_alloc_conf: expandable_segments:True
+        torch: 2.13.0+cu130
+        torch_device_index: 0
+load:
+    value:
+        concurrency: 64
+        mode: closed
+        rate_rps: null
+        warmup_requests: 8
+output_dir:
+    value: runs
+phase:
+    value: p3_continuous
+run_name:
+    value: p3_continuous_batch-chat_short-c64-0915-145641
+schema_version:
+    value: 0.1.0
+slo:
+    value:
+        tpot_p99_ms: 100
+        ttft_p99_ms: 1000
+telemetry_interval_s:
+    value: 0.25
+trace:
+    value:
+        n_measured: 64
+        n_warmup: 8
+        output_len_mean: 140.625
+        prompt_len_mean: 256.46875
+        prompt_len_p99: 528.4399999999995
+        total_output_tokens: 9000
+        total_prompt_tokens: 16414
+wandb_entity:
+    value: null
+wandb_project:
+    value: llm-inference-from-scratch
+workload:
+    value:
+        force_exact_output_len: true
+        name: chat_short
+        num_requests: 64
+        output_len_max: 2048
+        output_len_mean: 128
+        output_len_min: 1
+        output_len_std: 48
+        prompt_len_max: 8192
+        prompt_len_mean: 256
+        prompt_len_min: 8
+        prompt_len_std: 96
+        prompt_source: synthetic
+        seed: 1234
+        shared_prefix_frac: 0
+workload_fingerprint:
+    value: 2535f8f51c8a

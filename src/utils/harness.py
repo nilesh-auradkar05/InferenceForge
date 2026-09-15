@@ -34,6 +34,29 @@ def _cuda():
         return None
  
  
+def _cuda_memory_summary(torch_module) -> dict[str, float]:
+    """Report both allocator use and the reservation-based capacity limit."""
+    cuda = torch_module.cuda
+    gib = 2**30
+    allocated = cuda.max_memory_allocated() / gib
+    reserved = cuda.max_memory_reserved() / gib
+    total = cuda.get_device_properties(cuda.current_device()).total_memory / gib
+    allocator_slack = max(0.0, reserved - allocated)
+    return {
+        "gpu_total_gb": total,
+        "peak_alloc_gb": allocated,
+        "peak_reserved_gb": reserved,
+        # Kept for existing result consumers. This is allocator slack (cached
+        # free blocks plus unusable fragments), not a direct fragmentation
+        # measurement.
+        "fragmentation_gb": allocator_slack,
+        "allocator_slack_gb": allocator_slack,
+        # This, not gpu_total - peak_alloc, is the safe basis for increasing
+        # --kv-budget-gb under the measured workload.
+        "reserved_headroom_gb": max(0.0, total - reserved),
+    }
+
+
 def _drain_to_loop(engine: Engine, req: Request, loop, aq: "asyncio.Queue") -> None:
     """Runs on a worker thread. Never raises into the caller."""
  
@@ -157,7 +180,7 @@ async def run_benchmark(
 
     if torch is not None:
         # Reset AFTER warmup so the peak reflects steady state, not load-time
-        # transients. Peak allocated tells you how close a config sits to OOM.
+        # transients.
         torch.cuda.reset_peak_memory_stats()
  
     telem = GpuTelemetry(cfg.telemetry_interval_s)
@@ -183,10 +206,6 @@ async def run_benchmark(
     summary.update(telem.summary())
     summary.update({f"engine/{k}": v for k, v in engine.stats().items()})
     if torch is not None:
-        summary["peak_alloc_gb"] = torch.cuda.max_memory_allocated() / 2**30
-        summary["peak_reserved_gb"] = torch.cuda.max_memory_reserved() / 2**30
-        # Reserved minus allocated is allocator fragmentation. Watch it climb
-        # across a concurrency sweep -- that is phase 4's entire motivation.
-        summary["fragmentation_gb"] = summary["peak_reserved_gb"] - summary["peak_alloc_gb"]
+        summary.update(_cuda_memory_summary(torch))
     return summary, records
  
