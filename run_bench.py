@@ -39,7 +39,7 @@ ENGINES = {
     "fake": ("fake_run", "FakeEngine"),
     "b0_naive_no_cache": ("src.naive_no_cache", "NaiveNoCacheEngine"),
     "b1_hf_generate": ("src.hf_baseline", "HFBaselineEngine"),
-    "p1_scratch_kv": ("src.kv_scratch_src.kv_scratch", "ScratchKVEngine"),
+    "p1_scratch_kv": ("src.kv_cache_src.kv_scratch", "ScratchKVEngine"),
     "p2_static_batch": ("src.static_batching", "StaticBatchEngine"),
     "p3_continuous_batch": ("src.continuous_batching", "ContinuousBatchEngine"),
 }
@@ -95,6 +95,11 @@ def parse_args():
     p.add_argument("--block-size", type=int, default=16,
                    help="KV block granularity. Smaller = less internal waste, "
                         "more index overhead. Sweep it.")
+    p.add_argument("--attn-impl", default="broadcast",
+                   choices=["repeat", "broadcast", "enable_gqa"],
+                   help="How GQA heads are matched. 'repeat' materialises a "
+                        "kv_group_size copy of the gathered KV per layer per step; "
+                        "'broadcast' regroups Q instead and copies nothing.")
     p.add_argument("--profile-gather-every", type=int, default=50,
                    help="Sample the gather cost every N decode steps. 0 = off.")
     p.add_argument("--batch-timeout-ms", type=float, default=10.0,
@@ -112,6 +117,7 @@ def _engine_extra(a) -> dict:
     extra.setdefault("batch_timeout_s", a.batch_timeout_ms / 1e3)
     extra.setdefault("block_size", a.block_size)
     extra.setdefault("profile_gather_every", a.profile_gather_every)
+    extra.setdefault("attn_impl", a.attn_impl)
     return extra
  
  

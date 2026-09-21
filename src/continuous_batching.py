@@ -60,6 +60,7 @@ class ContinuousBatchEngine:
         self.budget_bytes = int(float(gb) * 2**30)
         self.sync_per_token = bool(cfg.extra.get("sync_per_token", True))
         self.profile_gather_every = int(cfg.extra.get("profile_gather_every", 50))
+        self.attn_impl = str(cfg.extra.get("attn_impl", "broadcast"))
 
         self._inbox: queue.Queue = queue.Queue()
         self._waiting: list[Seq] = []
@@ -85,6 +86,7 @@ class ContinuousBatchEngine:
         self._reset_counters()
         if self.cache is not None:
             self.cache._gather_samples.clear()
+            self.cache._gather_elem_samples.clear()
             self.cache._step = 0
 
     def setup(self) -> None:
@@ -96,7 +98,8 @@ class ContinuousBatchEngine:
         self._vocab = dims.vocab
 
         hf = AutoModelForCausalLM.from_pretrained(self.cfg.model_id, dtype=dtype)
-        self.model = Qwen3Scratch(hf.state_dict(), dims, self.cfg.device, dtype, max_position=self.max_len)
+        self.model = Qwen3Scratch(hf.state_dict(), dims, self.cfg.device, dtype,
+                                  max_position=self.max_len, attn_impl=self.attn_impl)
 
         del hf
         if torch.cuda.is_available():
@@ -108,8 +111,9 @@ class ContinuousBatchEngine:
             profile_gather_every=self.profile_gather_every,
         )
         st = self.cache.stats()
-        print(f"[p3] max_running={self.max_running} block_size={self.block_size} "
-              f"blocks={st['blocks_total']} kv={st['kv_allocated_gb']:.2f} GiB")
+        print(f"[p3] max_running={self.max_running} block_size={st['kv_block_size']} "
+              f"blocks={st['blocks_total']} kv={st['kv_allocated_gb']:.2f} GiB "
+              f"attn={self.attn_impl}")
 
         self._stop.clear()
         self._worker = threading.Thread(target=self._loop, daemon=True)
@@ -292,6 +296,7 @@ class ContinuousBatchEngine:
             "prefill_tokens": self._prefill_tokens,
             "admission_stalls": self._admission_stalls,
             "oom_count": self._oom_count,
+            "attn_impl": self.attn_impl,
         }
         if self.cache is not None:
             s.update(self.cache.stats())

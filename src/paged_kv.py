@@ -116,10 +116,25 @@ class PagedKVCache:
         # Rebuilding them per layer would cost 36x the index arithemetic for
         self._write_idx: torch.Tensor | None = None
         self._gather_idx: torch.Tensor | None = None
+        self._pos_block: torch.Tensor | None = None
+        self._pos_slot: torch.Tensor | None = None
+        self._pos_cache_T: int = -1
+
+        # A silently-ignored --block-size produces plausible-looking numbers,
+        # which is the worst failure mode a benchmark harness has. Assert the
+        # geometry the flag is supposed to have produced.
+        expected = block_size * dims.kv_bytes_per_token(eb)
+        if bytes_per_block != expected:
+            raise AssertionError(
+                f"block geometry mismatch: bytes_per_block={bytes_per_block} "
+                f"but block_size={block_size} x kv_bytes_per_token={expected // block_size} "
+                f"= {expected}"
+            )
 
         self.profile_gather_every = profile_gather_every
         self._step = 0
         self._gather_samples: list[float] = []
+        self._gather_elem_samples: list[int] = []
 
     # --------------- index construction ---------------------------------------------------------------
     def build_write_index(self, block_tables: list[list[int]], positions: list[int]) -> None:
@@ -135,19 +150,42 @@ class PagedKVCache:
         """
         [B, T_max] of flat slots. Padded entries point at slot 0, which is
         harmless ONLY because the caller masks them out. Returns T_max.
+
+        The previous form looped over B in Python, issuing a blocking H2D copy
+        plus ~6 kernel launches per row, every decode step. At B=26 that is ~26
+        syncs and ~150 launches of scheduling overhead in front of a step that
+        should be one dense forward. Launch count here is independent of B: one
+        padded host->device transfer of the block tables, then four elementwise
+        ops. Position arithmetic is cached because it depends only on T.
         """
         B = len(lengths)
         T = max(lengths)
-        idx = torch.zeros((B, T), dtype=torch.long, device=self.device)
         bs = self.block_size
-        for b, L in enumerate(lengths):
-            table = block_tables[b]
-            pos = torch.arange(L, device=self.device)
-            blocks = torch.tensor(table, dtype=torch.long, device=self.device)[pos // bs]
-            idx[b, :L] = blocks * bs + (pos % bs)
+        n_blocks_max = (T + bs - 1) // bs
+
+        # Admission allocates prompt+output blocks per sequence, so tables are
+        # longer than n_blocks_max and differ across the batch. `[0] * (n - len)`
+        # is a no-op when len > n, and torch.tensor then raises on the ragged
+        # rows. Pad then slice so every row is exactly the columns we index.
+        padded = [(t + [0] * n_blocks_max)[:n_blocks_max] for t in block_tables]
+        tables = torch.tensor(padded, dtype=torch.long, device=self.device)  # [B, NB]
+
+        if self._pos_cache_T != T:
+            pos = torch.arange(T, device=self.device)
+            self._pos_block = pos // bs          # [T]
+            self._pos_slot = pos % bs            # [T]
+            self._pos_cache_T = T
+
+        # gather block id per (row, position), then convert to a flat slot.
+        idx = tables[:, self._pos_block] * bs + self._pos_slot  # [B, T]
 
         self._gather_idx = idx
         return T
+
+    def gather_elems(self, B: int, T: int) -> int:
+        """K+V elements touched by one layer's gather. Used to sanity-check the
+        profiled time against the achievable bandwidth floor."""
+        return 2 * B * T * self.dims.n_kv_heads * self.dims.head_dim
 
     # --------------- HOT path ---------------------------------------------------------------------------
     def update(self, layer_idx: int, k: torch.Tensor, v: torch.Tensor, start_pos: int):
@@ -165,8 +203,16 @@ class PagedKVCache:
             self.k[layer_idx].index_copy_(0, flat, k.permute(0, 2, 1, 3).reshape(-1, H, D))
             self.v[layer_idx].index_copy_(0, flat, v.permute(0, 2, 1, 3).reshape(-1, H, D))
 
+        # S == 1 is decode. Prefill forwards do NOT advance _step (end_step is
+        # only called from the decode path), so if _step happened to sit on a
+        # multiple of the sampling period, every prefill layer-0 gather got
+        # sampled -- a B=1, T=prompt_len gather roughly two orders of magnitude
+        # cheaper than the decode gather we are trying to measure. That is why
+        # gather_samples ran ~10x above the expected decode sample count and the
+        # reported means were both too small and unstable across runs.
         profile = (
             self.profile_gather_every
+            and S == 1
             and layer_idx == 0
             and self._step % self.profile_gather_every == 0
             and self.device.startswith("cuda")
@@ -183,6 +229,9 @@ class PagedKVCache:
             ev1.record()
             torch.cuda.synchronize()
             self._gather_samples.append(ev0.elapsed_time(ev1))
+            self._gather_elem_samples.append(
+                self.gather_elems(B, int(self._gather_idx.shape[1]))
+            )
 
 
         return gk.permute(0, 2, 1, 3), gv.permute(0, 2, 1, 3)
@@ -204,8 +253,20 @@ class PagedKVCache:
             n = len(self._gather_samples)
             mean = sum(self._gather_samples) / n
             s["gather_ms_per_layer"] = mean
-            # The decode step runs one gather per layer, so this is the honest
-            # per-token cost paging adds over a contiguous cache.
-            s["gather_ms_per_token"] = mean * self.dims.n_layers
+            # One gather per layer per decode step, so this is the per-step cost
+            # paging adds over a contiguous cache. NOT per generated token: at
+            # batch B the step emits B tokens, so divide by mean_decode_batch
+            # before comparing against TPOT.
+            s["gather_ms_per_step"] = mean * self.dims.n_layers
             s["gather_samples"] = n
+            if self._gather_elem_samples:
+                # Read + write of the gathered slice, so 2x the elements. Lets a
+                # reader check the timing against the card's bandwidth instead
+                # of taking an unfalsifiable millisecond count on faith.
+                eb = _DTYPE_BYTES[self.dtype]
+                mean_elems = sum(self._gather_elem_samples) / len(self._gather_elem_samples)
+                s["gather_bytes_per_layer"] = 2 * mean_elems * eb
+                s["gather_effective_gbps"] = (
+                    (2 * mean_elems * eb) / (mean * 1e-3) / 1e9 if mean > 0 else None
+                )
         return s

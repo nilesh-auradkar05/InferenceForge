@@ -1,0 +1,103 @@
+{
+  "os":  "Linux-6.12.43+deb12-amd64-x86_64-with-glibc2.36",
+  "python":  "CPython 3.12.13",
+  "startedAt":  "2026-09-21T06:16:26.798405Z",
+  "args":  [
+    "--engine",
+    "p3_continuous_batch",
+    "--phase",
+    "p3_continuous_batch",
+    "--max-batch-size",
+    "64",
+    "--concurrency",
+    "128",
+    "--kv-budget-gb",
+    "4",
+    "--block-size",
+    "16",
+    "--workload",
+    "chat_short",
+    "--num-requests",
+    "256",
+    "--warmup",
+    "8",
+    "--seed",
+    "1234",
+    "--mode",
+    "closed",
+    "--slo-ttft-ms",
+    "1000",
+    "--slo-tpot-ms",
+    "100"
+  ],
+  "program":  "/home/nilesh/InferenceForge/run_bench.py",
+  "codePath":  "run_bench.py",
+  "codePathLocal":  "run_bench.py",
+  "git":  {
+    "remote":  "git@github.com:nilesh-auradkar05/InferenceForge.git",
+    "commit":  "f5a97080229a2879bbbd68cf59dadf6b0718c437"
+  },
+  "email":  "nilesh.auradkar.0599@gmail.com",
+  "root":  "/home/nilesh/InferenceForge",
+  "host":  "craft-1",
+  "executable":  "/home/nilesh/InferenceForge/.venv/bin/python3",
+  "cpu_count":  48,
+  "cpu_count_logical":  96,
+  "gpu":  "NVIDIA RTX 6000 Ada Generation",
+  "gpu_count":  6,
+  "disk":  {
+    "/":  {
+      "total":  "1859048194048",
+      "used":  "47341068288"
+    }
+  },
+  "memory":  {
+    "total":  "1081862373376"
+  },
+  "gpu_nvidia":  [
+    {
+      "name":  "NVIDIA RTX 6000 Ada Generation",
+      "memoryTotal":  "51527024640",
+      "cudaCores":  18176,
+      "architecture":  "Ada",
+      "uuid":  "GPU-3b0af780-6c09-53c2-2dce-6e473570e531"
+    },
+    {
+      "name":  "NVIDIA RTX 6000 Ada Generation",
+      "memoryTotal":  "51527024640",
+      "cudaCores":  18176,
+      "architecture":  "Ada",
+      "uuid":  "GPU-df9db3ab-2190-19bb-b80e-6a4b33562973"
+    },
+    {
+      "name":  "NVIDIA RTX 6000 Ada Generation",
+      "memoryTotal":  "51527024640",
+      "cudaCores":  18176,
+      "architecture":  "Ada",
+      "uuid":  "GPU-45f76d6b-fe2c-a80d-a837-be99c58bdd35"
+    },
+    {
+      "name":  "NVIDIA RTX 6000 Ada Generation",
+      "memoryTotal":  "51527024640",
+      "cudaCores":  18176,
+      "architecture":  "Ada",
+      "uuid":  "GPU-7a33663c-31e9-7fbd-63c1-2c4c0ca97115"
+    },
+    {
+      "name":  "NVIDIA RTX 6000 Ada Generation",
+      "memoryTotal":  "51527024640",
+      "cudaCores":  18176,
+      "architecture":  "Ada",
+      "uuid":  "GPU-e3b64bce-f77c-8601-03bc-efc334bdea9c"
+    },
+    {
+      "name":  "NVIDIA RTX 6000 Ada Generation",
+      "memoryTotal":  "51527024640",
+      "cudaCores":  18176,
+      "architecture":  "Ada",
+      "uuid":  "GPU-4e8bfe20-3260-9847-02d4-0074c8bc89fa"
+    }
+  ],
+  "cudaVersion":  "13.0",
+  "writerId":  "6fw4xgo7mr08dfuos3o3y0lussahjkrw"
+}

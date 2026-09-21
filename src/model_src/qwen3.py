@@ -141,8 +141,13 @@ class LayerWeights:
 class Qwen3Scratch:
     """Stateless forward. All sequence state lives in the cache object."""
  
+    ATTN_IMPLS = ("repeat", "broadcast", "enable_gqa")
+
     def __init__(self, state_dict: dict, dims: ModelDims, device: str, dtype: torch.dtype,
-                 max_position: int = 8192):
+                 max_position: int = 8192, attn_impl: str = "broadcast"):
+        if attn_impl not in self.ATTN_IMPLS:
+            raise ValueError(f"attn_impl must be one of {self.ATTN_IMPLS}, got {attn_impl!r}")
+        self.attn_impl = attn_impl
         self.d = dims
         self.device = device
         self.dtype = dtype
@@ -154,6 +159,45 @@ class Qwen3Scratch:
         self.rope = RopeTable(dims.head_dim, max_position, dims.rope_theta, device, dtype)
         self.scale = 1.0 / math.sqrt(dims.head_dim)
  
+    def _attend(self, q: torch.Tensor, k_all: torch.Tensor, v_all: torch.Tensor,
+                causal: torch.Tensor | None) -> torch.Tensor:
+        """q: [B, H, S, D]. k_all/v_all: [B, KVH, T, D]. Returns [B, H, S, D].
+
+        The GQA expansion is the single largest term in the decode step once the
+        batch grows. `repeat` materialises a kv_group_size-fold copy of the whole
+        gathered history, per layer, per step: at B=26/T=870 that is ~26 GB of
+        traffic per step against ~8 GB for the weights themselves. `broadcast`
+        regroups Q instead, so K/V are never copied. Kept selectable because the
+        winner is a measurement, not an assumption -- see tests/test_attn_impl.py.
+        """
+        d = self.d
+        G = d.kv_group_size
+        if G == 1 or self.attn_impl == "repeat":
+            if G > 1:
+                k_all = k_all.repeat_interleave(G, dim=1)
+                v_all = v_all.repeat_interleave(G, dim=1)
+            return F.scaled_dot_product_attention(
+                q, k_all, v_all, attn_mask=causal, scale=self.scale)
+
+        if self.attn_impl == "enable_gqa":
+            # torch >= 2.5. Correct, but several backends implement it by
+            # expanding K/V internally, so it is not guaranteed to save traffic.
+            return F.scaled_dot_product_attention(
+                q, k_all, v_all, attn_mask=causal, scale=self.scale, enable_gqa=True)
+
+        # broadcast: view Q as [B, KVH, G, S, D] and give K/V a singleton group
+        # axis. SDPA treats every dim but the last two as batch and broadcasts
+        # them, so the singleton costs nothing. Head h of the `repeat` layout
+        # reads kv head h // G; q.view groups consecutive G heads, so
+        # qg[:, i, g] is head i*G+g -> kv head i. Same mapping, no copy.
+        B, H, S, D = q.shape
+        qg = q.view(B, d.n_kv_heads, G, S, D)
+        kg = k_all.unsqueeze(2)                  # [B, KVH, 1, T, D]
+        vg = v_all.unsqueeze(2)
+        mask = causal.unsqueeze(2) if causal is not None else None
+        out = F.scaled_dot_product_attention(qg, kg, vg, attn_mask=mask, scale=self.scale)
+        return out.reshape(B, H, S, D)
+
     @torch.inference_mode()
     def forward(
         self,
@@ -198,11 +242,7 @@ class Qwen3Scratch:
  
             k_all, v_all = cache.update(i, k, v, start_pos)
  
-            if d.kv_group_size > 1:
-                k_all = k_all.repeat_interleave(d.kv_group_size, dim=1)
-                v_all = v_all.repeat_interleave(d.kv_group_size, dim=1)
- 
-            attn = F.scaled_dot_product_attention(q, k_all, v_all, attn_mask=causal, scale=self.scale)
+            attn = self._attend(q, k_all, v_all, causal)
             attn = attn.transpose(1, 2).reshape(B, S, d.n_heads * d.head_dim)
             h = residual + F.linear(attn, lw.o_proj)
  
