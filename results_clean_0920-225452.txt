@@ -1,0 +1,3930 @@
+##### CLEAN RUN 0920-225452  gpu=0  sha=f5a97080229a2879bbbd68cf59dadf6b0718c437
+name, driver_version, clocks.max.sm [MHz], power.limit [W], temperature.gpu
+NVIDIA RTX 6000 Ada Generation, 580.95.05, 3105 MHz, 300.00 W, 28
+
+##### BEGIN p1_sweep  2026-09-20T22:54:54-04:00
+{
+  "python": "3.12.13",
+  "platform": "Linux-6.12.43+deb12-amd64-x86_64-with-glibc2.36",
+  "torch": "2.13.0+cu130",
+  "cuda": "13.0",
+  "cudnn": "92000",
+  "gpu_name": "NVIDIA RTX 6000 Ada Generation",
+  "gpu_capability": "8.9",
+  "gpu_count": 1,
+  "gpu_mem_total_gb": 47.37,
+  "driver": "580.95.05",
+  "git_sha": "f5a97080229a2879bbbd68cf59dadf6b0718c437",
+  "git_dirty": true,
+  "cuda_visible_devices": "0",
+  "pytorch_cuda_alloc_conf": "expandable_segments:True",
+  "torch_device_index": 0,
+  "nvml_physical_device": 0
+}
+wandb: [wandb.login()] Loaded credentials for https://api.wandb.ai from /home/nilesh/.netrc.
+wandb: Currently logged in as: nilesh-auradkar (nilesh-auradkar-personal) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: WARNING Using a boolean value for 'reinit' is deprecated. Use 'return_previous' or 'finish_previous' instead.
+wandb: Tracking run with wandb version 0.29.0
+wandb: Run data is saved locally in /home/nilesh/InferenceForge/wandb/run-20260920_230735-zxgqgu4x
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run p1_scratch_kv-chat_short-c1-0920-225455
+wandb: ⭐️ View project at https://wandb.ai/nilesh-auradkar-personal/llm-inference-from-scratch
+wandb: 🚀 View run at https://wandb.ai/nilesh-auradkar-personal/llm-inference-from-scratch/runs/zxgqgu4x
+wandb: Adding directory to artifact (runs/p1_scratch_kv/p1_scratch_kv-chat_short-c1-0920-225455)... Done. 0.0s
+wandb: updating run metadata; uploading summary; uploading artifact run-zxgqgu4x-requests; uploading artifact run-p1_scratch_kv-chat_short-c1-0920-225455
+wandb: uploading summary; uploading artifact run-zxgqgu4x-requests; uploading artifact run-p1_scratch_kv-chat_short-c1-0920-225455
+wandb: uploading summary; uploading artifact run-p1_scratch_kv-chat_short-c1-0920-225455
+wandb: uploading summary
+wandb: uploading data
+wandb: uploading history steps 0-0, summary, console lines 0-0
+wandb: 
+wandb: Run summary:
+wandb:        allocator_slack_gb 0.05565
+wandb:                e2e_p50_ms 2588.42022
+wandb:                e2e_p99_ms 6384.36174
+wandb:       engine/decode_steps 33211
+wandb:    engine/kv_allocated_gb 0.5625
+wandb: engine/kv_bytes_per_token 147456
+wandb:         engine/kv_max_len 4096
+wandb:       engine/kv_occupancy 0
+wandb:          engine/oom_count 0
+wandb:     engine/prefill_tokens 66863
+wandb:                       +44 ...
+wandb: 
+wandb: 🚀 View run p1_scratch_kv-chat_short-c1-0920-225455 at: https://wandb.ai/nilesh-auradkar-personal/llm-inference-from-scratch/runs/zxgqgu4x
+wandb: ⭐️ View project at: https://wandb.ai/nilesh-auradkar-personal/llm-inference-from-scratch
+wandb: Synced 5 W&B file(s), 1 media file(s), 7 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20260920_230735-zxgqgu4x/logs
+wandb: setting up run yqdpz80g
+wandb: Tracking run with wandb version 0.29.0
+wandb: Run data is saved locally in /home/nilesh/InferenceForge/wandb/run-20260920_232053-yqdpz80g
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run p1_scratch_kv-chat_short-c2-0920-225455
+wandb: ⭐️ View project at https://wandb.ai/nilesh-auradkar-personal/llm-inference-from-scratch
+wandb: 🚀 View run at https://wandb.ai/nilesh-auradkar-personal/llm-inference-from-scratch/runs/yqdpz80g
+wandb: Adding directory to artifact (runs/p1_scratch_kv/p1_scratch_kv-chat_short-c2-0920-225455)... Done. 0.0s
+wandb: updating run metadata; uploading artifact run-yqdpz80g-requests; uploading artifact run-p1_scratch_kv-chat_short-c2-0920-225455
+wandb: uploading artifact run-yqdpz80g-requests; uploading artifact run-p1_scratch_kv-chat_short-c2-0920-225455
+wandb: uploading artifact run-p1_scratch_kv-chat_short-c2-0920-225455
+wandb: uploading wandb-metadata.json; uploading requirements.txt; uploading media/table/requests_0_1d8dc5bbcc926176ce96.table.json; uploading output.log; uploading wandb-summary.json (+ 1 more)
+wandb: 
+wandb: Run summary:
+wandb:        allocator_slack_gb 0.05565
+wandb:                e2e_p50_ms 5535.10497
+wandb:                e2e_p99_ms 9560.19711
+wandb:       engine/decode_steps 33211
+wandb:    engine/kv_allocated_gb 0.5625
+wandb: engine/kv_bytes_per_token 147456
+wandb:         engine/kv_max_len 4096
+wandb:       engine/kv_occupancy 0
+wandb:          engine/oom_count 0
+wandb:     engine/prefill_tokens 66863
+wandb:                       +44 ...
+wandb: 
+wandb: 🚀 View run p1_scratch_kv-chat_short-c2-0920-225455 at: https://wandb.ai/nilesh-auradkar-personal/llm-inference-from-scratch/runs/yqdpz80g
+wandb: ⭐️ View project at: https://wandb.ai/nilesh-auradkar-personal/llm-inference-from-scratch
+wandb: Synced 5 W&B file(s), 1 media file(s), 7 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20260920_232053-yqdpz80g/logs
+wandb: setting up run hwdmpb5z
+wandb: Tracking run with wandb version 0.29.0
+wandb: Run data is saved locally in /home/nilesh/InferenceForge/wandb/run-20260920_233339-hwdmpb5z
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run p1_scratch_kv-chat_short-c4-0920-225455
+wandb: ⭐️ View project at https://wandb.ai/nilesh-auradkar-personal/llm-inference-from-scratch
+wandb: 🚀 View run at https://wandb.ai/nilesh-auradkar-personal/llm-inference-from-scratch/runs/hwdmpb5z
+wandb: Adding directory to artifact (runs/p1_scratch_kv/p1_scratch_kv-chat_short-c4-0920-225455)... Done. 0.0s
+wandb: updating run metadata; uploading artifact run-hwdmpb5z-requests; uploading artifact run-p1_scratch_kv-chat_short-c4-0920-225455
+wandb: uploading artifact run-hwdmpb5z-requests; uploading artifact run-p1_scratch_kv-chat_short-c4-0920-225455
+wandb: uploading artifact run-p1_scratch_kv-chat_short-c4-0920-225455
+wandb: 
+wandb: Run summary:
+wandb:        allocator_slack_gb 0.05565
+wandb:                e2e_p50_ms 11505.5099
+wandb:                e2e_p99_ms 16121.64848
+wandb:       engine/decode_steps 33211
+wandb:    engine/kv_allocated_gb 0.5625
+wandb: engine/kv_bytes_per_token 147456
+wandb:         engine/kv_max_len 4096
+wandb:       engine/kv_occupancy 0
+wandb:          engine/oom_count 0
+wandb:     engine/prefill_tokens 66863
+wandb:                       +44 ...
+wandb: 
+wandb: 🚀 View run p1_scratch_kv-chat_short-c4-0920-225455 at: https://wandb.ai/nilesh-auradkar-personal/llm-inference-from-scratch/runs/hwdmpb5z
+wandb: ⭐️ View project at: https://wandb.ai/nilesh-auradkar-personal/llm-inference-from-scratch
+wandb: Synced 5 W&B file(s), 1 media file(s), 7 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20260920_233339-hwdmpb5z/logs
+[p1] {'kv_allocated_gb': 0.5625, 'kv_budget_gb': None, 'kv_bytes_per_token': 147456, 'kv_max_len': 4096, 'kv_occupancy': 0.0}
+
+=== p1_scratch_kv-chat_short-c1-0920-225455 ===
+{
+  "n_measured": 256,
+  "n_warmup": 8,
+  "prompt_len_mean": 261.18359375,
+  "prompt_len_p99": 538.5999999999999,
+  "output_len_mean": 130.73046875,
+  "total_prompt_tokens": 66863,
+  "total_output_tokens": 33467
+}
+{
+  "n_requests": 256,
+  "n_failed": 0,
+  "wall_s": 730.1833329107612,
+  "request_throughput_rps": 0.3505968822644803,
+  "output_throughput_tps": 45.83369476072407,
+  "total_throughput_tps": 137.40384842810667,
+  "goodput_rps": 0.3505968822644803,
+  "slo_attainment": 1.0,
+  "ttft_mean_ms": 30.67122812353773,
+  "ttft_p50_ms": 27.20202272757888,
+  "ttft_p90_ms": 38.3087107911706,
+  "ttft_p99_ms": 55.132138915359974,
+  "ttft_service_p50_ms": 26.831443421542645,
+  "queue_p50_ms": 0.37268875166773796,
+  "queue_p99_ms": 0.4865193273872135,
+  "tpot_mean_ms": 21.72859564561645,
+  "tpot_p50_ms": 21.745283910808144,
+  "tpot_p99_ms": 22.10099902257857,
+  "itl_p99_ms": 23.16115684807301,
+  "per_stream_tps": 46.02230242163584,
+  "e2e_p50_ms": 2588.420216459781,
+  "e2e_p99_ms": 6384.36173936352,
+  "total_prompt_tokens": 66863,
+  "total_output_tokens": 33467,
+  "errors": {},
+  "gpu_util_pct_mean": 69.48677430436277,
+  "gpu_util_pct_max": 94.0,
+  "mem_util_pct_mean": 50.86052902782549,
+  "mem_util_pct_max": 54.0,
+  "mem_used_gb_mean": 9.41636504131017,
+  "mem_used_gb_max": 9.41644287109375,
+  "torch_alloc_gb_mean": 8.06645236609933,
+  "torch_alloc_gb_max": 8.12746286392212,
+  "torch_reserved_gb_mean": 8.29289092021642,
+  "torch_reserved_gb_max": 8.29296875,
+  "nvml_minus_reserved_gb_mean": 1.12347412109375,
+  "nvml_minus_reserved_gb_max": 1.12347412109375,
+  "telemetry_samples": 2911,
+  "nvml_physical_device": 0,
+  "foreign_procs_on_gpu": 0,
+  "engine/decode_steps": 33211,
+  "engine/prefill_tokens": 66863,
+  "engine/sync_per_token": true,
+  "engine/oom_count": 0,
+  "engine/kv_allocated_gb": 0.5625,
+  "engine/kv_budget_gb": null,
+  "engine/kv_bytes_per_token": 147456,
+  "engine/kv_max_len": 4096,
+  "engine/kv_occupancy": 0.0,
+  "gpu_total_gb": 47.37200927734375,
+  "peak_alloc_gb": 8.237321376800537,
+  "peak_reserved_gb": 8.29296875,
+  "fragmentation_gb": 0.05564737319946289,
+  "allocator_slack_gb": 0.05564737319946289,
+  "reserved_headroom_gb": 39.07904052734375
+}
+[saved] runs/p1_scratch_kv/p1_scratch_kv-chat_short-c1-0920-225455
+
+=== p1_scratch_kv-chat_short-c2-0920-225455 ===
+{
+  "n_measured": 256,
+  "n_warmup": 8,
+  "prompt_len_mean": 261.18359375,
+  "prompt_len_p99": 538.5999999999999,
+  "output_len_mean": 130.73046875,
+  "total_prompt_tokens": 66863,
+  "total_output_tokens": 33467
+}
+{
+  "n_requests": 256,
+  "n_failed": 0,
+  "wall_s": 731.5120622543618,
+  "request_throughput_rps": 0.34996005289518184,
+  "output_throughput_tps": 45.750441758761916,
+  "total_throughput_tps": 137.1542660428656,
+  "goodput_rps": 0.001367031456621804,
+  "slo_attainment": 0.00390625,
+  "ttft_mean_ms": 2883.000859306776,
+  "ttft_p50_ms": 2625.635523814708,
+  "ttft_p90_ms": 4411.073813680559,
+  "ttft_p99_ms": 6384.685727767645,
+  "ttft_service_p50_ms": 34.178100526332855,
+  "queue_p50_ms": 2575.128768570721,
+  "queue_p99_ms": 6342.739431792869,
+  "tpot_mean_ms": 21.73673774258041,
+  "tpot_p50_ms": 21.7472438277412,
+  "tpot_p99_ms": 22.175335293612235,
+  "itl_p99_ms": 23.03828531876207,
+  "per_stream_tps": 46.00506349400745,
+  "e2e_p50_ms": 5535.104968119413,
+  "e2e_p99_ms": 9560.19711308181,
+  "total_prompt_tokens": 66863,
+  "total_output_tokens": 33467,
+  "errors": {},
+  "gpu_util_pct_mean": 69.2349108367627,
+  "gpu_util_pct_max": 82.0,
+  "mem_util_pct_mean": 50.762002743484224,
+  "mem_util_pct_max": 52.0,
+  "mem_used_gb_mean": 9.41644287109375,
+  "mem_used_gb_max": 9.41644287109375,
+  "torch_alloc_gb_mean": 8.066544394924808,
+  "torch_alloc_gb_max": 8.144635200500488,
+  "torch_reserved_gb_mean": 8.29296875,
+  "torch_reserved_gb_max": 8.29296875,
+  "nvml_minus_reserved_gb_mean": 1.12347412109375,
+  "nvml_minus_reserved_gb_max": 1.12347412109375,
+  "telemetry_samples": 2916,
+  "nvml_physical_device": 0,
+  "foreign_procs_on_gpu": 0,
+  "engine/decode_steps": 33211,
+  "engine/prefill_tokens": 66863,
+  "engine/sync_per_token": true,
+  "engine/oom_count": 0,
+  "engine/kv_allocated_gb": 0.5625,
+  "engine/kv_budget_gb": null,
+  "engine/kv_bytes_per_token": 147456,
+  "engine/kv_max_len": 4096,
+  "engine/kv_occupancy": 0.0,
+  "gpu_total_gb": 47.37200927734375,
+  "peak_alloc_gb": 8.237321376800537,
+  "peak_reserved_gb": 8.29296875,
+  "fragmentation_gb": 0.05564737319946289,
+  "allocator_slack_gb": 0.05564737319946289,
+  "reserved_headroom_gb": 39.07904052734375
+}
+[saved] runs/p1_scratch_kv/p1_scratch_kv-chat_short-c2-0920-225455
+
+=== p1_scratch_kv-chat_short-c4-0920-225455 ===
+{
+  "n_measured": 256,
+  "n_warmup": 8,
+  "prompt_len_mean": 261.18359375,
+  "prompt_len_p99": 538.5999999999999,
+  "output_len_mean": 130.73046875,
+  "total_prompt_tokens": 66863,
+  "total_output_tokens": 33467
+}
+{
+  "n_requests": 256,
+  "n_failed": 0,
+  "wall_s": 736.9922176301479,
+  "request_throughput_rps": 0.34735780633232005,
+  "output_throughput_tps": 45.41024884579592,
+  "total_throughput_tps": 136.13440902078779,
+  "goodput_rps": 0.0013568664309856252,
+  "slo_attainment": 0.00390625,
+  "ttft_mean_ms": 8597.70379649126,
+  "ttft_p50_ms": 8487.327678129077,
+  "ttft_p90_ms": 11106.967377942055,
+  "ttft_p99_ms": 13182.205758895723,
+  "ttft_service_p50_ms": 32.300885301083326,
+  "queue_p50_ms": 8453.040418215096,
+  "queue_p99_ms": 13145.926706725731,
+  "tpot_mean_ms": 21.90717797993001,
+  "tpot_p50_ms": 21.909685818460833,
+  "tpot_p99_ms": 22.435411667640057,
+  "itl_p99_ms": 23.567413631826643,
+  "per_stream_tps": 45.64713907542713,
+  "e2e_p50_ms": 11505.509902723134,
+  "e2e_p99_ms": 16121.648484840985,
+  "total_prompt_tokens": 66863,
+  "total_output_tokens": 33467,
+  "errors": {},
+  "gpu_util_pct_mean": 68.86716621253406,
+  "gpu_util_pct_max": 84.0,
+  "mem_util_pct_mean": 50.37023160762943,
+  "mem_util_pct_max": 52.0,
+  "mem_used_gb_mean": 9.41644287109375,
+  "mem_used_gb_max": 9.41644287109375,
+  "torch_alloc_gb_mean": 8.066493503241837,
+  "torch_alloc_gb_max": 8.12214183807373,
+  "torch_reserved_gb_mean": 8.29296875,
+  "torch_reserved_gb_max": 8.29296875,
+  "nvml_minus_reserved_gb_mean": 1.12347412109375,
+  "nvml_minus_reserved_gb_max": 1.12347412109375,
+  "telemetry_samples": 2936,
+  "nvml_physical_device": 0,
+  "foreign_procs_on_gpu": 0,
+  "engine/decode_steps": 33211,
+  "engine/prefill_tokens": 66863,
+  "engine/sync_per_token": true,
+  "engine/oom_count": 0,
+  "engine/kv_allocated_gb": 0.5625,
+  "engine/kv_budget_gb": null,
+  "engine/kv_bytes_per_token": 147456,
+  "engine/kv_max_len": 4096,
+  "engine/kv_occupancy": 0.0,
+  "gpu_total_gb": 47.37200927734375,
+  "peak_alloc_gb": 8.237321376800537,
+  "peak_reserved_gb": 8.29296875,
+  "fragmentation_gb": 0.05564737319946289,
+  "allocator_slack_gb": 0.05564737319946289,
+  "reserved_headroom_gb": 39.07904052734375
+}
+[saved] runs/p1_scratch_kv/p1_scratch_kv-chat_short-c4-0920-225455
+
+=== p1_scratch_kv-chat_short-c8-0920-225455 ===
+{
+  "n_measured": 256,
+  "n_warmup": 8,
+  "prompt_len_mean": 261.18359375,
+  "prompt_len_p99": 538.5999999999999,
+  "output_len_mean": 130.73046875,
+  "total_prompt_tokens": 66863,
+  "total_output_tokens": 33467
+}
+{
+  "n_requests": 256,
+  "n_failed": 0,
+  "wall_s": 734.385251717642,
+  "request_throughput_rps": 0.34859087842688247,
+  "output_throughput_tps": 45.57144893872061,
+  "total_throughput_tps": 136.61766731472312,
+  "goodput_rps": 0.0013616831188550096,
+  "slo_attainment": 0.00390625,
+  "ttft_mean_ms": 19784.102866615285,
+  "ttft_p50_ms": 19770.725140813738,
+  "ttft_p90_ms": 24091.28828207031,
+  "ttft_p99_ms": 26024.537620088086,
+  "ttft_service_p50_ms": 33.6505314335227,
+  "queue_p50_ms": 19739.438745658845,
+  "queue_p99_ms": 25986.13176876679,
+  "tpot_mean_ms": 21.819729580339015,
+  "tpot_p50_ms": 21.809336458488055,
+  "tpot_p99_ms": 22.3757475471828,
+  "itl_p99_ms": 23.44958335161209,
+  "per_stream_tps": 45.830082188601665,
+  "e2e_p50_ms": 22671.10734479502,
+  "e2e_p99_ms": 29859.71807017922,
+  "total_prompt_tokens": 66863,
+  "total_output_tokens": 33467,
+  "errors": {},
+  "gpu_util_pct_mean": 68.98496754355996,
+  "gpu_util_pct_max": 88.0,
+  "mem_util_pct_mean": 50.55688418175606,
+  "mem_util_pct_max": 53.0,
+  "mem_used_gb_mean": 9.41644287109375,
+  "mem_used_gb_max": 9.41644287109375,
+  "torch_alloc_gb_mean": 8.066453600890977,
+  "torch_alloc_gb_max": 8.089624881744385,
+  "torch_reserved_gb_mean": 8.29296875,
+  "torch_reserved_gb_max": 8.29296875,
+  "nvml_minus_reserved_gb_mean": 1.12347412109375,
+  "nvml_minus_reserved_gb_max": 1.12347412109375,
+  "telemetry_samples": 2927,
+  "nvml_physical_device": 0,
+  "foreign_procs_on_gpu": 0,
+  "engine/decode_steps": 33211,
+  "engine/prefill_tokens": 66863,
+  "engine/sync_per_token": true,
+  "engine/oom_count": 0,
+  "engine/kv_allocated_gb": 0.5625,
+  "engine/kv_budget_gb": null,
+  "engine/kv_bytes_per_token": 147456,
+  "engine/kv_max_len": 4096,
+  "engine/kv_occupancy": 0.0,
+  "gpu_total_gb": 47.37200927734375,
+  "peak_alloc_gb": 8.237321376800537,
+  "peak_reserved_gb": 8.29296875,
+  "fragmentation_gb": 0.05564737319946289,
+  "allocator_slack_gb": 0.05564737319946289,
+  "reserved_headroom_gb": 39.07904052734375
+}wandb: setting up run mgjoxfg5
+wandb: Tracking run with wandb version 0.29.0
+wandb: Run data is saved locally in /home/nilesh/InferenceForge/wandb/run-20260920_234627-mgjoxfg5
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run p1_scratch_kv-chat_short-c8-0920-225455
+wandb: ⭐️ View project at https://wandb.ai/nilesh-auradkar-personal/llm-inference-from-scratch
+wandb: 🚀 View run at https://wandb.ai/nilesh-auradkar-personal/llm-inference-from-scratch/runs/mgjoxfg5
+wandb: Adding directory to artifact (runs/p1_scratch_kv/p1_scratch_kv-chat_short-c8-0920-225455)... Done. 0.0s
+wandb: updating run metadata; uploading artifact run-mgjoxfg5-requests; uploading artifact run-p1_scratch_kv-chat_short-c8-0920-225455
+wandb: uploading artifact run-mgjoxfg5-requests; uploading artifact run-p1_scratch_kv-chat_short-c8-0920-225455
+wandb: uploading history steps 0-0, summary, console lines 0-0
+wandb: 
+wandb: Run summary:
+wandb:        allocator_slack_gb 0.05565
+wandb:                e2e_p50_ms 22671.10734
+wandb:                e2e_p99_ms 29859.71807
+wandb:       engine/decode_steps 33211
+wandb:    engine/kv_allocated_gb 0.5625
+wandb: engine/kv_bytes_per_token 147456
+wandb:         engine/kv_max_len 4096
+wandb:       engine/kv_occupancy 0
+wandb:          engine/oom_count 0
+wandb:     engine/prefill_tokens 66863
+wandb:                       +44 ...
+wandb: 
+wandb: 🚀 View run p1_scratch_kv-chat_short-c8-0920-225455 at: https://wandb.ai/nilesh-auradkar-personal/llm-inference-from-scratch/runs/mgjoxfg5
+wandb: ⭐️ View project at: https://wandb.ai/nilesh-auradkar-personal/llm-inference-from-scratch
+wandb: Synced 5 W&B file(s), 1 media file(s), 7 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20260920_234627-mgjoxfg5/logs
+wandb: setting up run 7o6lusvr
+wandb: Tracking run with wandb version 0.29.0
+wandb: Run data is saved locally in /home/nilesh/InferenceForge/wandb/run-20260920_235911-7o6lusvr
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run p1_scratch_kv-chat_short-c16-0920-225455
+wandb: ⭐️ View project at https://wandb.ai/nilesh-auradkar-personal/llm-inference-from-scratch
+wandb: 🚀 View run at https://wandb.ai/nilesh-auradkar-personal/llm-inference-from-scratch/runs/7o6lusvr
+wandb: Adding directory to artifact (runs/p1_scratch_kv/p1_scratch_kv-chat_short-c16-0920-225455)... Done. 0.0s
+wandb: updating run metadata; uploading artifact run-7o6lusvr-requests; uploading artifact run-p1_scratch_kv-chat_short-c16-0920-225455
+wandb: uploading artifact run-7o6lusvr-requests; uploading artifact run-p1_scratch_kv-chat_short-c16-0920-225455
+wandb: uploading wandb-metadata.json; uploading requirements.txt; uploading media/table/requests_0_4996614840503314d682.table.json; uploading output.log; uploading wandb-summary.json (+ 1 more)
+wandb: 
+wandb: Run summary:
+wandb:        allocator_slack_gb 0.05565
+wandb:                e2e_p50_ms 45239.53047
+wandb:                e2e_p99_ms 54777.03656
+wandb:       engine/decode_steps 33211
+wandb:    engine/kv_allocated_gb 0.5625
+wandb: engine/kv_bytes_per_token 147456
+wandb:         engine/kv_max_len 4096
+wandb:       engine/kv_occupancy 0
+wandb:          engine/oom_count 0
+wandb:     engine/prefill_tokens 66863
+wandb:                       +44 ...
+wandb: 
+wandb: 🚀 View run p1_scratch_kv-chat_short-c16-0920-225455 at: https://wandb.ai/nilesh-auradkar-personal/llm-inference-from-scratch/runs/7o6lusvr
+wandb: ⭐️ View project at: https://wandb.ai/nilesh-auradkar-personal/llm-inference-from-scratch
+wandb: Synced 5 W&B file(s), 1 media file(s), 7 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20260920_235911-7o6lusvr/logs
+wandb: setting up run m9spo5ex
+wandb: Tracking run with wandb version 0.29.0
+wandb: Run data is saved locally in /home/nilesh/InferenceForge/wandb/run-20260921_001153-m9spo5ex
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run p1_scratch_kv-chat_short-c32-0920-225455
+wandb: ⭐️ View project at https://wandb.ai/nilesh-auradkar-personal/llm-inference-from-scratch
+wandb: 🚀 View run at https://wandb.ai/nilesh-auradkar-personal/llm-inference-from-scratch/runs/m9spo5ex
+wandb: Adding directory to artifact (runs/p1_scratch_kv/p1_scratch_kv-chat_short-c32-0920-225455)... Done. 0.0s
+wandb: updating run metadata; uploading artifact run-m9spo5ex-requests; uploading artifact run-p1_scratch_kv-chat_short-c32-0920-225455
+wandb: uploading artifact run-m9spo5ex-requests; uploading artifact run-p1_scratch_kv-chat_short-c32-0920-225455
+wandb: uploading artifact run-p1_scratch_kv-chat_short-c32-0920-225455
+wandb: uploading history steps 0-0, summary, console lines 0-0
+wandb: 
+wandb: Run summary:
+wandb:        allocator_slack_gb 0.05565
+wandb:                e2e_p50_ms 90846.77424
+wandb:                e2e_p99_ms 99878.24676
+wandb:       engine/decode_steps 33211
+wandb:    engine/kv_allocated_gb 0.5625
+wandb: engine/kv_bytes_per_token 147456
+wandb:         engine/kv_max_len 4096
+wandb:       engine/kv_occupancy 0
+wandb:          engine/oom_count 0
+wandb:     engine/prefill_tokens 66863
+wandb:                       +44 ...
+wandb: 
+wandb: 🚀 View run p1_scratch_kv-chat_short-c32-0920-225455 at: https://wandb.ai/nilesh-auradkar-personal/llm-inference-from-scratch/runs/m9spo5ex
+wandb: ⭐️ View project at: https://wandb.ai/nilesh-auradkar-personal/llm-inference-from-scratch
+wandb: Synced 5 W&B file(s), 1 media file(s), 7 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20260921_001153-m9spo5ex/logs
+wandb: setting up run b69t4tpx
+wandb: Tracking run with wandb version 0.29.0
+wandb: Run data is saved locally in /home/nilesh/InferenceForge/wandb/run-20260921_002437-b69t4tpx
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run p1_scratch_kv-chat_short-c64-0920-225455
+wandb: ⭐️ View project at https://wandb.ai/nilesh-auradkar-personal/llm-inference-from-scratch
+wandb: 🚀 View run at https://wandb.ai/nilesh-auradkar-personal/llm-inference-from-scratch/runs/b69t4tpx
+wandb: Adding directory to artifact (runs/p1_scratch_kv/p1_scratch_kv-chat_short-c64-0920-225455)... Done. 0.0s
+wandb: updating run metadata; uploading summary; uploading artifact run-b69t4tpx-requests; uploading artifact run-p1_scratch_kv-chat_short-c64-0920-225455
+wandb: uploading summary; uploading artifact run-b69t4tpx-requests; uploading artifact run-p1_scratch_kv-chat_short-c64-0920-225455
+wandb: uploading artifact run-b69t4tpx-requests; uploading artifact run-p1_scratch_kv-chat_short-c64-0920-225455
+wandb: uploading wandb-metadata.json; uploading requirements.txt; uploading media/table/requests_0_d83e9519f2e927c25d10.table.json; uploading output.log; uploading wandb-summary.json (+ 1 more)
+wandb: 
+wandb: Run summary:
+wandb:        allocator_slack_gb 0.05565
+wandb:                e2e_p50_ms 182406.61087
+wandb:                e2e_p99_ms 190761.90677
+wandb:       engine/decode_steps 33211
+wandb:    engine/kv_allocated_gb 0.5625
+wandb: engine/kv_bytes_per_token 147456
+wandb:         engine/kv_max_len 4096
+wandb:       engine/kv_occupancy 0
+wandb:          engine/oom_count 0
+wandb:     engine/prefill_tokens 66863
+wandb:                       +44 ...
+wandb: 
+wandb: 🚀 View run p1_scratch_kv-chat_short-c64-0920-225455 at: https://wandb.ai/nilesh-auradkar-personal/llm-inference-from-scratch/runs/b69t4tpx
+wandb: ⭐️ View project at: https://wandb.ai/nilesh-auradkar-personal/llm-inference-from-scratch
+wandb: Synced 5 W&B file(s), 1 media file(s), 7 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20260921_002437-b69t4tpx/logs
+
+[saved] runs/p1_scratch_kv/p1_scratch_kv-chat_short-c8-0920-225455
+
+=== p1_scratch_kv-chat_short-c16-0920-225455 ===
+{
+  "n_measured": 256,
+  "n_warmup": 8,
+  "prompt_len_mean": 261.18359375,
+  "prompt_len_p99": 538.5999999999999,
+  "output_len_mean": 130.73046875,
+  "total_prompt_tokens": 66863,
+  "total_output_tokens": 33467
+}
+{
+  "n_requests": 256,
+  "n_failed": 0,
+  "wall_s": 735.9387089274824,
+  "request_throughput_rps": 0.3478550549040703,
+  "output_throughput_tps": 45.4752543846661,
+  "total_throughput_tps": 136.32928772861473,
+  "goodput_rps": 0.0013588088082190247,
+  "slo_attainment": 0.00390625,
+  "ttft_mean_ms": 41733.745787460066,
+  "ttft_p50_ms": 42562.87018954754,
+  "ttft_p90_ms": 48179.54390030354,
+  "ttft_p99_ms": 51823.76559665426,
+  "ttft_service_p50_ms": 32.196294516325,
+  "queue_p50_ms": 42529.81149405241,
+  "queue_p99_ms": 51785.14482681639,
+  "tpot_mean_ms": 21.87550091290787,
+  "tpot_p50_ms": 21.86651995025673,
+  "tpot_p99_ms": 22.404766892963764,
+  "itl_p99_ms": 23.866647947579626,
+  "per_stream_tps": 45.71323893250551,
+  "e2e_p50_ms": 45239.5304730162,
+  "e2e_p99_ms": 54777.03656200318,
+  "total_prompt_tokens": 66863,
+  "total_output_tokens": 33467,
+  "errors": {},
+  "gpu_util_pct_mean": 68.87653478854024,
+  "gpu_util_pct_max": 82.0,
+  "mem_util_pct_mean": 50.43110504774898,
+  "mem_util_pct_max": 52.0,
+  "mem_used_gb_mean": 9.41644287109375,
+  "mem_used_gb_max": 9.41644287109375,
+  "torch_alloc_gb_mean": 8.066779219437427,
+  "torch_alloc_gb_max": 8.095113277435303,
+  "torch_reserved_gb_mean": 8.29296875,
+  "torch_reserved_gb_max": 8.29296875,
+  "nvml_minus_reserved_gb_mean": 1.12347412109375,
+  "nvml_minus_reserved_gb_max": 1.12347412109375,
+  "telemetry_samples": 2932,
+  "nvml_physical_device": 0,
+  "foreign_procs_on_gpu": 0,
+  "engine/decode_steps": 33211,
+  "engine/prefill_tokens": 66863,
+  "engine/sync_per_token": true,
+  "engine/oom_count": 0,
+  "engine/kv_allocated_gb": 0.5625,
+  "engine/kv_budget_gb": null,
+  "engine/kv_bytes_per_token": 147456,
+  "engine/kv_max_len": 4096,
+  "engine/kv_occupancy": 0.0,
+  "gpu_total_gb": 47.37200927734375,
+  "peak_alloc_gb": 8.237321376800537,
+  "peak_reserved_gb": 8.29296875,
+  "fragmentation_gb": 0.05564737319946289,
+  "allocator_slack_gb": 0.05564737319946289,
+  "reserved_headroom_gb": 39.07904052734375
+}
+[saved] runs/p1_scratch_kv/p1_scratch_kv-chat_short-c16-0920-225455
+
+=== p1_scratch_kv-chat_short-c32-0920-225455 ===
+{
+  "n_measured": 256,
+  "n_warmup": 8,
+  "prompt_len_mean": 261.18359375,
+  "prompt_len_p99": 538.5999999999999,
+  "output_len_mean": 130.73046875,
+  "total_prompt_tokens": 66863,
+  "total_output_tokens": 33467
+}
+{
+  "n_requests": 256,
+  "n_failed": 0,
+  "wall_s": 734.3173691164702,
+  "request_throughput_rps": 0.3486231032612219,
+  "output_throughput_tps": 45.5756617064192,
+  "total_throughput_tps": 136.63029668046246,
+  "goodput_rps": 0.0013618089971141481,
+  "slo_attainment": 0.00390625,
+  "ttft_mean_ms": 83315.16716416081,
+  "ttft_p50_ms": 88020.76045935974,
+  "ttft_p90_ms": 94255.78831322491,
+  "ttft_p99_ms": 97194.88758626394,
+  "ttft_service_p50_ms": 32.75562450289726,
+  "queue_p50_ms": 87986.40555888414,
+  "queue_p99_ms": 97159.43599524908,
+  "tpot_mean_ms": 21.820707903014423,
+  "tpot_p50_ms": 21.811254121150732,
+  "tpot_p99_ms": 22.315853868670835,
+  "itl_p99_ms": 23.684439808130264,
+  "per_stream_tps": 45.82802741527258,
+  "e2e_p50_ms": 90846.77423769608,
+  "e2e_p99_ms": 99878.24675641023,
+  "total_prompt_tokens": 66863,
+  "total_output_tokens": 33467,
+  "errors": {},
+  "gpu_util_pct_mean": 69.02051282051282,
+  "gpu_util_pct_max": 81.0,
+  "mem_util_pct_mean": 50.52957264957265,
+  "mem_util_pct_max": 53.0,
+  "mem_used_gb_mean": 9.41644287109375,
+  "mem_used_gb_max": 9.41644287109375,
+  "torch_alloc_gb_mean": 8.066801672226344,
+  "torch_alloc_gb_max": 8.132803440093994,
+  "torch_reserved_gb_mean": 8.29296875,
+  "torch_reserved_gb_max": 8.29296875,
+  "nvml_minus_reserved_gb_mean": 1.12347412109375,
+  "nvml_minus_reserved_gb_max": 1.12347412109375,
+  "telemetry_samples": 2925,
+  "nvml_physical_device": 0,
+  "foreign_procs_on_gpu": 0,
+  "engine/decode_steps": 33211,
+  "engine/prefill_tokens": 66863,
+  "engine/sync_per_token": true,
+  "engine/oom_count": 0,
+  "engine/kv_allocated_gb": 0.5625,
+  "engine/kv_budget_gb": null,
+  "engine/kv_bytes_per_token": 147456,
+  "engine/kv_max_len": 4096,
+  "engine/kv_occupancy": 0.0,
+  "gpu_total_gb": 47.37200927734375,
+  "peak_alloc_gb": 8.237321376800537,
+  "peak_reserved_gb": 8.29296875,
+  "fragmentation_gb": 0.05564737319946289,
+  "allocator_slack_gb": 0.05564737319946289,
+  "reserved_headroom_gb": 39.07904052734375
+}
+[saved] runs/p1_scratch_kv/p1_scratch_kv-chat_short-c32-0920-225455
+
+=== p1_scratch_kv-chat_short-c64-0920-225455 ===
+{
+  "n_measured": 256,
+  "n_warmup": 8,
+  "prompt_len_mean": 261.18359375,
+  "prompt_len_p99": 538.5999999999999,
+  "output_len_mean": 130.73046875,
+  "total_prompt_tokens": 66863,
+  "total_output_tokens": 33467
+}
+{
+  "n_requests": 256,
+  "n_failed": 0,
+  "wall_s": 734.8647916521877,
+  "request_throughput_rps": 0.3483634035921605,
+  "output_throughput_tps": 45.54171104694858,
+  "total_throughput_tps": 136.5285167281307,
+  "goodput_rps": 0.001360794545281877,
+  "slo_attainment": 0.00390625,
+  "ttft_mean_ms": 157619.05779540757,
+  "ttft_p50_ms": 179317.5303316675,
+  "ttft_p90_ms": 186382.15031800792,
+  "ttft_p99_ms": 187774.15221808478,
+  "ttft_service_p50_ms": 34.95264519006014,
+  "queue_p50_ms": 179280.9991389513,
+  "queue_p99_ms": 187735.54541175254,
+  "tpot_mean_ms": 21.81916074736582,
+  "tpot_p50_ms": 21.803433180657933,
+  "tpot_p99_ms": 22.455189528336692,
+  "itl_p99_ms": 23.699000570923094,
+  "per_stream_tps": 45.831276994497955,
+  "e2e_p50_ms": 182406.6108665429,
+  "e2e_p99_ms": 190761.90676917322,
+  "total_prompt_tokens": 66863,
+  "total_output_tokens": 33467,
+  "errors": {},
+  "gpu_util_pct_mean": 69.06625683060109,
+  "gpu_util_pct_max": 88.0,
+  "mem_util_pct_mean": 50.479166666666664,
+  "mem_util_pct_max": 53.0,
+  "mem_used_gb_mean": 9.41644287109375,
+  "mem_used_gb_max": 9.41644287109375,
+  "torch_alloc_gb_mean": 8.066384389752248,
+  "torch_alloc_gb_max": 8.102599620819092,
+  "torch_reserved_gb_mean": 8.29296875,
+  "torch_reserved_gb_max": 8.29296875,
+  "nvml_minus_reserved_gb_mean": 1.12347412109375,
+  "nvml_minus_reserved_gb_max": 1.12347412109375,
+  "telemetry_samples": 2928,
+  "nvml_physical_device": 0,
+  "foreign_procs_on_gpu": 0,
+  "engine/decode_steps": 33211,
+  "engine/prefill_tokens": 66863,
+  "engine/sync_per_token": true,
+  "engine/oom_count": 0,
+  "engine/kv_allocated_gb": 0.5625,
+  "engine/kv_budget_gb": null,
+  "engine/kv_bytes_per_token": 147456,
+  "engine/kv_max_len": 4096,
+  "engine/kv_occupancy": 0.0,
+  "gpu_total_gb": 47.37200927734375,
+  "peak_alloc_gb": 8.237321376800537,
+  "peak_reserved_gb": 8.29296875,
+  "fragmentation_gb": 0.05564737319946289,
+  "allocator_slack_gb": 0.05564737319946289,
+  "reserved_headroom_gb": 39.07904052734375
+}
+[saved] runs/p1_scratch_kv/p1_scratch_kv-chat_short-c64-0920-225455
+
+=== p1_scratch_kv-chat_short-c128-0920-225455 ===
+{
+  "n_measured": 256,
+  "n_warmup": 8,
+  "prompt_len_mean": 261.18359375,
+  "prompt_len_p99": 538.5999999999999,
+  "output_len_mean": 130.73046875,
+  "total_prompt_tokens": 66863,
+  "total_output_tokens": 33467
+}
+{
+  "n_requests": 256,
+  "n_failed": 0,
+  "wall_s": 736.4296097289771,
+  "request_throughput_rps": 0.3476231762248314,
+  "output_throughput_tps": 45.44494077623606,
+  "total_throughput_tps": 136.23841121342707,
+  "goodput_rps": 0.0013579030321282477,
+  "slo_attainment": 0.00390625,
+  "ttft_mean_ms": 272704.9079627395,
+  "ttft_p50_ms": 355637.31797784567,
+  "ttft_p90_ms": 371412.470638752,
+  "ttft_p99_ms": 373998.3240980655,
+  "ttft_service_p50_ms": 42.85071697086096,
+  "queue_p50_ms": 355600.58018099517,
+  "queue_p99_ms": 373962.17266414315,
+  "tpot_mean_ms": 21.842885083743077,
+  "tpot_p50_ms": 21.812441415555643,
+  "tpot_p99_ms": 22.577916718761905,
+  "itl_p99_ms": 23.7171589396894,
+  "per_stream_tps": 45.78149801027275,
+  "e2e_p50_ms": 358753.06178675964,
+  "e2e_p99_ms": 377012.5205768738,
+  "total_prompt_tokens": 66863,
+  "total_output_tokens": 33467,
+  "errors": {},
+  "gpu_util_pct_mean": 69.01704158145876,
+  "gpu_util_pct_max": 83.0,
+  "mem_util_pct_mean": 50.56475800954328,
+  "mem_util_pct_max": 52.0,
+  "mem_used_gb_mean": 9.41644287109375,
+  "mem_used_gb_max": 9.41644287109375,
+  "torch_alloc_gb_mean": 8.06658280505237,
+  "torch_alloc_gb_max": 8.117940902709961,
+  "torch_reserved_gb_mean": 8.29296875,
+  "torch_reserved_gb_max": 8.29296875,
+  "nvml_minus_reserved_gb_mean": 1.12347412109375,
+  "nvml_minus_reserved_gb_max": 1.12347412109375,
+  "telemetry_samples": 2934,
+  "nvml_physical_device": 0,
+  "foreign_procs_on_gpu": 0,
+  "engine/decode_steps": 33211,
+  "engine/prefill_tokens": 66863,
+  "engine/sync_per_token": true,
+  "engine/oom_count": 0,
+  "engine/kv_allocated_gb": 0.5625,
+  "engine/kv_budget_gb": null,
+  "engine/kv_bytes_per_token": 147456,
+  "engine/kv_max_len": 4096,
+  "engine/kv_occupancy": 0.0,
+  "gpu_total_gb": 47.37200927734375,
+  "peak_alloc_gb": 8.237321376800537,
+  "peak_reserved_gb": 8.29296875,
+  "fragmentation_gb": 0.05564737319946289,
+  "allocator_slack_gb": 0.05564737319946289,
+  "reserved_headroom_gb": 39.07904052734375
+}wandb: setting up run 4kyebk8f
+wandb: Tracking run with wandb version 0.29.0
+wandb: Run data is saved locally in /home/nilesh/InferenceForge/wandb/run-20260921_003722-4kyebk8f
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run p1_scratch_kv-chat_short-c128-0920-225455
+wandb: ⭐️ View project at https://wandb.ai/nilesh-auradkar-personal/llm-inference-from-scratch
+wandb: 🚀 View run at https://wandb.ai/nilesh-auradkar-personal/llm-inference-from-scratch/runs/4kyebk8f
+wandb: Adding directory to artifact (runs/p1_scratch_kv/p1_scratch_kv-chat_short-c128-0920-225455)... Done. 0.0s
+wandb: updating run metadata; uploading artifact run-4kyebk8f-requests; uploading artifact run-p1_scratch_kv-chat_short-c128-0920-225455
+wandb: uploading artifact run-4kyebk8f-requests; uploading artifact run-p1_scratch_kv-chat_short-c128-0920-225455
+wandb: uploading history steps 0-0, summary, console lines 0-0
+wandb: 
+wandb: Run summary:
+wandb:        allocator_slack_gb 0.05565
+wandb:                e2e_p50_ms 358753.06179
+wandb:                e2e_p99_ms 377012.52058
+wandb:       engine/decode_steps 33211
+wandb:    engine/kv_allocated_gb 0.5625
+wandb: engine/kv_bytes_per_token 147456
+wandb:         engine/kv_max_len 4096
+wandb:       engine/kv_occupancy 0
+wandb:          engine/oom_count 0
+wandb:     engine/prefill_tokens 66863
+wandb:                       +44 ...
+wandb: 
+wandb: 🚀 View run p1_scratch_kv-chat_short-c128-0920-225455 at: https://wandb.ai/nilesh-auradkar-personal/llm-inference-from-scratch/runs/4kyebk8f
+wandb: ⭐️ View project at: https://wandb.ai/nilesh-auradkar-personal/llm-inference-from-scratch
+wandb: Synced 5 W&B file(s), 1 media file(s), 7 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20260921_003722-4kyebk8f/logs
+
+[saved] runs/p1_scratch_kv/p1_scratch_kv-chat_short-c128-0920-225455
+##### END p1_sweep exit=0  2670 MHz, 55, 79.71 W
+
+##### BEGIN p2_b1_c1  2026-09-21T00:37:41-04:00
+{
+  "python": "3.12.13",
+  "platform": "Linux-6.12.43+deb12-amd64-x86_64-with-glibc2.36",
+  "torch": "2.13.0+cu130",
+  "cuda": "13.0",
+  "cudnn": "92000",
+  "gpu_name": "NVIDIA RTX 6000 Ada Generation",
+  "gpu_capability": "8.9",
+  "gpu_count": 1,
+  "gpu_mem_total_gb": 47.37,
+  "driver": "580.95.05",
+  "git_sha": "f5a97080229a2879bbbd68cf59dadf6b0718c437",
+  "git_dirty": true,
+  "cuda_visible_devices": "0",
+  "pytorch_cuda_alloc_conf": "expandable_segments:True",
+  "torch_device_index": 0,
+  "nvml_physical_device": 0
+}
+wandb: [wandb.login()] Loaded credentials for https://api.wandb.ai from /home/nilesh/.netrc.
+wandb: Currently logged in as: nilesh-auradkar (nilesh-auradkar-personal) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: WARNING Using a boolean value for 'reinit' is deprecated. Use 'return_previous' or 'finish_previous' instead.
+wandb: Tracking run with wandb version 0.29.0
+wandb: Run data is saved locally in /home/nilesh/InferenceForge/wandb/run-20260921_005012-rpx8guhv
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run p2_static_batch-chat_short-c1-0921-003742
+wandb: ⭐️ View project at https://wandb.ai/nilesh-auradkar-personal/llm-inference-from-scratch
+wandb: 🚀 View run at https://wandb.ai/nilesh-auradkar-personal/llm-inference-from-scratch/runs/rpx8guhv
+wandb: Adding directory to artifact (runs/p2_static_batch/p2_static_batch-chat_short-c1-0921-003742)... Done. 0.0s
+wandb: updating run metadata; uploading artifact run-rpx8guhv-requests; uploading artifact run-p2_static_batch-chat_short-c1-0921-003742
+wandb: uploading artifact run-rpx8guhv-requests; uploading artifact run-p2_static_batch-chat_short-c1-0921-003742
+wandb: uploading artifact run-p2_static_batch-chat_short-c1-0921-003742
+wandb: uploading history steps 0-0, summary, console lines 0-0
+wandb: 
+wandb: Run summary:
+wandb:        allocator_slack_gb 0.05531
+wandb:                e2e_p50_ms 2535.09616
+wandb:                e2e_p99_ms 6186.99592
+wandb:    engine/batch_timeout_s 0.01
+wandb:        engine/batches_run 256
+wandb:    engine/kv_allocated_gb 0.5625
+wandb: engine/kv_bytes_per_token 147456
+wandb:         engine/kv_max_len 4096
+wandb:       engine/kv_occupancy 0.10913
+wandb:     engine/max_batch_size 1
+wandb:                       +49 ...
+wandb: 
+wandb: 🚀 View run p2_static_batch-chat_short-c1-0921-003742 at: https://wandb.ai/nilesh-auradkar-personal/llm-inference-from-scratch/runs/rpx8guhv
+wandb: ⭐️ View project at: https://wandb.ai/nilesh-auradkar-personal/llm-inference-from-scratch
+wandb: Synced 5 W&B file(s), 1 media file(s), 7 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20260921_005012-rpx8guhv/logs
+[p2] batch=1 {'kv_allocated_gb': 0.5625, 'kv_budget_gb': None, 'kv_bytes_per_token': 147456, 'kv_max_len': 4096, 'kv_occupancy': 0.0}
+
+=== p2_static_batch-chat_short-c1-0921-003742 ===
+{
+  "n_measured": 256,
+  "n_warmup": 8,
+  "prompt_len_mean": 261.18359375,
+  "prompt_len_p99": 538.5999999999999,
+  "output_len_mean": 130.73046875,
+  "total_prompt_tokens": 66863,
+  "total_output_tokens": 33467
+}
+{
+  "n_requests": 256,
+  "n_failed": 0,
+  "wall_s": 720.3499830281362,
+  "request_throughput_rps": 0.3553828084007894,
+  "output_throughput_tps": 46.459361127926634,
+  "total_throughput_tps": 139.2795201830125,
+  "goodput_rps": 0.3553828084007894,
+  "slo_attainment": 1.0,
+  "ttft_mean_ms": 29.173442020692164,
+  "ttft_p50_ms": 25.57455748319626,
+  "ttft_p90_ms": 36.933324765414,
+  "ttft_p99_ms": 53.791903331875794,
+  "ttft_service_p50_ms": 25.173174683004618,
+  "queue_p50_ms": 0.39925239980220795,
+  "queue_p99_ms": 0.5062856711447239,
+  "tpot_mean_ms": 21.456837003797588,
+  "tpot_p50_ms": 21.465080557391047,
+  "tpot_p99_ms": 21.90892403411158,
+  "itl_p99_ms": 22.60438483208418,
+  "per_stream_tps": 46.60519161435643,
+  "e2e_p50_ms": 2535.0961633957922,
+  "e2e_p99_ms": 6186.9959162548175,
+  "total_prompt_tokens": 66863,
+  "total_output_tokens": 33467,
+  "errors": {},
+  "gpu_util_pct_mean": 71.32776036224313,
+  "gpu_util_pct_max": 90.0,
+  "mem_util_pct_mean": 51.56495994427029,
+  "mem_util_pct_max": 56.0,
+  "mem_used_gb_mean": 9.416382324899045,
+  "mem_used_gb_max": 9.41644287109375,
+  "torch_alloc_gb_mean": 8.066797899228279,
+  "torch_alloc_gb_max": 8.097551345825195,
+  "torch_reserved_gb_mean": 8.292908203805295,
+  "torch_reserved_gb_max": 8.29296875,
+  "nvml_minus_reserved_gb_mean": 1.12347412109375,
+  "nvml_minus_reserved_gb_max": 1.12347412109375,
+  "telemetry_samples": 2871,
+  "nvml_physical_device": 0,
+  "foreign_procs_on_gpu": 0,
+  "engine/max_batch_size": 1,
+  "engine/batches_run": 256,
+  "engine/mean_batch_size": 1.0,
+  "engine/useful_decode_steps": 33467,
+  "engine/padded_decode_steps": 0,
+  "engine/wasted_decode_ratio": 0.0,
+  "engine/pad_token_ratio": 0.0,
+  "engine/batch_timeout_s": 0.01,
+  "engine/oom_count": 0,
+  "engine/kv_allocated_gb": 0.5625,
+  "engine/kv_budget_gb": null,
+  "engine/kv_bytes_per_token": 147456,
+  "engine/kv_max_len": 4096,
+  "engine/kv_occupancy": 0.109130859375,
+  "gpu_total_gb": 47.37200927734375,
+  "peak_alloc_gb": 8.23765754699707,
+  "peak_reserved_gb": 8.29296875,
+  "fragmentation_gb": 0.05531120300292969,
+  "allocator_slack_gb": 0.05531120300292969,
+  "reserved_headroom_gb": 39.07904052734375
+}
+[saved] runs/p2_static_batch/p2_static_batch-chat_short-c1-0921-003742
+##### END p2_b1_c1 exit=0  2670 MHz, 54, 78.66 W
+
+##### BEGIN p2_b2_c2  2026-09-21T00:50:32-04:00
+{
+  "python": "3.12.13",
+  "platform": "Linux-6.12.43+deb12-amd64-x86_64-with-glibc2.36",
+  "torch": "2.13.0+cu130",
+  "cuda": "13.0",
+  "cudnn": "92000",
+  "gpu_name": "NVIDIA RTX 6000 Ada Generation",
+  "gpu_capability": "8.9",
+  "gpu_count": 1,
+  "gpu_mem_total_gb": 47.37,
+  "driver": "580.95.05",
+  "git_sha": "f5a97080229a2879bbbd68cf59dadf6b0718c437",
+  "git_dirty": true,
+  "cuda_visible_devices": "0",
+  "pytorch_cuda_alloc_conf": "expandable_segments:True",
+  "torch_device_index": 0,
+  "nvml_physical_device": 0
+}
+wandb: [wandb.login()] Loaded credentials for https://api.wandb.ai from /home/nilesh/.netrc.
+wandb: Currently logged in as: nilesh-auradkar (nilesh-auradkar-personal) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: WARNING Using a boolean value for 'reinit' is deprecated. Use 'return_previous' or 'finish_previous' instead.
+wandb: Tracking run with wandb version 0.29.0
+wandb: Run data is saved locally in /home/nilesh/InferenceForge/wandb/run-20260921_005841-a1aa1j7a
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run p2_static_batch-chat_short-c2-0921-005033
+wandb: ⭐️ View project at https://wandb.ai/nilesh-auradkar-personal/llm-inference-from-scratch
+wandb: 🚀 View run at https://wandb.ai/nilesh-auradkar-personal/llm-inference-from-scratch/runs/a1aa1j7a
+wandb: Adding directory to artifact (runs/p2_static_batch/p2_static_batch-chat_short-c2-0921-005033)... Done. 0.0s
+wandb: updating run metadata; uploading artifact run-a1aa1j7a-requests; uploading artifact run-p2_static_batch-chat_short-c2-0921-005033
+wandb: uploading artifact run-a1aa1j7a-requests; uploading artifact run-p2_static_batch-chat_short-c2-0921-005033
+wandb: uploading artifact run-p2_static_batch-chat_short-c2-0921-005033
+wandb: uploading config.yaml; uploading wandb-metadata.json; uploading requirements.txt; uploading media/table/requests_0_b2dda368aef8e99dee3f.table.json; uploading output.log (+ 1 more)
+wandb: 
+wandb: Run summary:
+wandb:        allocator_slack_gb 0.07976
+wandb:                e2e_p50_ms 3422.65342
+wandb:                e2e_p99_ms 7054.18059
+wandb:    engine/batch_timeout_s 0.01
+wandb:        engine/batches_run 128
+wandb:    engine/kv_allocated_gb 1.125
+wandb: engine/kv_bytes_per_token 147456
+wandb:         engine/kv_max_len 4096
+wandb:       engine/kv_occupancy 0.13208
+wandb:     engine/max_batch_size 2
+wandb:                       +49 ...
+wandb: 
+wandb: 🚀 View run p2_static_batch-chat_short-c2-0921-005033 at: https://wandb.ai/nilesh-auradkar-personal/llm-inference-from-scratch/runs/a1aa1j7a
+wandb: ⭐️ View project at: https://wandb.ai/nilesh-auradkar-personal/llm-inference-from-scratch
+wandb: Synced 5 W&B file(s), 1 media file(s), 7 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20260921_005841-a1aa1j7a/logs
+[p2] batch=2 {'kv_allocated_gb': 1.125, 'kv_budget_gb': None, 'kv_bytes_per_token': 147456, 'kv_max_len': 4096, 'kv_occupancy': 0.0}
+
+=== p2_static_batch-chat_short-c2-0921-005033 ===
+{
+  "n_measured": 256,
+  "n_warmup": 8,
+  "prompt_len_mean": 261.18359375,
+  "prompt_len_p99": 538.5999999999999,
+  "output_len_mean": 130.73046875,
+  "total_prompt_tokens": 66863,
+  "total_output_tokens": 33467
+}
+{
+  "n_requests": 256,
+  "n_failed": 0,
+  "wall_s": 467.68326690234244,
+  "request_throughput_rps": 0.5473790022371181,
+  "output_throughput_tps": 71.55911354636575,
+  "total_throughput_tps": 214.52552849394553,
+  "goodput_rps": 0.5473790022371181,
+  "slo_attainment": 1.0,
+  "ttft_mean_ms": 55.763942320481874,
+  "ttft_p50_ms": 52.603593561798334,
+  "ttft_p90_ms": 81.79917419329286,
+  "ttft_p99_ms": 140.92502193525434,
+  "ttft_service_p50_ms": 52.0810279995203,
+  "queue_p50_ms": 0.6249584257602692,
+  "queue_p99_ms": 0.917302956804633,
+  "tpot_mean_ms": 22.84357080194546,
+  "tpot_p50_ms": 22.768949161151472,
+  "tpot_p99_ms": 23.525640305590002,
+  "itl_p99_ms": 24.148206599056724,
+  "per_stream_tps": 43.77599319607403,
+  "e2e_p50_ms": 3422.653421293944,
+  "e2e_p99_ms": 7054.1805943939835,
+  "total_prompt_tokens": 66863,
+  "total_output_tokens": 33467,
+  "errors": {},
+  "gpu_util_pct_mean": 78.97639484978541,
+  "gpu_util_pct_max": 100.0,
+  "mem_util_pct_mean": 54.34549356223176,
+  "mem_util_pct_max": 61.0,
+  "mem_used_gb_mean": 10.17620849609375,
+  "mem_used_gb_max": 10.17620849609375,
+  "torch_alloc_gb_mean": 8.630626560536577,
+  "torch_alloc_gb_max": 8.690601825714111,
+  "torch_reserved_gb_mean": 9.052734375,
+  "torch_reserved_gb_max": 9.052734375,
+  "nvml_minus_reserved_gb_mean": 1.12347412109375,
+  "nvml_minus_reserved_gb_max": 1.12347412109375,
+  "telemetry_samples": 1864,
+  "nvml_physical_device": 0,
+  "foreign_procs_on_gpu": 0,
+  "engine/max_batch_size": 2,
+  "engine/batches_run": 128,
+  "engine/mean_batch_size": 2.0,
+  "engine/useful_decode_steps": 33467,
+  "engine/padded_decode_steps": 7087,
+  "engine/wasted_decode_ratio": 0.17475464812348968,
+  "engine/pad_token_ratio": 0.1751622215094619,
+  "engine/batch_timeout_s": 0.01,
+  "engine/oom_count": 0,
+  "engine/kv_allocated_gb": 1.125,
+  "engine/kv_budget_gb": null,
+  "engine/kv_bytes_per_token": 147456,
+  "engine/kv_max_len": 4096,
+  "engine/kv_occupancy": 0.132080078125,
+  "gpu_total_gb": 47.37200927734375,
+  "peak_alloc_gb": 8.97297716140747,
+  "peak_reserved_gb": 9.052734375,
+  "fragmentation_gb": 0.0797572135925293,
+  "allocator_slack_gb": 0.0797572135925293,
+  "reserved_headroom_gb": 38.31927490234375
+}
+[saved] runs/p2_static_batch/p2_static_batch-chat_short-c2-0921-005033
+##### END p2_b2_c2 exit=0  2670 MHz, 53, 81.02 W
+
+##### BEGIN p2_b4_c4  2026-09-21T00:59:04-04:00
+{
+  "python": "3.12.13",
+  "platform": "Linux-6.12.43+deb12-amd64-x86_64-with-glibc2.36",
+  "torch": "2.13.0+cu130",
+  "cuda": "13.0",
+  "cudnn": "92000",
+  "gpu_name": "NVIDIA RTX 6000 Ada Generation",
+  "gpu_capability": "8.9",
+  "gpu_count": 1,
+  "gpu_mem_total_gb": 47.37,
+  "driver": "580.95.05",
+  "git_sha": "f5a97080229a2879bbbd68cf59dadf6b0718c437",
+  "git_dirty": true,
+  "cuda_visible_devices": "0",
+  "pytorch_cuda_alloc_conf": "expandable_segments:True",
+  "torch_device_index": 0,
+  "nvml_physical_device": 0
+}
+wandb: [wandb.login()] Loaded credentials for https://api.wandb.ai from /home/nilesh/.netrc.
+wandb: Currently logged in as: nilesh-auradkar (nilesh-auradkar-personal) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: WARNING Using a boolean value for 'reinit' is deprecated. Use 'return_previous' or 'finish_previous' instead.
+wandb: Tracking run with wandb version 0.29.0
+wandb: Run data is saved locally in /home/nilesh/InferenceForge/wandb/run-20260921_010357-6unc5jgk
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run p2_static_batch-chat_short-c4-0921-005905
+wandb: ⭐️ View project at https://wandb.ai/nilesh-auradkar-personal/llm-inference-from-scratch
+wandb: 🚀 View run at https://wandb.ai/nilesh-auradkar-personal/llm-inference-from-scratch/runs/6unc5jgk
+wandb: Adding directory to artifact (runs/p2_static_batch/p2_static_batch-chat_short-c4-0921-005905)... Done. 0.0s
+wandb: updating run metadata; uploading artifact run-6unc5jgk-requests; uploading artifact run-p2_static_batch-chat_short-c4-0921-005905
+wandb: uploading artifact run-6unc5jgk-requests; uploading artifact run-p2_static_batch-chat_short-c4-0921-005905
+wandb: uploading artifact run-p2_static_batch-chat_short-c4-0921-005905
+wandb: uploading media/table/requests_0_38f47bb477cd1895f070.table.json
+wandb: 
+wandb: Run summary:
+wandb:        allocator_slack_gb 0.12865
+wandb:                e2e_p50_ms 4121.782
+wandb:                e2e_p99_ms 8000.57005
+wandb:    engine/batch_timeout_s 0.01
+wandb:        engine/batches_run 64
+wandb:    engine/kv_allocated_gb 2.25
+wandb: engine/kv_bytes_per_token 147456
+wandb:         engine/kv_max_len 4096
+wandb:       engine/kv_occupancy 0.13208
+wandb:     engine/max_batch_size 4
+wandb:                       +49 ...
+wandb: 
+wandb: 🚀 View run p2_static_batch-chat_short-c4-0921-005905 at: https://wandb.ai/nilesh-auradkar-personal/llm-inference-from-scratch/runs/6unc5jgk
+wandb: ⭐️ View project at: https://wandb.ai/nilesh-auradkar-personal/llm-inference-from-scratch
+wandb: Synced 5 W&B file(s), 1 media file(s), 7 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20260921_010357-6unc5jgk/logs
+[p2] batch=4 {'kv_allocated_gb': 2.25, 'kv_budget_gb': None, 'kv_bytes_per_token': 147456, 'kv_max_len': 4096, 'kv_occupancy': 0.0}
+
+=== p2_static_batch-chat_short-c4-0921-005905 ===
+{
+  "n_measured": 256,
+  "n_warmup": 8,
+  "prompt_len_mean": 261.18359375,
+  "prompt_len_p99": 538.5999999999999,
+  "output_len_mean": 130.73046875,
+  "total_prompt_tokens": 66863,
+  "total_output_tokens": 33467
+}
+{
+  "n_requests": 256,
+  "n_failed": 0,
+  "wall_s": 277.35927326697856,
+  "request_throughput_rps": 0.9229905926151649,
+  "output_throughput_tps": 120.6629928244208,
+  "total_throughput_tps": 361.73299280109177,
+  "goodput_rps": 0.9229905926151649,
+  "slo_attainment": 1.0,
+  "ttft_mean_ms": 137.8828579945548,
+  "ttft_p50_ms": 129.11027297377586,
+  "ttft_p90_ms": 213.77889579162002,
+  "ttft_p99_ms": 302.80711776576936,
+  "ttft_service_p50_ms": 128.28819826245308,
+  "queue_p50_ms": 0.5753492005169392,
+  "queue_p99_ms": 1.4394524972885843,
+  "tpot_mean_ms": 22.784787805449497,
+  "tpot_p50_ms": 22.673602726107873,
+  "tpot_p99_ms": 24.767340950565238,
+  "itl_p99_ms": 25.36788024008274,
+  "per_stream_tps": 43.888931884668565,
+  "e2e_p50_ms": 4121.781995985657,
+  "e2e_p99_ms": 8000.57005151175,
+  "total_prompt_tokens": 66863,
+  "total_output_tokens": 33467,
+  "errors": {},
+  "gpu_util_pct_mean": 93.17179023508137,
+  "gpu_util_pct_max": 100.0,
+  "mem_util_pct_mean": 63.47830018083182,
+  "mem_util_pct_max": 74.0,
+  "mem_used_gb_mean": 11.69573974609375,
+  "mem_used_gb_max": 11.69573974609375,
+  "torch_alloc_gb_mean": 9.763029899562676,
+  "torch_alloc_gb_max": 10.144647598266602,
+  "torch_reserved_gb_mean": 10.572265625,
+  "torch_reserved_gb_max": 10.572265625,
+  "nvml_minus_reserved_gb_mean": 1.12347412109375,
+  "nvml_minus_reserved_gb_max": 1.12347412109375,
+  "telemetry_samples": 1106,
+  "nvml_physical_device": 0,
+  "foreign_procs_on_gpu": 0,
+  "engine/max_batch_size": 4,
+  "engine/batches_run": 64,
+  "engine/mean_batch_size": 4.0,
+  "engine/useful_decode_steps": 33467,
+  "engine/padded_decode_steps": 13809,
+  "engine/wasted_decode_ratio": 0.2920932396987901,
+  "engine/pad_token_ratio": 0.29968787967656796,
+  "engine/batch_timeout_s": 0.01,
+  "engine/oom_count": 0,
+  "engine/kv_allocated_gb": 2.25,
+  "engine/kv_budget_gb": null,
+  "engine/kv_bytes_per_token": 147456,
+  "engine/kv_max_len": 4096,
+  "engine/kv_occupancy": 0.132080078125,
+  "gpu_total_gb": 47.37200927734375,
+  "peak_alloc_gb": 10.443615913391113,
+  "peak_reserved_gb": 10.572265625,
+  "fragmentation_gb": 0.12864971160888672,
+  "allocator_slack_gb": 0.12864971160888672,
+  "reserved_headroom_gb": 36.79974365234375
+}
+[saved] runs/p2_static_batch/p2_static_batch-chat_short-c4-0921-005905
+##### END p2_b4_c4 exit=0  2670 MHz, 57, 82.06 W
+
+##### BEGIN p2_b8_c8  2026-09-21T01:04:16-04:00
+{
+  "python": "3.12.13",
+  "platform": "Linux-6.12.43+deb12-amd64-x86_64-with-glibc2.36",
+  "torch": "2.13.0+cu130",
+  "cuda": "13.0",
+  "cudnn": "92000",
+  "gpu_name": "NVIDIA RTX 6000 Ada Generation",
+  "gpu_capability": "8.9",
+  "gpu_count": 1,
+  "gpu_mem_total_gb": 47.37,
+  "driver": "580.95.05",
+  "git_sha": "f5a97080229a2879bbbd68cf59dadf6b0718c437",
+  "git_dirty": true,
+  "cuda_visible_devices": "0",
+  "pytorch_cuda_alloc_conf": "expandable_segments:True",
+  "torch_device_index": 0,
+  "nvml_physical_device": 0
+}
+wandb: [wandb.login()] Loaded credentials for https://api.wandb.ai from /home/nilesh/.netrc.
+wandb: Currently logged in as: nilesh-auradkar (nilesh-auradkar-personal) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: WARNING Using a boolean value for 'reinit' is deprecated. Use 'return_previous' or 'finish_previous' instead.
+wandb: Tracking run with wandb version 0.29.0
+wandb: Run data is saved locally in /home/nilesh/InferenceForge/wandb/run-20260921_010810-k4ourvyq
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run p2_static_batch-chat_short-c8-0921-010417
+wandb: ⭐️ View project at https://wandb.ai/nilesh-auradkar-personal/llm-inference-from-scratch
+wandb: 🚀 View run at https://wandb.ai/nilesh-auradkar-personal/llm-inference-from-scratch/runs/k4ourvyq
+wandb: Adding directory to artifact (runs/p2_static_batch/p2_static_batch-chat_short-c8-0921-010417)... Done. 0.0s
+wandb: updating run metadata; uploading artifact run-k4ourvyq-requests; uploading artifact run-p2_static_batch-chat_short-c8-0921-010417
+wandb: uploading artifact run-k4ourvyq-requests; uploading artifact run-p2_static_batch-chat_short-c8-0921-010417
+wandb: uploading history steps 0-0, summary, console lines 0-0
+wandb: 
+wandb: Run summary:
+wandb:        allocator_slack_gb 0.21471
+wandb:                e2e_p50_ms 6482.36139
+wandb:                e2e_p99_ms 10813.73527
+wandb:    engine/batch_timeout_s 0.01
+wandb:        engine/batches_run 32
+wandb:    engine/kv_allocated_gb 4.5
+wandb: engine/kv_bytes_per_token 147456
+wandb:         engine/kv_max_len 4096
+wandb:       engine/kv_occupancy 0.17456
+wandb:     engine/max_batch_size 8
+wandb:                       +49 ...
+wandb: 
+wandb: 🚀 View run p2_static_batch-chat_short-c8-0921-010417 at: https://wandb.ai/nilesh-auradkar-personal/llm-inference-from-scratch/runs/k4ourvyq
+wandb: ⭐️ View project at: https://wandb.ai/nilesh-auradkar-personal/llm-inference-from-scratch
+wandb: Synced 5 W&B file(s), 1 media file(s), 7 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20260921_010810-k4ourvyq/logs
+[p2] batch=8 {'kv_allocated_gb': 4.5, 'kv_budget_gb': None, 'kv_bytes_per_token': 147456, 'kv_max_len': 4096, 'kv_occupancy': 0.0}
+
+=== p2_static_batch-chat_short-c8-0921-010417 ===
+{
+  "n_measured": 256,
+  "n_warmup": 8,
+  "prompt_len_mean": 261.18359375,
+  "prompt_len_p99": 538.5999999999999,
+  "output_len_mean": 130.73046875,
+  "total_prompt_tokens": 66863,
+  "total_output_tokens": 33467
+}
+{
+  "n_requests": 256,
+  "n_failed": 0,
+  "wall_s": 219.1908172769472,
+  "request_throughput_rps": 1.167932138674151,
+  "output_throughput_tps": 152.68431595706176,
+  "total_throughput_tps": 457.7290291920999,
+  "goodput_rps": 1.167932138674151,
+  "slo_attainment": 1.0,
+  "ttft_mean_ms": 378.98604474321473,
+  "ttft_p50_ms": 364.15646877139807,
+  "ttft_p90_ms": 500.97761349752545,
+  "ttft_p99_ms": 681.1572242062539,
+  "ttft_service_p50_ms": 362.87644784897566,
+  "queue_p50_ms": 0.9627421386539936,
+  "queue_p99_ms": 2.9163432307541357,
+  "tpot_mean_ms": 29.502840175199005,
+  "tpot_p50_ms": 28.916270742798602,
+  "tpot_p99_ms": 38.53583561931582,
+  "itl_p99_ms": 39.599040523171425,
+  "per_stream_tps": 33.895041767559405,
+  "e2e_p50_ms": 6482.361388858408,
+  "e2e_p99_ms": 10813.735270127654,
+  "total_prompt_tokens": 66863,
+  "total_output_tokens": 33467,
+  "errors": {},
+  "gpu_util_pct_mean": 96.52745995423341,
+  "gpu_util_pct_max": 100.0,
+  "mem_util_pct_mean": 73.59267734553775,
+  "mem_util_pct_max": 83.0,
+  "mem_used_gb_mean": 14.72308349609375,
+  "mem_used_gb_max": 14.72308349609375,
+  "torch_alloc_gb_mean": 12.024714328604377,
+  "torch_alloc_gb_max": 12.535322189331055,
+  "torch_reserved_gb_mean": 13.599609375,
+  "torch_reserved_gb_max": 13.599609375,
+  "nvml_minus_reserved_gb_mean": 1.12347412109375,
+  "nvml_minus_reserved_gb_max": 1.12347412109375,
+  "telemetry_samples": 874,
+  "nvml_physical_device": 0,
+  "foreign_procs_on_gpu": 0,
+  "engine/max_batch_size": 8,
+  "engine/batches_run": 32,
+  "engine/mean_batch_size": 8.0,
+  "engine/useful_decode_steps": 33467,
+  "engine/padded_decode_steps": 20797,
+  "engine/wasted_decode_ratio": 0.3832559339525284,
+  "engine/pad_token_ratio": 0.39719617742517127,
+  "engine/batch_timeout_s": 0.01,
+  "engine/oom_count": 0,
+  "engine/kv_allocated_gb": 4.5,
+  "engine/kv_budget_gb": null,
+  "engine/kv_bytes_per_token": 147456,
+  "engine/kv_max_len": 4096,
+  "engine/kv_occupancy": 0.174560546875,
+  "gpu_total_gb": 47.37200927734375,
+  "peak_alloc_gb": 13.384894847869873,
+  "peak_reserved_gb": 13.599609375,
+  "fragmentation_gb": 0.21471452713012695,
+  "allocator_slack_gb": 0.21471452713012695,
+  "reserved_headroom_gb": 33.77239990234375
+}
+[saved] runs/p2_static_batch/p2_static_batch-chat_short-c8-0921-010417
+##### END p2_b8_c8 exit=0  2655 MHz, 61, 88.99 W
+
+##### BEGIN p2_b16_c16  2026-09-21T01:08:29-04:00
+{
+  "python": "3.12.13",
+  "platform": "Linux-6.12.43+deb12-amd64-x86_64-with-glibc2.36",
+  "torch": "2.13.0+cu130",
+  "cuda": "13.0",
+  "cudnn": "92000",
+  "gpu_name": "NVIDIA RTX 6000 Ada Generation",
+  "gpu_capability": "8.9",
+  "gpu_count": 1,
+  "gpu_mem_total_gb": 47.37,
+  "driver": "580.95.05",
+  "git_sha": "f5a97080229a2879bbbd68cf59dadf6b0718c437",
+  "git_dirty": true,
+  "cuda_visible_devices": "0",
+  "pytorch_cuda_alloc_conf": "expandable_segments:True",
+  "torch_device_index": 0,
+  "nvml_physical_device": 0
+}
+wandb: [wandb.login()] Loaded credentials for https://api.wandb.ai from /home/nilesh/.netrc.
+wandb: Currently logged in as: nilesh-auradkar (nilesh-auradkar-personal) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: WARNING Using a boolean value for 'reinit' is deprecated. Use 'return_previous' or 'finish_previous' instead.
+wandb: Tracking run with wandb version 0.29.0
+wandb: Run data is saved locally in /home/nilesh/InferenceForge/wandb/run-20260921_011234-xwqfydzg
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run p2_static_batch-chat_short-c16-0921-010830
+wandb: ⭐️ View project at https://wandb.ai/nilesh-auradkar-personal/llm-inference-from-scratch
+wandb: 🚀 View run at https://wandb.ai/nilesh-auradkar-personal/llm-inference-from-scratch/runs/xwqfydzg
+wandb: Adding directory to artifact (runs/p2_static_batch/p2_static_batch-chat_short-c16-0921-010830)... Done. 0.0s
+wandb: updating run metadata; uploading artifact run-xwqfydzg-requests; uploading artifact run-p2_static_batch-chat_short-c16-0921-010830
+wandb: uploading artifact run-xwqfydzg-requests; uploading artifact run-p2_static_batch-chat_short-c16-0921-010830
+wandb: uploading artifact run-p2_static_batch-chat_short-c16-0921-010830
+wandb: 
+wandb: Run summary:
+wandb:        allocator_slack_gb 0.3888
+wandb:                e2e_p50_ms 14226.48351
+wandb:                e2e_p99_ms 22335.3581
+wandb:    engine/batch_timeout_s 0.01
+wandb:        engine/batches_run 16
+wandb:    engine/kv_allocated_gb 9
+wandb: engine/kv_bytes_per_token 147456
+wandb:         engine/kv_max_len 4096
+wandb:       engine/kv_occupancy 0.1814
+wandb:     engine/max_batch_size 16
+wandb:                       +49 ...
+wandb: 
+wandb: 🚀 View run p2_static_batch-chat_short-c16-0921-010830 at: https://wandb.ai/nilesh-auradkar-personal/llm-inference-from-scratch/runs/xwqfydzg
+wandb: ⭐️ View project at: https://wandb.ai/nilesh-auradkar-personal/llm-inference-from-scratch
+wandb: Synced 5 W&B file(s), 1 media file(s), 7 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20260921_011234-xwqfydzg/logs
+[p2] batch=16 {'kv_allocated_gb': 9.0, 'kv_budget_gb': None, 'kv_bytes_per_token': 147456, 'kv_max_len': 4096, 'kv_occupancy': 0.0}
+
+=== p2_static_batch-chat_short-c16-0921-010830 ===
+{
+  "n_measured": 256,
+  "n_warmup": 8,
+  "prompt_len_mean": 261.18359375,
+  "prompt_len_p99": 538.5999999999999,
+  "output_len_mean": 130.73046875,
+  "total_prompt_tokens": 66863,
+  "total_output_tokens": 33467
+}
+{
+  "n_requests": 256,
+  "n_failed": 0,
+  "wall_s": 230.39530292712152,
+  "request_throughput_rps": 1.1111337633518412,
+  "output_throughput_tps": 145.25903772693778,
+  "total_throughput_tps": 435.46894717613367,
+  "goodput_rps": 0.6901182358318076,
+  "slo_attainment": 0.62109375,
+  "ttft_mean_ms": 914.4105387968011,
+  "ttft_p50_ms": 918.4825615957379,
+  "ttft_p90_ms": 1350.4852540791035,
+  "ttft_p99_ms": 1435.5562484823167,
+  "ttft_service_p50_ms": 916.6021971032023,
+  "queue_p50_ms": 1.7021531239151955,
+  "queue_p99_ms": 4.136257153004407,
+  "tpot_mean_ms": 52.147464669573566,
+  "tpot_p50_ms": 53.03924440248114,
+  "tpot_p99_ms": 70.44111891012572,
+  "itl_p99_ms": 75.32046642154455,
+  "per_stream_tps": 19.176387698546524,
+  "e2e_p50_ms": 14226.483507547528,
+  "e2e_p99_ms": 22335.358103737235,
+  "total_prompt_tokens": 66863,
+  "total_output_tokens": 33467,
+  "errors": {},
+  "gpu_util_pct_mean": 97.43307943416757,
+  "gpu_util_pct_max": 100.0,
+  "mem_util_pct_mean": 85.83460282916214,
+  "mem_util_pct_max": 92.0,
+  "mem_used_gb_mean": 20.546870815870683,
+  "mem_used_gb_max": 20.77972412109375,
+  "torch_alloc_gb_mean": 16.541056266157877,
+  "torch_alloc_gb_max": 18.21397304534912,
+  "torch_reserved_gb_mean": 19.423396694776933,
+  "torch_reserved_gb_max": 19.65625,
+  "nvml_minus_reserved_gb_mean": 1.12347412109375,
+  "nvml_minus_reserved_gb_max": 1.12347412109375,
+  "telemetry_samples": 919,
+  "nvml_physical_device": 0,
+  "foreign_procs_on_gpu": 0,
+  "engine/max_batch_size": 16,
+  "engine/batches_run": 16,
+  "engine/mean_batch_size": 16.0,
+  "engine/useful_decode_steps": 33467,
+  "engine/padded_decode_steps": 27861,
+  "engine/wasted_decode_ratio": 0.4542949386903209,
+  "engine/pad_token_ratio": 0.45938712807244503,
+  "engine/batch_timeout_s": 0.01,
+  "engine/oom_count": 0,
+  "engine/kv_allocated_gb": 9.0,
+  "engine/kv_budget_gb": null,
+  "engine/kv_bytes_per_token": 147456,
+  "engine/kv_max_len": 4096,
+  "engine/kv_occupancy": 0.181396484375,
+  "gpu_total_gb": 47.37200927734375,
+  "peak_alloc_gb": 19.267452239990234,
+  "peak_reserved_gb": 19.65625,
+  "fragmentation_gb": 0.3887977600097656,
+  "allocator_slack_gb": 0.3887977600097656,
+  "reserved_headroom_gb": 27.71575927734375
+}
+[saved] runs/p2_static_batch/p2_static_batch-chat_short-c16-0921-010830
+##### END p2_b16_c16 exit=0  2670 MHz, 61, 89.85 W
+
+##### BEGIN p2_b32_c32  2026-09-21T01:12:54-04:00
+{
+  "python": "3.12.13",
+  "platform": "Linux-6.12.43+deb12-amd64-x86_64-with-glibc2.36",
+  "torch": "2.13.0+cu130",
+  "cuda": "13.0",
+  "cudnn": "92000",
+  "gpu_name": "NVIDIA RTX 6000 Ada Generation",
+  "gpu_capability": "8.9",
+  "gpu_count": 1,
+  "gpu_mem_total_gb": 47.37,
+  "driver": "580.95.05",
+  "git_sha": "f5a97080229a2879bbbd68cf59dadf6b0718c437",
+  "git_dirty": true,
+  "cuda_visible_devices": "0",
+  "pytorch_cuda_alloc_conf": "expandable_segments:True",
+  "torch_device_index": 0,
+  "nvml_physical_device": 0
+}
+wandb: [wandb.login()] Loaded credentials for https://api.wandb.ai from /home/nilesh/.netrc.
+wandb: Currently logged in as: nilesh-auradkar (nilesh-auradkar-personal) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: WARNING Using a boolean value for 'reinit' is deprecated. Use 'return_previous' or 'finish_previous' instead.
+wandb: Tracking run with wandb version 0.29.0
+wandb: Run data is saved locally in /home/nilesh/InferenceForge/wandb/run-20260921_011735-rq4j7jcs
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run p2_static_batch-chat_short-c32-0921-011255
+wandb: ⭐️ View project at https://wandb.ai/nilesh-auradkar-personal/llm-inference-from-scratch
+wandb: 🚀 View run at https://wandb.ai/nilesh-auradkar-personal/llm-inference-from-scratch/runs/rq4j7jcs
+wandb: Adding directory to artifact (runs/p2_static_batch/p2_static_batch-chat_short-c32-0921-011255)... Done. 0.0s
+wandb: updating run metadata; uploading artifact run-rq4j7jcs-requests; uploading artifact run-p2_static_batch-chat_short-c32-0921-011255
+wandb: uploading artifact run-rq4j7jcs-requests; uploading artifact run-p2_static_batch-chat_short-c32-0921-011255
+wandb: uploading artifact run-p2_static_batch-chat_short-c32-0921-011255
+wandb: uploading wandb-summary.json
+wandb: 
+wandb: Run summary:
+wandb:        allocator_slack_gb 0.86978
+wandb:                e2e_p50_ms 34645.09989
+wandb:                e2e_p99_ms 42295.58481
+wandb:    engine/batch_timeout_s 0.01
+wandb:        engine/batches_run 8
+wandb:    engine/kv_allocated_gb 18
+wandb: engine/kv_bytes_per_token 147456
+wandb:         engine/kv_max_len 4096
+wandb:       engine/kv_occupancy 0.1814
+wandb:     engine/max_batch_size 32
+wandb:                       +49 ...
+wandb: 
+wandb: 🚀 View run p2_static_batch-chat_short-c32-0921-011255 at: https://wandb.ai/nilesh-auradkar-personal/llm-inference-from-scratch/runs/rq4j7jcs
+wandb: ⭐️ View project at: https://wandb.ai/nilesh-auradkar-personal/llm-inference-from-scratch
+wandb: Synced 5 W&B file(s), 1 media file(s), 7 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20260921_011735-rq4j7jcs/logs
+[p2] batch=32 {'kv_allocated_gb': 18.0, 'kv_budget_gb': None, 'kv_bytes_per_token': 147456, 'kv_max_len': 4096, 'kv_occupancy': 0.0}
+
+=== p2_static_batch-chat_short-c32-0921-011255 ===
+{
+  "n_measured": 256,
+  "n_warmup": 8,
+  "prompt_len_mean": 261.18359375,
+  "prompt_len_p99": 538.5999999999999,
+  "output_len_mean": 130.73046875,
+  "total_prompt_tokens": 66863,
+  "total_output_tokens": 33467
+}
+{
+  "n_requests": 256,
+  "n_failed": 0,
+  "wall_s": 265.7424181839451,
+  "request_throughput_rps": 0.9633388668225278,
+  "output_throughput_tps": 125.93774162480288,
+  "total_throughput_tps": 377.54604886056336,
+  "goodput_rps": 0.0,
+  "slo_attainment": 0.0,
+  "ttft_mean_ms": 2100.706585973967,
+  "ttft_p50_ms": 2054.879249073565,
+  "ttft_p90_ms": 2870.2505957335234,
+  "ttft_p99_ms": 2874.531415430829,
+  "ttft_service_p50_ms": 2051.5696117654443,
+  "queue_p50_ms": 2.730843611061573,
+  "queue_p99_ms": 6.856939801946282,
+  "tpot_mean_ms": 105.98854321095546,
+  "tpot_p50_ms": 103.37994191218039,
+  "tpot_p99_ms": 133.20278785564233,
+  "itl_p99_ms": 143.3765133842826,
+  "per_stream_tps": 9.43498202451598,
+  "e2e_p50_ms": 34645.0998946093,
+  "e2e_p99_ms": 42295.584810804576,
+  "total_prompt_tokens": 66863,
+  "total_output_tokens": 33467,
+  "errors": {},
+  "gpu_util_pct_mean": 98.21320754716982,
+  "gpu_util_pct_max": 100.0,
+  "mem_util_pct_mean": 92.56698113207547,
+  "mem_util_pct_max": 97.0,
+  "mem_used_gb_mean": 32.66794088111733,
+  "mem_used_gb_max": 33.02581787109375,
+  "torch_alloc_gb_mean": 25.570851603543982,
+  "torch_alloc_gb_max": 30.553038120269775,
+  "torch_reserved_gb_mean": 31.545959242334906,
+  "torch_reserved_gb_max": 31.90234375,
+  "nvml_minus_reserved_gb_mean": 1.1219816387824293,
+  "nvml_minus_reserved_gb_max": 1.12347412109375,
+  "telemetry_samples": 1060,
+  "nvml_physical_device": 0,
+  "foreign_procs_on_gpu": 0,
+  "engine/max_batch_size": 32,
+  "engine/batches_run": 8,
+  "engine/mean_batch_size": 32.0,
+  "engine/useful_decode_steps": 33467,
+  "engine/padded_decode_steps": 35685,
+  "engine/wasted_decode_ratio": 0.5160371355853771,
+  "engine/pad_token_ratio": 0.5111210224613945,
+  "engine/batch_timeout_s": 0.01,
+  "engine/oom_count": 0,
+  "engine/kv_allocated_gb": 18.0,
+  "engine/kv_budget_gb": null,
+  "engine/kv_bytes_per_token": 147456,
+  "engine/kv_max_len": 4096,
+  "engine/kv_occupancy": 0.181396484375,
+  "gpu_total_gb": 47.37200927734375,
+  "peak_alloc_gb": 31.032567501068115,
+  "peak_reserved_gb": 31.90234375,
+  "fragmentation_gb": 0.8697762489318848,
+  "allocator_slack_gb": 0.8697762489318848,
+  "reserved_headroom_gb": 15.46966552734375
+}
+[saved] runs/p2_static_batch/p2_static_batch-chat_short-c32-0921-011255
+##### END p2_b32_c32 exit=0  2670 MHz, 61, 89.04 W
+
+##### BEGIN p2_b64_c64  2026-09-21T01:17:56-04:00
+{
+  "python": "3.12.13",
+  "platform": "Linux-6.12.43+deb12-amd64-x86_64-with-glibc2.36",
+  "torch": "2.13.0+cu130",
+  "cuda": "13.0",
+  "cudnn": "92000",
+  "gpu_name": "NVIDIA RTX 6000 Ada Generation",
+  "gpu_capability": "8.9",
+  "gpu_count": 1,
+  "gpu_mem_total_gb": 47.37,
+  "driver": "580.95.05",
+  "git_sha": "f5a97080229a2879bbbd68cf59dadf6b0718c437",
+  "git_dirty": true,
+  "cuda_visible_devices": "0",
+  "pytorch_cuda_alloc_conf": "expandable_segments:True",
+  "torch_device_index": 0,
+  "nvml_physical_device": 0
+}
+[W921 01:18:09.482242271 CUDACachingAllocator.cpp:508] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 24707072, total: 50865307648).
+[W921 01:18:09.503997979 CUDACachingAllocator.cpp:508] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 26804224, total: 50865307648).
+[W921 01:18:09.588435171 CUDACachingAllocator.cpp:508] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 26804224, total: 50865307648).
+[W921 01:18:09.617139798 CUDACachingAllocator.cpp:508] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 26804224, total: 50865307648).
+[W921 01:18:09.701487351 CUDACachingAllocator.cpp:508] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 24707072, total: 50865307648).
+[W921 01:18:09.716137814 CUDACachingAllocator.cpp:508] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 26804224, total: 50865307648).
+[W921 01:18:09.780742511 CUDACachingAllocator.cpp:508] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 26804224, total: 50865307648).
+[W921 01:18:09.806426125 CUDACachingAllocator.cpp:508] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 26804224, total: 50865307648).
+[W921 01:18:09.812138697 CUDACachingAllocator.cpp:508] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 26804224, total: 50865307648).
+wandb: [wandb.login()] Loaded credentials for https://api.wandb.ai from /home/nilesh/.netrc.
+wandb: Currently logged in as: nilesh-auradkar (nilesh-auradkar-personal) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: WARNING Using a boolean value for 'reinit' is deprecated. Use 'return_previous' or 'finish_previous' instead.
+wandb: Tracking run with wandb version 0.29.0
+wandb: Run data is saved locally in /home/nilesh/InferenceForge/wandb/run-20260921_011832-rt33ed3h
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run p2_static_batch-chat_short-c64-0921-011757
+wandb: ⭐️ View project at https://wandb.ai/nilesh-auradkar-personal/llm-inference-from-scratch
+wandb: 🚀 View run at https://wandb.ai/nilesh-auradkar-personal/llm-inference-from-scratch/runs/rt33ed3h
+wandb: Adding directory to artifact (runs/p2_static_batch/p2_static_batch-chat_short-c64-0921-011757)... Done. 0.0s
+wandb: updating run metadata; uploading artifact run-rt33ed3h-requests; uploading artifact run-p2_static_batch-chat_short-c64-0921-011757
+wandb: uploading artifact run-rt33ed3h-requests; uploading artifact run-p2_static_batch-chat_short-c64-0921-011757
+wandb: uploading history steps 0-0, summary, console lines 0-0
+wandb: 
+wandb: Run summary:
+wandb:        allocator_slack_gb 0.09797
+wandb:                e2e_p50_ms 21100.50737
+wandb:                e2e_p99_ms 21172.09438
+wandb:    engine/batch_timeout_s 0.01
+wandb:        engine/batches_run 1
+wandb:    engine/kv_allocated_gb 36
+wandb: engine/kv_bytes_per_token 147456
+wandb:         engine/kv_max_len 4096
+wandb:       engine/kv_occupancy 0.1814
+wandb:     engine/max_batch_size 64
+wandb:                       +49 ...
+wandb: 
+wandb: 🚀 View run p2_static_batch-chat_short-c64-0921-011757 at: https://wandb.ai/nilesh-auradkar-personal/llm-inference-from-scratch/runs/rt33ed3h
+wandb: ⭐️ View project at: https://wandb.ai/nilesh-auradkar-personal/llm-inference-from-scratch
+wandb: Synced 5 W&B file(s), 1 media file(s), 7 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20260921_011832-rt33ed3h/logs
+[p2] batch=64 {'kv_allocated_gb': 36.0, 'kv_budget_gb': None, 'kv_bytes_per_token': 147456, 'kv_max_len': 4096, 'kv_occupancy': 0.0}
+
+=== p2_static_batch-chat_short-c64-0921-011757 ===
+{
+  "n_measured": 256,
+  "n_warmup": 8,
+  "prompt_len_mean": 261.18359375,
+  "prompt_len_p99": 538.5999999999999,
+  "output_len_mean": 130.73046875,
+  "total_prompt_tokens": 66863,
+  "total_output_tokens": 33467
+}
+{
+  "n_requests": 18,
+  "n_failed": 238,
+  "wall_s": 21.51535124424845,
+  "request_throughput_rps": 0.836611951887693,
+  "output_throughput_tps": 111.78065246055009,
+  "total_throughput_tps": 319.5392871793272,
+  "goodput_rps": 0.836611951887693,
+  "slo_attainment": 1.0,
+  "ttft_mean_ms": 760.5782434758213,
+  "ttft_p50_ms": 755.8781369589269,
+  "ttft_p90_ms": 757.2445470839739,
+  "ttft_p99_ms": 827.4651449453085,
+  "ttft_service_p50_ms": 748.0561202391982,
+  "queue_p50_ms": 7.822016719728708,
+  "queue_p99_ms": 79.40902470611022,
+  "tpot_mean_ms": 50.134013895582605,
+  "tpot_p50_ms": 49.06481722271285,
+  "tpot_p99_ms": 58.64427130911504,
+  "itl_p99_ms": 72.12468862533565,
+  "per_stream_tps": 19.94653773549362,
+  "e2e_p50_ms": 21100.507370661944,
+  "e2e_p99_ms": 21172.094378648326,
+  "total_prompt_tokens": 4470,
+  "total_output_tokens": 2405,
+  "errors": {
+    "OutOfMemoryError('CUDA out of memory. Tried to allocate 538.00 MiB. GPU 0 has a total capacity of 47.37 GiB of which 545.56 MiB is free. Including non-PyTorch memory, this process has 46.83 GiB memory": 52,
+    "OutOfMemoryError('CUDA out of memory. Tried to allocate 2.15 GiB. GPU 0 has a total capacity of 47.37 GiB of which 65.56 MiB is free. Including non-PyTorch memory, this process has 47.30 GiB memory in": 63,
+    "OutOfMemoryError('CUDA out of memory. Tried to allocate 1.89 GiB. GPU 0 has a total capacity of 47.37 GiB of which 385.56 MiB is free. Including non-PyTorch memory, this process has 46.99 GiB memory i": 59,
+    "OutOfMemoryError('CUDA out of memory. Tried to allocate 686.00 MiB. GPU 0 has a total capacity of 47.37 GiB of which 425.56 MiB is free. Including non-PyTorch memory, this process has 46.95 GiB memory": 64
+  },
+  "gpu_util_pct_mean": 96.88372093023256,
+  "gpu_util_pct_max": 99.0,
+  "mem_util_pct_mean": 86.79069767441861,
+  "mem_util_pct_max": 92.0,
+  "mem_used_gb_mean": 46.54993669376817,
+  "mem_used_gb_max": 47.61175537109375,
+  "torch_alloc_gb_mean": 43.551452259684716,
+  "torch_alloc_gb_max": 45.12097215652466,
+  "torch_reserved_gb_mean": 45.41215479651163,
+  "torch_reserved_gb_max": 45.41796875,
+  "nvml_minus_reserved_gb_mean": 1.1377818972565408,
+  "nvml_minus_reserved_gb_max": 2.35394287109375,
+  "telemetry_samples": 86,
+  "nvml_physical_device": 0,
+  "foreign_procs_on_gpu": 0,
+  "engine/max_batch_size": 64,
+  "engine/batches_run": 1,
+  "engine/mean_batch_size": 18.0,
+  "engine/useful_decode_steps": 2405,
+  "engine/padded_decode_steps": 3787,
+  "engine/wasted_decode_ratio": 0.6115956072351422,
+  "engine/pad_token_ratio": 0.5534458462175501,
+  "engine/batch_timeout_s": 0.01,
+  "engine/oom_count": 4,
+  "engine/kv_allocated_gb": 36.0,
+  "engine/kv_budget_gb": null,
+  "engine/kv_bytes_per_token": 147456,
+  "engine/kv_max_len": 4096,
+  "engine/kv_occupancy": 0.181396484375,
+  "gpu_total_gb": 47.37200927734375,
+  "peak_alloc_gb": 46.702810764312744,
+  "peak_reserved_gb": 46.80078125,
+  "fragmentation_gb": 0.09797048568725586,
+  "allocator_slack_gb": 0.09797048568725586,
+  "reserved_headroom_gb": 0.57122802734375
+}
+[saved] runs/p2_static_batch/p2_static_batch-chat_short-c64-0921-011757
+##### END p2_b64_c64 exit=0  2670 MHz, 57, 82.44 W
+
+##### BEGIN p2_b128_c128  2026-09-21T01:18:52-04:00
+{
+  "python": "3.12.13",
+  "platform": "Linux-6.12.43+deb12-amd64-x86_64-with-glibc2.36",
+  "torch": "2.13.0+cu130",
+  "cuda": "13.0",
+  "cudnn": "92000",
+  "gpu_name": "NVIDIA RTX 6000 Ada Generation",
+  "gpu_capability": "8.9",
+  "gpu_count": 1,
+  "gpu_mem_total_gb": 47.37,
+  "driver": "580.95.05",
+  "git_sha": "f5a97080229a2879bbbd68cf59dadf6b0718c437",
+  "git_dirty": true,
+  "cuda_visible_devices": "0",
+  "pytorch_cuda_alloc_conf": "expandable_segments:True",
+  "torch_device_index": 0,
+  "nvml_physical_device": 0
+}
+[W921 01:18:57.443810065 CUDACachingAllocator.cpp:508] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 22609920, total: 50865307648).
+[W921 01:18:57.452520410 CUDACachingAllocator.cpp:508] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 22609920, total: 50865307648).
+Traceback (most recent call last):
+  File "/home/nilesh/InferenceForge/run_bench.py", line 198, in <module>
+    main()
+  File "/home/nilesh/InferenceForge/run_bench.py", line 178, in main
+    engine.setup()
+  File "/home/nilesh/InferenceForge/src/static_batching.py", line 141, in setup
+    self._alloc_cache()
+  File "/home/nilesh/InferenceForge/src/static_batching.py", line 102, in _alloc_cache
+    self.cache = PreallocatedKVCache(
+                 ^^^^^^^^^^^^^^^^^^^^
+  File "/home/nilesh/InferenceForge/src/kv_cache_src/kv_cache.py", line 63, in __init__
+    self.v = [torch.zeros(shape, device=device, dtype=dtype) for _ in range(dims.n_layers)]
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 1024.00 MiB. GPU 0 has a total capacity of 47.37 GiB of which 381.56 MiB is free. Including non-PyTorch memory, this process has 46.99 GiB memory in use. Of the allocated memory 46.49 GiB is allocated by PyTorch, and 13.73 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)
+##### END p2_b128_c128 exit=1  2670 MHz, 49, 81.59 W
+
+##### BEGIN p2_b32_c32_len1152  2026-09-21T01:19:13-04:00
+{
+  "python": "3.12.13",
+  "platform": "Linux-6.12.43+deb12-amd64-x86_64-with-glibc2.36",
+  "torch": "2.13.0+cu130",
+  "cuda": "13.0",
+  "cudnn": "92000",
+  "gpu_name": "NVIDIA RTX 6000 Ada Generation",
+  "gpu_capability": "8.9",
+  "gpu_count": 1,
+  "gpu_mem_total_gb": 47.37,
+  "driver": "580.95.05",
+  "git_sha": "f5a97080229a2879bbbd68cf59dadf6b0718c437",
+  "git_dirty": true,
+  "cuda_visible_devices": "0",
+  "pytorch_cuda_alloc_conf": "expandable_segments:True",
+  "torch_device_index": 0,
+  "nvml_physical_device": 0
+}
+wandb: [wandb.login()] Loaded credentials for https://api.wandb.ai from /home/nilesh/.netrc.
+wandb: Currently logged in as: nilesh-auradkar (nilesh-auradkar-personal) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: WARNING Using a boolean value for 'reinit' is deprecated. Use 'return_previous' or 'finish_previous' instead.
+wandb: Tracking run with wandb version 0.29.0
+wandb: Run data is saved locally in /home/nilesh/InferenceForge/wandb/run-20260921_012353-585pemlb
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run p2_static_batch-chat_short-c32-0921-011914
+wandb: ⭐️ View project at https://wandb.ai/nilesh-auradkar-personal/llm-inference-from-scratch
+wandb: 🚀 View run at https://wandb.ai/nilesh-auradkar-personal/llm-inference-from-scratch/runs/585pemlb
+wandb: Adding directory to artifact (runs/p2_static_batch/p2_static_batch-chat_short-c32-0921-011914)... Done. 0.2s
+wandb: updating run metadata; uploading artifact run-585pemlb-requests; uploading artifact run-p2_static_batch-chat_short-c32-0921-011914
+wandb: uploading artifact run-585pemlb-requests; uploading artifact run-p2_static_batch-chat_short-c32-0921-011914
+wandb: uploading artifact run-p2_static_batch-chat_short-c32-0921-011914
+wandb: uploading history steps 0-0, summary, console lines 0-0
+wandb: 
+wandb: Run summary:
+wandb:        allocator_slack_gb 0.87908
+wandb:                e2e_p50_ms 34604.74096
+wandb:                e2e_p99_ms 42195.04023
+wandb:    engine/batch_timeout_s 0.01
+wandb:        engine/batches_run 8
+wandb:    engine/kv_allocated_gb 5.0625
+wandb: engine/kv_bytes_per_token 147456
+wandb:         engine/kv_max_len 1152
+wandb:       engine/kv_occupancy 0.64497
+wandb:     engine/max_batch_size 32
+wandb:                       +49 ...
+wandb: 
+wandb: 🚀 View run p2_static_batch-chat_short-c32-0921-011914 at: https://wandb.ai/nilesh-auradkar-personal/llm-inference-from-scratch/runs/585pemlb
+wandb: ⭐️ View project at: https://wandb.ai/nilesh-auradkar-personal/llm-inference-from-scratch
+wandb: Synced 5 W&B file(s), 1 media file(s), 7 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20260921_012353-585pemlb/logs
+[p2] batch=32 {'kv_allocated_gb': 5.0625, 'kv_budget_gb': None, 'kv_bytes_per_token': 147456, 'kv_max_len': 1152, 'kv_occupancy': 0.0}
+
+=== p2_static_batch-chat_short-c32-0921-011914 ===
+{
+  "n_measured": 256,
+  "n_warmup": 8,
+  "prompt_len_mean": 261.18359375,
+  "prompt_len_p99": 538.5999999999999,
+  "output_len_mean": 130.73046875,
+  "total_prompt_tokens": 66863,
+  "total_output_tokens": 33467
+}
+{
+  "n_requests": 256,
+  "n_failed": 0,
+  "wall_s": 265.4753101300448,
+  "request_throughput_rps": 0.9643081304796168,
+  "output_throughput_tps": 126.06445391703647,
+  "total_throughput_tps": 377.9259169180467,
+  "goodput_rps": 0.0,
+  "slo_attainment": 0.0,
+  "ttft_mean_ms": 2095.5393921940413,
+  "ttft_p50_ms": 2051.828541327268,
+  "ttft_p90_ms": 2859.5274249091744,
+  "ttft_p99_ms": 2864.141039690003,
+  "ttft_service_p50_ms": 2048.3304974623024,
+  "queue_p50_ms": 3.072107210755348,
+  "queue_p99_ms": 6.765210954472423,
+  "tpot_mean_ms": 105.91318507527333,
+  "tpot_p50_ms": 103.36644659395049,
+  "tpot_p99_ms": 132.9309663140371,
+  "itl_p99_ms": 143.32637945190072,
+  "per_stream_tps": 9.44169509480139,
+  "e2e_p50_ms": 34604.740960523486,
+  "e2e_p99_ms": 42195.04022966139,
+  "total_prompt_tokens": 66863,
+  "total_output_tokens": 33467,
+  "errors": {},
+  "gpu_util_pct_mean": 98.16147308781869,
+  "gpu_util_pct_max": 100.0,
+  "mem_util_pct_mean": 92.8300283286119,
+  "mem_util_pct_max": 97.0,
+  "mem_used_gb_mean": 19.736248185659377,
+  "mem_used_gb_max": 20.09613037109375,
+  "torch_alloc_gb_mean": 12.629904221993105,
+  "torch_alloc_gb_max": 17.25216770172119,
+  "torch_reserved_gb_mean": 18.612774064565627,
+  "torch_reserved_gb_max": 18.97265625,
+  "nvml_minus_reserved_gb_mean": 1.12347412109375,
+  "nvml_minus_reserved_gb_max": 1.12347412109375,
+  "telemetry_samples": 1059,
+  "nvml_physical_device": 0,
+  "foreign_procs_on_gpu": 0,
+  "engine/max_batch_size": 32,
+  "engine/batches_run": 8,
+  "engine/mean_batch_size": 32.0,
+  "engine/useful_decode_steps": 33467,
+  "engine/padded_decode_steps": 35685,
+  "engine/wasted_decode_ratio": 0.5160371355853771,
+  "engine/pad_token_ratio": 0.5111210224613945,
+  "engine/batch_timeout_s": 0.01,
+  "engine/oom_count": 0,
+  "engine/kv_allocated_gb": 5.0625,
+  "engine/kv_budget_gb": null,
+  "engine/kv_bytes_per_token": 147456,
+  "engine/kv_max_len": 1152,
+  "engine/kv_occupancy": 0.6449652777777778,
+  "gpu_total_gb": 47.37200927734375,
+  "peak_alloc_gb": 18.093575954437256,
+  "peak_reserved_gb": 18.97265625,
+  "fragmentation_gb": 0.8790802955627441,
+  "allocator_slack_gb": 0.8790802955627441,
+  "reserved_headroom_gb": 28.39935302734375
+}
+[saved] runs/p2_static_batch/p2_static_batch-chat_short-c32-0921-011914
+##### END p2_b32_c32_len1152 exit=0  2670 MHz, 61, 90.30 W
+
+##### BEGIN p2_b64_c64_len1152  2026-09-21T01:24:13-04:00
+{
+  "python": "3.12.13",
+  "platform": "Linux-6.12.43+deb12-amd64-x86_64-with-glibc2.36",
+  "torch": "2.13.0+cu130",
+  "cuda": "13.0",
+  "cudnn": "92000",
+  "gpu_name": "NVIDIA RTX 6000 Ada Generation",
+  "gpu_capability": "8.9",
+  "gpu_count": 1,
+  "gpu_mem_total_gb": 47.37,
+  "driver": "580.95.05",
+  "git_sha": "f5a97080229a2879bbbd68cf59dadf6b0718c437",
+  "git_dirty": true,
+  "cuda_visible_devices": "0",
+  "pytorch_cuda_alloc_conf": "expandable_segments:True",
+  "torch_device_index": 0,
+  "nvml_physical_device": 0
+}
+wandb: [wandb.login()] Loaded credentials for https://api.wandb.ai from /home/nilesh/.netrc.
+wandb: Currently logged in as: nilesh-auradkar (nilesh-auradkar-personal) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: WARNING Using a boolean value for 'reinit' is deprecated. Use 'return_previous' or 'finish_previous' instead.
+wandb: Tracking run with wandb version 0.29.0
+wandb: Run data is saved locally in /home/nilesh/InferenceForge/wandb/run-20260921_012908-3bdzgs3g
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run p2_static_batch-chat_short-c64-0921-012414
+wandb: ⭐️ View project at https://wandb.ai/nilesh-auradkar-personal/llm-inference-from-scratch
+wandb: 🚀 View run at https://wandb.ai/nilesh-auradkar-personal/llm-inference-from-scratch/runs/3bdzgs3g
+wandb: Adding directory to artifact (runs/p2_static_batch/p2_static_batch-chat_short-c64-0921-012414)... Done. 0.0s
+wandb: updating run metadata; uploading artifact run-3bdzgs3g-requests; uploading artifact run-p2_static_batch-chat_short-c64-0921-012414
+wandb: uploading artifact run-3bdzgs3g-requests; uploading artifact run-p2_static_batch-chat_short-c64-0921-012414
+wandb: uploading artifact run-p2_static_batch-chat_short-c64-0921-012414
+wandb: uploading requirements.txt; uploading media/table/requests_0_42c874af35a586163a37.table.json; uploading output.log; uploading wandb-summary.json; uploading config.yaml (+ 1 more)
+wandb: 
+wandb: Run summary:
+wandb:        allocator_slack_gb 1.5206
+wandb:                e2e_p50_ms 58657.56069
+wandb:                e2e_p99_ms 134382.95967
+wandb:    engine/batch_timeout_s 0.01
+wandb:        engine/batches_run 5
+wandb:    engine/kv_allocated_gb 10.125
+wandb: engine/kv_bytes_per_token 147456
+wandb:         engine/kv_max_len 1152
+wandb:       engine/kv_occupancy 0.64497
+wandb:     engine/max_batch_size 64
+wandb:                       +49 ...
+wandb: 
+wandb: 🚀 View run p2_static_batch-chat_short-c64-0921-012414 at: https://wandb.ai/nilesh-auradkar-personal/llm-inference-from-scratch/runs/3bdzgs3g
+wandb: ⭐️ View project at: https://wandb.ai/nilesh-auradkar-personal/llm-inference-from-scratch
+wandb: Synced 5 W&B file(s), 1 media file(s), 7 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20260921_012908-3bdzgs3g/logs
+[p2] batch=64 {'kv_allocated_gb': 10.125, 'kv_budget_gb': None, 'kv_bytes_per_token': 147456, 'kv_max_len': 1152, 'kv_occupancy': 0.0}
+
+=== p2_static_batch-chat_short-c64-0921-012414 ===
+{
+  "n_measured": 256,
+  "n_warmup": 8,
+  "prompt_len_mean": 261.18359375,
+  "prompt_len_p99": 538.5999999999999,
+  "output_len_mean": 130.73046875,
+  "total_prompt_tokens": 66863,
+  "total_output_tokens": 33467
+}
+{
+  "n_requests": 256,
+  "n_failed": 0,
+  "wall_s": 279.7707463046536,
+  "request_throughput_rps": 0.9150349111955806,
+  "output_throughput_tps": 119.62294286321287,
+  "total_throughput_tps": 358.6150493759867,
+  "goodput_rps": 0.0,
+  "slo_attainment": 0.0,
+  "ttft_mean_ms": 12448.48329445449,
+  "ttft_p50_ms": 4321.390461176634,
+  "ttft_p90_ms": 60476.98476491496,
+  "ttft_p99_ms": 79109.77406161837,
+  "ttft_service_p50_ms": 3479.7352561727166,
+  "queue_p50_ms": 5.785930901765823,
+  "queue_p99_ms": 75726.77053152584,
+  "tpot_mean_ms": 175.39575833758664,
+  "tpot_p50_ms": 170.88596051146635,
+  "tpot_p99_ms": 236.28056500026065,
+  "itl_p99_ms": 254.85830381512642,
+  "per_stream_tps": 5.7013921515438595,
+  "e2e_p50_ms": 58657.56069449708,
+  "e2e_p99_ms": 134382.95966773294,
+  "total_prompt_tokens": 66863,
+  "total_output_tokens": 33467,
+  "errors": {},
+  "gpu_util_pct_mean": 98.51881720430107,
+  "gpu_util_pct_max": 100.0,
+  "mem_util_pct_mean": 94.75985663082437,
+  "mem_util_pct_max": 99.0,
+  "mem_used_gb_mean": 29.94476318359375,
+  "mem_used_gb_max": 30.29339599609375,
+  "torch_alloc_gb_mean": 17.826756433774065,
+  "torch_alloc_gb_max": 26.259745121002197,
+  "torch_reserved_gb_mean": 28.8212890625,
+  "torch_reserved_gb_max": 29.169921875,
+  "nvml_minus_reserved_gb_mean": 1.12347412109375,
+  "nvml_minus_reserved_gb_max": 1.12347412109375,
+  "telemetry_samples": 1116,
+  "nvml_physical_device": 0,
+  "foreign_procs_on_gpu": 0,
+  "engine/max_batch_size": 64,
+  "engine/batches_run": 5,
+  "engine/mean_batch_size": 51.2,
+  "engine/useful_decode_steps": 33467,
+  "engine/padded_decode_steps": 38480,
+  "engine/wasted_decode_ratio": 0.5348381447454376,
+  "engine/pad_token_ratio": 0.5425731330213721,
+  "engine/batch_timeout_s": 0.01,
+  "engine/oom_count": 0,
+  "engine/kv_allocated_gb": 10.125,
+  "engine/kv_budget_gb": null,
+  "engine/kv_bytes_per_token": 147456,
+  "engine/kv_max_len": 1152,
+  "engine/kv_occupancy": 0.6449652777777778,
+  "gpu_total_gb": 47.37200927734375,
+  "peak_alloc_gb": 27.649317741394043,
+  "peak_reserved_gb": 29.169921875,
+  "fragmentation_gb": 1.520604133605957,
+  "allocator_slack_gb": 1.520604133605957,
+  "reserved_headroom_gb": 18.20208740234375
+}
+[saved] runs/p2_static_batch/p2_static_batch-chat_short-c64-0921-012414
+##### END p2_b64_c64_len1152 exit=0  2670 MHz, 61, 90.21 W
+
+##### BEGIN p2_b128_c128_len1152  2026-09-21T01:29:28-04:00
+{
+  "python": "3.12.13",
+  "platform": "Linux-6.12.43+deb12-amd64-x86_64-with-glibc2.36",
+  "torch": "2.13.0+cu130",
+  "cuda": "13.0",
+  "cudnn": "92000",
+  "gpu_name": "NVIDIA RTX 6000 Ada Generation",
+  "gpu_capability": "8.9",
+  "gpu_count": 1,
+  "gpu_mem_total_gb": 47.37,
+  "driver": "580.95.05",
+  "git_sha": "f5a97080229a2879bbbd68cf59dadf6b0718c437",
+  "git_dirty": true,
+  "cuda_visible_devices": "0",
+  "pytorch_cuda_alloc_conf": "expandable_segments:True",
+  "torch_device_index": 0,
+  "nvml_physical_device": 0
+}
+[W921 01:30:43.101698150 CUDACachingAllocator.cpp:508] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 20512768, total: 50865307648).
+[W921 01:30:43.883883685 CUDACachingAllocator.cpp:508] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 26804224, total: 50865307648).
+[W921 01:30:44.326818875 CUDACachingAllocator.cpp:508] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 26804224, total: 50865307648).
+[W921 01:30:44.770460241 CUDACachingAllocator.cpp:508] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 26804224, total: 50865307648).
+[W921 01:30:45.219921427 CUDACachingAllocator.cpp:508] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 26804224, total: 50865307648).
+[W921 01:30:45.045048763 CUDACachingAllocator.cpp:508] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 26804224, total: 50865307648).
+[W921 01:30:46.486354563 CUDACachingAllocator.cpp:508] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 26804224, total: 50865307648).
+[W921 01:30:47.314090269 CUDACachingAllocator.cpp:508] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 26804224, total: 50865307648).
+[W921 01:30:48.138486419 CUDACachingAllocator.cpp:508] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 26804224, total: 50865307648).
+[W921 01:30:48.589409157 CUDACachingAllocator.cpp:508] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 26804224, total: 50865307648).
+[W921 01:30:48.039810676 CUDACachingAllocator.cpp:508] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 26804224, total: 50865307648).
+[W921 01:30:49.605813163 CUDACachingAllocator.cpp:508] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 26804224, total: 50865307648).
+[W921 01:30:49.049166125 CUDACachingAllocator.cpp:508] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 26804224, total: 50865307648).
+[W921 01:30:50.881762919 CUDACachingAllocator.cpp:508] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 26804224, total: 50865307648).
+[W921 01:30:51.451710781 CUDACachingAllocator.cpp:508] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 26804224, total: 50865307648).
+[W921 01:30:51.025479181 CUDACachingAllocator.cpp:508] expandable_segments: memory mapping failed with OOM on device 0 while trying to map 20971520 bytes (free: 26804224, total: 50865307648).
+wandb: [wandb.login()] Loaded credentials for https://api.wandb.ai from /home/nilesh/.netrc.
+wandb: Currently logged in as: nilesh-auradkar (nilesh-auradkar-personal) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: WARNING Using a boolean value for 'reinit' is deprecated. Use 'return_previous' or 'finish_previous' instead.
+wandb: setting up run 0hv1jivd
+wandb: Tracking run with wandb version 0.29.0
+wandb: Run data is saved locally in /home/nilesh/InferenceForge/wandb/run-20260921_013431-0hv1jivd
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run p2_static_batch-chat_short-c128-0921-012929
+wandb: ⭐️ View project at https://wandb.ai/nilesh-auradkar-personal/llm-inference-from-scratch
+wandb: 🚀 View run at https://wandb.ai/nilesh-auradkar-personal/llm-inference-from-scratch/runs/0hv1jivd
+wandb: Adding directory to artifact (runs/p2_static_batch/p2_static_batch-chat_short-c128-0921-012929)... Done. 0.0s
+wandb: updating run metadata; uploading artifact run-0hv1jivd-requests; uploading artifact run-p2_static_batch-chat_short-c128-0921-012929
+wandb: uploading artifact run-0hv1jivd-requests; uploading artifact run-p2_static_batch-chat_short-c128-0921-012929
+wandb: uploading config.yaml; uploading wandb-metadata.json; uploading requirements.txt; uploading media/table/requests_0_5f89dcfcb59ca5ed68e3.table.json; uploading output.log (+ 1 more)
+wandb: 
+wandb: Run summary:
+wandb:        allocator_slack_gb 1.6344
+wandb:                e2e_p50_ms 113560.43993
+wandb:                e2e_p99_ms 203779.62971
+wandb:    engine/batch_timeout_s 0.01
+wandb:        engine/batches_run 4
+wandb:    engine/kv_allocated_gb 20.25
+wandb: engine/kv_bytes_per_token 147456
+wandb:         engine/kv_max_len 1152
+wandb:       engine/kv_occupancy 0.64497
+wandb:     engine/max_batch_size 128
+wandb:                       +49 ...
+wandb: 
+wandb: 🚀 View run p2_static_batch-chat_short-c128-0921-012929 at: https://wandb.ai/nilesh-auradkar-personal/llm-inference-from-scratch/runs/0hv1jivd
+wandb: ⭐️ View project at: https://wandb.ai/nilesh-auradkar-personal/llm-inference-from-scratch
+wandb: Synced 5 W&B file(s), 1 media file(s), 7 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20260921_013431-0hv1jivd/logs
+[p2] batch=128 {'kv_allocated_gb': 20.25, 'kv_budget_gb': None, 'kv_bytes_per_token': 147456, 'kv_max_len': 1152, 'kv_occupancy': 0.0}
+
+=== p2_static_batch-chat_short-c128-0921-012929 ===
+{
+  "n_measured": 256,
+  "n_warmup": 8,
+  "prompt_len_mean": 261.18359375,
+  "prompt_len_p99": 538.5999999999999,
+  "output_len_mean": 130.73046875,
+  "total_prompt_tokens": 66863,
+  "total_output_tokens": 33467
+}
+{
+  "n_requests": 256,
+  "n_failed": 0,
+  "wall_s": 288.5298121869564,
+  "request_throughput_rps": 0.8872566687636482,
+  "output_throughput_tps": 115.99148020903522,
+  "total_throughput_tps": 347.7283655353782,
+  "goodput_rps": 0.0,
+  "slo_attainment": 0.0,
+  "ttft_mean_ms": 43332.1539188546,
+  "ttft_p50_ms": 11207.288250792772,
+  "ttft_p90_ms": 142665.7380349934,
+  "ttft_p99_ms": 142671.09811720438,
+  "ttft_service_p50_ms": 5023.464780300856,
+  "queue_p50_ms": 9.28423972800374,
+  "queue_p99_ms": 137647.63333690353,
+  "tpot_mean_ms": 273.8465663849382,
+  "tpot_p50_ms": 237.8595474954251,
+  "tpot_p99_ms": 408.19174665186983,
+  "itl_p99_ms": 444.8306309059262,
+  "per_stream_tps": 3.6516798921419698,
+  "e2e_p50_ms": 113560.43993216008,
+  "e2e_p99_ms": 203779.6297105495,
+  "total_prompt_tokens": 66863,
+  "total_output_tokens": 33467,
+  "errors": {},
+  "gpu_util_pct_mean": 98.6486246672582,
+  "gpu_util_pct_max": 100.0,
+  "mem_util_pct_mean": 94.73824312333629,
+  "mem_util_pct_max": 100.0,
+  "mem_used_gb_mean": 45.90332729877787,
+  "mem_used_gb_max": 47.96331787109375,
+  "torch_alloc_gb_mean": 28.315109561371823,
+  "torch_alloc_gb_max": 45.20338582992554,
+  "torch_reserved_gb_mean": 44.77194536102485,
+  "torch_reserved_gb_max": 46.435546875,
+  "nvml_minus_reserved_gb_mean": 1.1313819377530223,
+  "nvml_minus_reserved_gb_max": 2.60784912109375,
+  "telemetry_samples": 1127,
+  "nvml_physical_device": 0,
+  "foreign_procs_on_gpu": 0,
+  "engine/max_batch_size": 128,
+  "engine/batches_run": 4,
+  "engine/mean_batch_size": 64.0,
+  "engine/useful_decode_steps": 33467,
+  "engine/padded_decode_steps": 36686,
+  "engine/wasted_decode_ratio": 0.5229427109318204,
+  "engine/pad_token_ratio": 0.5738577337590741,
+  "engine/batch_timeout_s": 0.01,
+  "engine/oom_count": 0,
+  "engine/kv_allocated_gb": 20.25,
+  "engine/kv_budget_gb": null,
+  "engine/kv_bytes_per_token": 147456,
+  "engine/kv_max_len": 1152,
+  "engine/kv_occupancy": 0.6449652777777778,
+  "gpu_total_gb": 47.37200927734375,
+  "peak_alloc_gb": 45.205448627471924,
+  "peak_reserved_gb": 46.83984375,
+  "fragmentation_gb": 1.6343951225280762,
+  "allocator_slack_gb": 1.6343951225280762,
+  "reserved_headroom_gb": 0.53216552734375
+}
+[saved] runs/p2_static_batch/p2_static_batch-chat_short-c128-0921-012929
+##### END p2_b128_c128_len1152 exit=0  2670 MHz, 61, 88.18 W
+
+##### BEGIN p3_r1_c1_kv4  2026-09-21T01:34:52-04:00
+{
+  "python": "3.12.13",
+  "platform": "Linux-6.12.43+deb12-amd64-x86_64-with-glibc2.36",
+  "torch": "2.13.0+cu130",
+  "cuda": "13.0",
+  "cudnn": "92000",
+  "gpu_name": "NVIDIA RTX 6000 Ada Generation",
+  "gpu_capability": "8.9",
+  "gpu_count": 1,
+  "gpu_mem_total_gb": 47.37,
+  "driver": "580.95.05",
+  "git_sha": "f5a97080229a2879bbbd68cf59dadf6b0718c437",
+  "git_dirty": true,
+  "cuda_visible_devices": "0",
+  "pytorch_cuda_alloc_conf": "expandable_segments:True",
+  "torch_device_index": 0,
+  "nvml_physical_device": 0
+}
+wandb: [wandb.login()] Loaded credentials for https://api.wandb.ai from /home/nilesh/.netrc.
+wandb: Currently logged in as: nilesh-auradkar (nilesh-auradkar-personal) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: WARNING Using a boolean value for 'reinit' is deprecated. Use 'return_previous' or 'finish_previous' instead.
+wandb: setting up run tfpx5ys4
+wandb: Tracking run with wandb version 0.29.0
+wandb: Run data is saved locally in /home/nilesh/InferenceForge/wandb/run-20260921_014800-tfpx5ys4
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run p3_continuous_batch-chat_short-c1-0921-013453
+wandb: ⭐️ View project at https://wandb.ai/nilesh-auradkar-personal/llm-inference-from-scratch
+wandb: 🚀 View run at https://wandb.ai/nilesh-auradkar-personal/llm-inference-from-scratch/runs/tfpx5ys4
+wandb: Adding directory to artifact (runs/p3_continuous_batch/p3_continuous_batch-chat_short-c1-0921-013453)... Done. 0.0s
+wandb: updating run metadata; uploading artifact run-tfpx5ys4-requests; uploading artifact run-p3_continuous_batch-chat_short-c1-0921-013453
+wandb: uploading artifact run-tfpx5ys4-requests; uploading artifact run-p3_continuous_batch-chat_short-c1-0921-013453
+wandb: uploading artifact run-p3_continuous_batch-chat_short-c1-0921-013453
+wandb: uploading history steps 0-0, summary, console lines 0-0
+wandb: 
+wandb: Run summary:
+wandb:       allocator_slack_gb 0.05561
+wandb:               e2e_p50_ms 2689.42639
+wandb:               e2e_p99_ms 6454.40653
+wandb:   engine/admission_iters 256
+wandb:  engine/admission_stalls 0
+wandb:         engine/attn_impl broadcast
+wandb: engine/block_utilization 0
+wandb:  engine/blocks_peak_used 56
+wandb:      engine/blocks_total 1820
+wandb:       engine/blocks_used 0
+wandb:                      +65 ...
+wandb: 
+wandb: 🚀 View run p3_continuous_batch-chat_short-c1-0921-013453 at: https://wandb.ai/nilesh-auradkar-personal/llm-inference-from-scratch/runs/tfpx5ys4
+wandb: ⭐️ View project at: https://wandb.ai/nilesh-auradkar-personal/llm-inference-from-scratch
+wandb: Synced 5 W&B file(s), 1 media file(s), 7 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20260921_014800-tfpx5ys4/logs
+[p3] max_running=1 block_size=16 blocks=1820 kv=4.00 GiB attn=broadcast
+
+=== p3_continuous_batch-chat_short-c1-0921-013453 ===
+{
+  "n_measured": 256,
+  "n_warmup": 8,
+  "prompt_len_mean": 261.18359375,
+  "prompt_len_p99": 538.5999999999999,
+  "output_len_mean": 130.73046875,
+  "total_prompt_tokens": 66863,
+  "total_output_tokens": 33467
+}
+{
+  "n_requests": 256,
+  "n_failed": 0,
+  "wall_s": 756.1987401526421,
+  "request_throughput_rps": 0.33853534316696327,
+  "output_throughput_tps": 44.25688410065922,
+  "total_throughput_tps": 132.6767616403962,
+  "goodput_rps": 0.33853534316696327,
+  "slo_attainment": 1.0,
+  "ttft_mean_ms": 30.065281986026093,
+  "ttft_p50_ms": 26.26215945929289,
+  "ttft_p90_ms": 37.7637124620378,
+  "ttft_p99_ms": 54.06497409567236,
+  "ttft_service_p50_ms": 25.50206333398819,
+  "queue_p50_ms": 0.7596854120492935,
+  "queue_p99_ms": 0.8540005423128605,
+  "tpot_mean_ms": 22.527718402930176,
+  "tpot_p50_ms": 22.55148035580173,
+  "tpot_p99_ms": 22.988476357662996,
+  "itl_p99_ms": 23.654219601303343,
+  "per_stream_tps": 44.389759411673495,
+  "e2e_p50_ms": 2689.4263895228505,
+  "e2e_p99_ms": 6454.406533949076,
+  "total_prompt_tokens": 66863,
+  "total_output_tokens": 33467,
+  "errors": {},
+  "gpu_util_pct_mean": 68.58029197080292,
+  "gpu_util_pct_max": 86.0,
+  "mem_util_pct_mean": 49.14399469143995,
+  "mem_util_pct_max": 51.0,
+  "mem_used_gb_mean": 12.85535425339302,
+  "mem_used_gb_max": 12.85589599609375,
+  "torch_alloc_gb_mean": 11.503835841054226,
+  "torch_alloc_gb_max": 11.53787088394165,
+  "torch_reserved_gb_mean": 11.73188013229927,
+  "torch_reserved_gb_max": 11.732421875,
+  "nvml_minus_reserved_gb_mean": 1.12347412109375,
+  "nvml_minus_reserved_gb_max": 1.12347412109375,
+  "telemetry_samples": 3014,
+  "nvml_physical_device": 0,
+  "foreign_procs_on_gpu": 0,
+  "engine/max_running": 1,
+  "engine/max_running_seen": 1,
+  "engine/iterations": 33467,
+  "engine/admission_iters": 256,
+  "engine/prefill_forwards": 256,
+  "engine/decode_iters": 33211,
+  "engine/mean_decode_batch": 1.0,
+  "engine/useful_decode_steps": 33467,
+  "engine/padded_decode_steps": 0,
+  "engine/wasted_decode_ratio": 0.0,
+  "engine/prefill_tokens": 66863,
+  "engine/admission_stalls": 0,
+  "engine/oom_count": 0,
+  "engine/attn_impl": "broadcast",
+  "engine/kv_allocated_gb": 3.9990234375,
+  "engine/kv_block_size": 16,
+  "engine/kv_bytes_per_block": 2359296,
+  "engine/kv_bytes_per_token": 147456,
+  "engine/blocks_total": 1820,
+  "engine/blocks_used": 0,
+  "engine/blocks_peak_used": 56,
+  "engine/block_utilization": 0.0,
+  "engine/peak_block_utilization": 0.03076923076923077,
+  "engine/failed_allocs": 0,
+  "engine/gather_ms_per_layer": 0.03460143205702753,
+  "engine/gather_ms_per_step": 1.245651554052991,
+  "engine/gather_samples": 665,
+  "engine/gather_bytes_per_layer": 2765914.8511278196,
+  "engine/gather_effective_gbps": 79.93642709842884,
+  "gpu_total_gb": 47.37200927734375,
+  "peak_alloc_gb": 11.676811218261719,
+  "peak_reserved_gb": 11.732421875,
+  "fragmentation_gb": 0.05561065673828125,
+  "allocator_slack_gb": 0.05561065673828125,
+  "reserved_headroom_gb": 35.63958740234375
+}
+[saved] runs/p3_continuous_batch/p3_continuous_batch-chat_short-c1-0921-013453
+##### END p3_r1_c1_kv4 exit=0  2670 MHz, 53, 79.49 W
+
+##### BEGIN p3_r2_c2_kv4  2026-09-21T01:48:20-04:00
+{
+  "python": "3.12.13",
+  "platform": "Linux-6.12.43+deb12-amd64-x86_64-with-glibc2.36",
+  "torch": "2.13.0+cu130",
+  "cuda": "13.0",
+  "cudnn": "92000",
+  "gpu_name": "NVIDIA RTX 6000 Ada Generation",
+  "gpu_capability": "8.9",
+  "gpu_count": 1,
+  "gpu_mem_total_gb": 47.37,
+  "driver": "580.95.05",
+  "git_sha": "f5a97080229a2879bbbd68cf59dadf6b0718c437",
+  "git_dirty": true,
+  "cuda_visible_devices": "0",
+  "pytorch_cuda_alloc_conf": "expandable_segments:True",
+  "torch_device_index": 0,
+  "nvml_physical_device": 0
+}
+wandb: [wandb.login()] Loaded credentials for https://api.wandb.ai from /home/nilesh/.netrc.
+wandb: Currently logged in as: nilesh-auradkar (nilesh-auradkar-personal) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: WARNING Using a boolean value for 'reinit' is deprecated. Use 'return_previous' or 'finish_previous' instead.
+wandb: setting up run 6tpiw55c
+wandb: Tracking run with wandb version 0.29.0
+wandb: Run data is saved locally in /home/nilesh/InferenceForge/wandb/run-20260921_015536-6tpiw55c
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run p3_continuous_batch-chat_short-c2-0921-014821
+wandb: ⭐️ View project at https://wandb.ai/nilesh-auradkar-personal/llm-inference-from-scratch
+wandb: 🚀 View run at https://wandb.ai/nilesh-auradkar-personal/llm-inference-from-scratch/runs/6tpiw55c
+wandb: Adding directory to artifact (runs/p3_continuous_batch/p3_continuous_batch-chat_short-c2-0921-014821)... Done. 0.0s
+wandb: updating run metadata; uploading artifact run-6tpiw55c-requests; uploading artifact run-p3_continuous_batch-chat_short-c2-0921-014821
+wandb: uploading artifact run-6tpiw55c-requests; uploading artifact run-p3_continuous_batch-chat_short-c2-0921-014821
+wandb: uploading artifact run-p3_continuous_batch-chat_short-c2-0921-014821
+wandb: uploading history steps 0-0, summary, console lines 0-0
+wandb: 
+wandb: Run summary:
+wandb:       allocator_slack_gb 0.05561
+wandb:               e2e_p50_ms 2935.00226
+wandb:               e2e_p99_ms 7124.7689
+wandb:   engine/admission_iters 256
+wandb:  engine/admission_stalls 0
+wandb:         engine/attn_impl broadcast
+wandb: engine/block_utilization 0
+wandb:  engine/blocks_peak_used 89
+wandb:      engine/blocks_total 1820
+wandb:       engine/blocks_used 0
+wandb:                      +65 ...
+wandb: 
+wandb: 🚀 View run p3_continuous_batch-chat_short-c2-0921-014821 at: https://wandb.ai/nilesh-auradkar-personal/llm-inference-from-scratch/runs/6tpiw55c
+wandb: ⭐️ View project at: https://wandb.ai/nilesh-auradkar-personal/llm-inference-from-scratch
+wandb: Synced 5 W&B file(s), 1 media file(s), 7 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20260921_015536-6tpiw55c/logs
+[p3] max_running=2 block_size=16 blocks=1820 kv=4.00 GiB attn=broadcast
+
+=== p3_continuous_batch-chat_short-c2-0921-014821 ===
+{
+  "n_measured": 256,
+  "n_warmup": 8,
+  "prompt_len_mean": 261.18359375,
+  "prompt_len_p99": 538.5999999999999,
+  "output_len_mean": 130.73046875,
+  "total_prompt_tokens": 66863,
+  "total_output_tokens": 33467
+}
+{
+  "n_requests": 256,
+  "n_failed": 0,
+  "wall_s": 414.4913652688265,
+  "request_throughput_rps": 0.6176244463716782,
+  "output_throughput_tps": 80.74233338562873,
+  "total_throughput_tps": 242.05570587683778,
+  "goodput_rps": 0.6176244463716782,
+  "slo_attainment": 1.0,
+  "ttft_mean_ms": 53.368253938970156,
+  "ttft_p50_ms": 49.801761750131845,
+  "ttft_p90_ms": 61.10072415322065,
+  "ttft_p99_ms": 77.63550612144172,
+  "ttft_service_p50_ms": 25.93975141644478,
+  "queue_p50_ms": 23.741047363728285,
+  "queue_p99_ms": 25.486164959147573,
+  "tpot_mean_ms": 24.5452362447138,
+  "tpot_p50_ms": 24.565444260879588,
+  "tpot_p99_ms": 25.12858730024092,
+  "itl_p99_ms": 26.200030744075793,
+  "per_stream_tps": 40.741103081269614,
+  "e2e_p50_ms": 2935.0022580474615,
+  "e2e_p99_ms": 7124.7688978444785,
+  "total_prompt_tokens": 66863,
+  "total_output_tokens": 33467,
+  "errors": {},
+  "gpu_util_pct_mean": 75.8638014527845,
+  "gpu_util_pct_max": 91.0,
+  "mem_util_pct_mean": 51.63256658595642,
+  "mem_util_pct_max": 58.0,
+  "mem_used_gb_mean": 12.855360423681523,
+  "mem_used_gb_max": 12.85589599609375,
+  "torch_alloc_gb_mean": 11.506706970078605,
+  "torch_alloc_gb_max": 11.545146465301514,
+  "torch_reserved_gb_mean": 11.731886302587773,
+  "torch_reserved_gb_max": 11.732421875,
+  "nvml_minus_reserved_gb_mean": 1.12347412109375,
+  "nvml_minus_reserved_gb_max": 1.12347412109375,
+  "telemetry_samples": 1652,
+  "nvml_physical_device": 0,
+  "foreign_procs_on_gpu": 0,
+  "engine/max_running": 2,
+  "engine/max_running_seen": 2,
+  "engine/iterations": 16990,
+  "engine/admission_iters": 256,
+  "engine/prefill_forwards": 256,
+  "engine/decode_iters": 16734,
+  "engine/mean_decode_batch": 1.9846420461336203,
+  "engine/useful_decode_steps": 33467,
+  "engine/padded_decode_steps": 0,
+  "engine/wasted_decode_ratio": 0.0,
+  "engine/prefill_tokens": 66863,
+  "engine/admission_stalls": 0,
+  "engine/oom_count": 0,
+  "engine/attn_impl": "broadcast",
+  "engine/kv_allocated_gb": 3.9990234375,
+  "engine/kv_block_size": 16,
+  "engine/kv_bytes_per_block": 2359296,
+  "engine/kv_bytes_per_token": 147456,
+  "engine/blocks_total": 1820,
+  "engine/blocks_used": 0,
+  "engine/blocks_peak_used": 89,
+  "engine/block_utilization": 0.0,
+  "engine/peak_block_utilization": 0.0489010989010989,
+  "engine/failed_allocs": 0,
+  "engine/gather_ms_per_layer": 0.03579835307909482,
+  "engine/gather_ms_per_step": 1.2887407108474136,
+  "engine/gather_samples": 335,
+  "engine/gather_bytes_per_layer": 6543842.96119403,
+  "engine/gather_effective_gbps": 182.79731882457577,
+  "gpu_total_gb": 47.37200927734375,
+  "peak_alloc_gb": 11.676811218261719,
+  "peak_reserved_gb": 11.732421875,
+  "fragmentation_gb": 0.05561065673828125,
+  "allocator_slack_gb": 0.05561065673828125,
+  "reserved_headroom_gb": 35.63958740234375
+}
+[saved] runs/p3_continuous_batch/p3_continuous_batch-chat_short-c2-0921-014821
+##### END p3_r2_c2_kv4 exit=0  2670 MHz, 54, 79.76 W
+
+##### BEGIN p3_r4_c4_kv4  2026-09-21T01:55:55-04:00
+{
+  "python": "3.12.13",
+  "platform": "Linux-6.12.43+deb12-amd64-x86_64-with-glibc2.36",
+  "torch": "2.13.0+cu130",
+  "cuda": "13.0",
+  "cudnn": "92000",
+  "gpu_name": "NVIDIA RTX 6000 Ada Generation",
+  "gpu_capability": "8.9",
+  "gpu_count": 1,
+  "gpu_mem_total_gb": 47.37,
+  "driver": "580.95.05",
+  "git_sha": "f5a97080229a2879bbbd68cf59dadf6b0718c437",
+  "git_dirty": true,
+  "cuda_visible_devices": "0",
+  "pytorch_cuda_alloc_conf": "expandable_segments:True",
+  "torch_device_index": 0,
+  "nvml_physical_device": 0
+}
+wandb: [wandb.login()] Loaded credentials for https://api.wandb.ai from /home/nilesh/.netrc.
+wandb: Currently logged in as: nilesh-auradkar (nilesh-auradkar-personal) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: WARNING Using a boolean value for 'reinit' is deprecated. Use 'return_previous' or 'finish_previous' instead.
+wandb: setting up run 7z1fpjvn
+wandb: Tracking run with wandb version 0.29.0
+wandb: Run data is saved locally in /home/nilesh/InferenceForge/wandb/run-20260921_015941-7z1fpjvn
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run p3_continuous_batch-chat_short-c4-0921-015556
+wandb: ⭐️ View project at https://wandb.ai/nilesh-auradkar-personal/llm-inference-from-scratch
+wandb: 🚀 View run at https://wandb.ai/nilesh-auradkar-personal/llm-inference-from-scratch/runs/7z1fpjvn
+wandb: Adding directory to artifact (runs/p3_continuous_batch/p3_continuous_batch-chat_short-c4-0921-015556)... Done. 0.0s
+wandb: updating run metadata; uploading artifact run-7z1fpjvn-requests; uploading artifact run-p3_continuous_batch-chat_short-c4-0921-015556
+wandb: uploading artifact run-7z1fpjvn-requests; uploading artifact run-p3_continuous_batch-chat_short-c4-0921-015556
+wandb: uploading wandb-metadata.json; uploading requirements.txt; uploading media/table/requests_0_2c1acffc6837f6191bb1.table.json; uploading output.log; uploading wandb-summary.json (+ 1 more)
+wandb: 
+wandb: Run summary:
+wandb:       allocator_slack_gb 0.05561
+wandb:               e2e_p50_ms 2973.03072
+wandb:               e2e_p99_ms 7252.60343
+wandb:   engine/admission_iters 251
+wandb:  engine/admission_stalls 0
+wandb:         engine/attn_impl broadcast
+wandb: engine/block_utilization 0
+wandb:  engine/blocks_peak_used 144
+wandb:      engine/blocks_total 1820
+wandb:       engine/blocks_used 0
+wandb:                      +65 ...
+wandb: 
+wandb: 🚀 View run p3_continuous_batch-chat_short-c4-0921-015556 at: https://wandb.ai/nilesh-auradkar-personal/llm-inference-from-scratch/runs/7z1fpjvn
+wandb: ⭐️ View project at: https://wandb.ai/nilesh-auradkar-personal/llm-inference-from-scratch
+wandb: Synced 5 W&B file(s), 1 media file(s), 7 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20260921_015941-7z1fpjvn/logs
+[p3] max_running=4 block_size=16 blocks=1820 kv=4.00 GiB attn=broadcast
+
+=== p3_continuous_batch-chat_short-c4-0921-015556 ===
+{
+  "n_measured": 256,
+  "n_warmup": 8,
+  "prompt_len_mean": 261.18359375,
+  "prompt_len_p99": 538.5999999999999,
+  "output_len_mean": 130.73046875,
+  "total_prompt_tokens": 66863,
+  "total_output_tokens": 33467
+}
+{
+  "n_requests": 256,
+  "n_failed": 0,
+  "wall_s": 211.35031504556537,
+  "request_throughput_rps": 1.2112591360216736,
+  "output_throughput_tps": 158.3484746298334,
+  "total_throughput_tps": 474.70948873849414,
+  "goodput_rps": 1.2112591360216736,
+  "slo_attainment": 1.0,
+  "ttft_mean_ms": 54.63314762528171,
+  "ttft_p50_ms": 50.18599098548293,
+  "ttft_p90_ms": 63.40656150132418,
+  "ttft_p99_ms": 91.96065445430564,
+  "ttft_service_p50_ms": 26.036905124783516,
+  "queue_p50_ms": 23.948679212480783,
+  "queue_p99_ms": 57.40205608308314,
+  "tpot_mean_ms": 24.878464273924077,
+  "tpot_p50_ms": 24.811164540652598,
+  "tpot_p99_ms": 26.21986117563602,
+  "itl_p99_ms": 53.43941505998373,
+  "per_stream_tps": 40.19540711956776,
+  "e2e_p50_ms": 2973.0307180434465,
+  "e2e_p99_ms": 7252.603433420881,
+  "total_prompt_tokens": 66863,
+  "total_output_tokens": 33467,
+  "errors": {},
+  "gpu_util_pct_mean": 89.3938315539739,
+  "gpu_util_pct_max": 98.0,
+  "mem_util_pct_mean": 60.16725978647687,
+  "mem_util_pct_max": 71.0,
+  "mem_used_gb_mean": 12.855374699385566,
+  "mem_used_gb_max": 12.85589599609375,
+  "torch_alloc_gb_mean": 11.512907438855155,
+  "torch_alloc_gb_max": 11.58164119720459,
+  "torch_reserved_gb_mean": 11.731900578291816,
+  "torch_reserved_gb_max": 11.732421875,
+  "nvml_minus_reserved_gb_mean": 1.12347412109375,
+  "nvml_minus_reserved_gb_max": 1.12347412109375,
+  "telemetry_samples": 843,
+  "nvml_physical_device": 0,
+  "foreign_procs_on_gpu": 0,
+  "engine/max_running": 4,
+  "engine/max_running_seen": 4,
+  "engine/iterations": 8669,
+  "engine/admission_iters": 251,
+  "engine/prefill_forwards": 256,
+  "engine/decode_iters": 8418,
+  "engine/mean_decode_batch": 3.9452363981943455,
+  "engine/useful_decode_steps": 33467,
+  "engine/padded_decode_steps": 0,
+  "engine/wasted_decode_ratio": 0.0,
+  "engine/prefill_tokens": 66863,
+  "engine/admission_stalls": 0,
+  "engine/oom_count": 0,
+  "engine/attn_impl": "broadcast",
+  "engine/kv_allocated_gb": 3.9990234375,
+  "engine/kv_block_size": 16,
+  "engine/kv_bytes_per_block": 2359296,
+  "engine/kv_bytes_per_token": 147456,
+  "engine/blocks_total": 1820,
+  "engine/blocks_used": 0,
+  "engine/blocks_peak_used": 144,
+  "engine/block_utilization": 0.0,
+  "engine/peak_block_utilization": 0.07912087912087912,
+  "engine/failed_allocs": 0,
+  "engine/gather_ms_per_layer": 0.03599848602650434,
+  "engine/gather_ms_per_step": 1.2959454969541562,
+  "engine/gather_samples": 169,
+  "engine/gather_bytes_per_layer": 14899163.644970413,
+  "engine/gather_effective_gbps": 413.88306258215187,
+  "gpu_total_gb": 47.37200927734375,
+  "peak_alloc_gb": 11.676811218261719,
+  "peak_reserved_gb": 11.732421875,
+  "fragmentation_gb": 0.05561065673828125,
+  "allocator_slack_gb": 0.05561065673828125,
+  "reserved_headroom_gb": 35.63958740234375
+}
+[saved] runs/p3_continuous_batch/p3_continuous_batch-chat_short-c4-0921-015556
+##### END p3_r4_c4_kv4 exit=0  2670 MHz, 56, 80.64 W
+
+##### BEGIN p3_r8_c8_kv4  2026-09-21T02:00:01-04:00
+{
+  "python": "3.12.13",
+  "platform": "Linux-6.12.43+deb12-amd64-x86_64-with-glibc2.36",
+  "torch": "2.13.0+cu130",
+  "cuda": "13.0",
+  "cudnn": "92000",
+  "gpu_name": "NVIDIA RTX 6000 Ada Generation",
+  "gpu_capability": "8.9",
+  "gpu_count": 1,
+  "gpu_mem_total_gb": 47.37,
+  "driver": "580.95.05",
+  "git_sha": "f5a97080229a2879bbbd68cf59dadf6b0718c437",
+  "git_dirty": true,
+  "cuda_visible_devices": "0",
+  "pytorch_cuda_alloc_conf": "expandable_segments:True",
+  "torch_device_index": 0,
+  "nvml_physical_device": 0
+}
+wandb: [wandb.login()] Loaded credentials for https://api.wandb.ai from /home/nilesh/.netrc.
+wandb: Currently logged in as: nilesh-auradkar (nilesh-auradkar-personal) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: WARNING Using a boolean value for 'reinit' is deprecated. Use 'return_previous' or 'finish_previous' instead.
+wandb: setting up run mcgykorz
+wandb: Tracking run with wandb version 0.29.0
+wandb: Run data is saved locally in /home/nilesh/InferenceForge/wandb/run-20260921_020236-mcgykorz
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run p3_continuous_batch-chat_short-c8-0921-020002
+wandb: ⭐️ View project at https://wandb.ai/nilesh-auradkar-personal/llm-inference-from-scratch
+wandb: 🚀 View run at https://wandb.ai/nilesh-auradkar-personal/llm-inference-from-scratch/runs/mcgykorz
+wandb: Adding directory to artifact (runs/p3_continuous_batch/p3_continuous_batch-chat_short-c8-0921-020002)... Done. 0.0s
+wandb: updating run metadata; uploading artifact run-mcgykorz-requests; uploading artifact run-p3_continuous_batch-chat_short-c8-0921-020002
+wandb: uploading artifact run-mcgykorz-requests; uploading artifact run-p3_continuous_batch-chat_short-c8-0921-020002
+wandb: uploading history steps 0-0, summary, console lines 0-0
+wandb: 
+wandb: Run summary:
+wandb:       allocator_slack_gb 0.03541
+wandb:               e2e_p50_ms 3935.54735
+wandb:               e2e_p99_ms 9190.30718
+wandb:   engine/admission_iters 244
+wandb:  engine/admission_stalls 0
+wandb:         engine/attn_impl broadcast
+wandb: engine/block_utilization 0
+wandb:  engine/blocks_peak_used 266
+wandb:      engine/blocks_total 1820
+wandb:       engine/blocks_used 0
+wandb:                      +65 ...
+wandb: 
+wandb: 🚀 View run p3_continuous_batch-chat_short-c8-0921-020002 at: https://wandb.ai/nilesh-auradkar-personal/llm-inference-from-scratch/runs/mcgykorz
+wandb: ⭐️ View project at: https://wandb.ai/nilesh-auradkar-personal/llm-inference-from-scratch
+wandb: Synced 5 W&B file(s), 1 media file(s), 7 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20260921_020236-mcgykorz/logs
+[p3] max_running=8 block_size=16 blocks=1820 kv=4.00 GiB attn=broadcast
+
+=== p3_continuous_batch-chat_short-c8-0921-020002 ===
+{
+  "n_measured": 256,
+  "n_warmup": 8,
+  "prompt_len_mean": 261.18359375,
+  "prompt_len_p99": 538.5999999999999,
+  "output_len_mean": 130.73046875,
+  "total_prompt_tokens": 66863,
+  "total_output_tokens": 33467
+}
+{
+  "n_requests": 256,
+  "n_failed": 0,
+  "wall_s": 141.52818869240582,
+  "request_throughput_rps": 1.8088269366351084,
+  "output_throughput_tps": 236.46879331393427,
+  "total_throughput_tps": 708.9047130960954,
+  "goodput_rps": 1.8088269366351084,
+  "slo_attainment": 1.0,
+  "ttft_mean_ms": 61.768367886543274,
+  "ttft_p50_ms": 57.49176908284426,
+  "ttft_p90_ms": 69.33955103158951,
+  "ttft_p99_ms": 161.95981544442438,
+  "ttft_service_p50_ms": 26.64623875170946,
+  "queue_p50_ms": 27.895035687834024,
+  "queue_p99_ms": 132.95760191976996,
+  "tpot_mean_ms": 32.86917600026265,
+  "tpot_p50_ms": 32.655179931085826,
+  "tpot_p99_ms": 39.91220664597817,
+  "itl_p99_ms": 70.51820401102304,
+  "per_stream_tps": 30.423640677576138,
+  "e2e_p50_ms": 3935.547349974513,
+  "e2e_p99_ms": 9190.307175181806,
+  "total_prompt_tokens": 66863,
+  "total_output_tokens": 33467,
+  "errors": {},
+  "gpu_util_pct_mean": 94.39007092198581,
+  "gpu_util_pct_max": 97.0,
+  "mem_util_pct_mean": 71.54255319148936,
+  "mem_util_pct_max": 78.0,
+  "mem_used_gb_mean": 12.855397325880984,
+  "mem_used_gb_max": 12.85589599609375,
+  "torch_alloc_gb_mean": 11.523161998031833,
+  "torch_alloc_gb_max": 11.672022342681885,
+  "torch_reserved_gb_mean": 11.731923204787234,
+  "torch_reserved_gb_max": 11.732421875,
+  "nvml_minus_reserved_gb_mean": 1.12347412109375,
+  "nvml_minus_reserved_gb_max": 1.12347412109375,
+  "telemetry_samples": 564,
+  "nvml_physical_device": 0,
+  "foreign_procs_on_gpu": 0,
+  "engine/max_running": 8,
+  "engine/max_running_seen": 8,
+  "engine/iterations": 4569,
+  "engine/admission_iters": 244,
+  "engine/prefill_forwards": 256,
+  "engine/decode_iters": 4325,
+  "engine/mean_decode_batch": 7.678843930635838,
+  "engine/useful_decode_steps": 33467,
+  "engine/padded_decode_steps": 0,
+  "engine/wasted_decode_ratio": 0.0,
+  "engine/prefill_tokens": 66863,
+  "engine/admission_stalls": 0,
+  "engine/oom_count": 0,
+  "engine/attn_impl": "broadcast",
+  "engine/kv_allocated_gb": 3.9990234375,
+  "engine/kv_block_size": 16,
+  "engine/kv_bytes_per_block": 2359296,
+  "engine/kv_bytes_per_token": 147456,
+  "engine/blocks_total": 1820,
+  "engine/blocks_used": 0,
+  "engine/blocks_peak_used": 266,
+  "engine/block_utilization": 0.0,
+  "engine/peak_block_utilization": 0.14615384615384616,
+  "engine/failed_allocs": 0,
+  "engine/gather_ms_per_layer": 0.03620597792939208,
+  "engine/gather_ms_per_step": 1.3034152054581147,
+  "engine/gather_samples": 87,
+  "engine/gather_bytes_per_layer": 32758583.908045977,
+  "engine/gather_effective_gbps": 904.783844588617,
+  "gpu_total_gb": 47.37200927734375,
+  "peak_alloc_gb": 11.697010517120361,
+  "peak_reserved_gb": 11.732421875,
+  "fragmentation_gb": 0.03541135787963867,
+  "allocator_slack_gb": 0.03541135787963867,
+  "reserved_headroom_gb": 35.63958740234375
+}
+[saved] runs/p3_continuous_batch/p3_continuous_batch-chat_short-c8-0921-020002
+##### END p3_r8_c8_kv4 exit=0  2670 MHz, 59, 84.70 W
+
+##### BEGIN p3_r16_c16_kv4  2026-09-21T02:02:56-04:00
+{
+  "python": "3.12.13",
+  "platform": "Linux-6.12.43+deb12-amd64-x86_64-with-glibc2.36",
+  "torch": "2.13.0+cu130",
+  "cuda": "13.0",
+  "cudnn": "92000",
+  "gpu_name": "NVIDIA RTX 6000 Ada Generation",
+  "gpu_capability": "8.9",
+  "gpu_count": 1,
+  "gpu_mem_total_gb": 47.37,
+  "driver": "580.95.05",
+  "git_sha": "f5a97080229a2879bbbd68cf59dadf6b0718c437",
+  "git_dirty": true,
+  "cuda_visible_devices": "0",
+  "pytorch_cuda_alloc_conf": "expandable_segments:True",
+  "torch_device_index": 0,
+  "nvml_physical_device": 0
+}
+wandb: [wandb.login()] Loaded credentials for https://api.wandb.ai from /home/nilesh/.netrc.
+wandb: Currently logged in as: nilesh-auradkar (nilesh-auradkar-personal) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: WARNING Using a boolean value for 'reinit' is deprecated. Use 'return_previous' or 'finish_previous' instead.
+wandb: Tracking run with wandb version 0.29.0
+wandb: Run data is saved locally in /home/nilesh/InferenceForge/wandb/run-20260921_020518-iudtt2wc
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run p3_continuous_batch-chat_short-c16-0921-020257
+wandb: ⭐️ View project at https://wandb.ai/nilesh-auradkar-personal/llm-inference-from-scratch
+wandb: 🚀 View run at https://wandb.ai/nilesh-auradkar-personal/llm-inference-from-scratch/runs/iudtt2wc
+wandb: Adding directory to artifact (runs/p3_continuous_batch/p3_continuous_batch-chat_short-c16-0921-020257)... Done. 0.0s
+wandb: updating run metadata; uploading artifact run-iudtt2wc-requests; uploading artifact run-p3_continuous_batch-chat_short-c16-0921-020257
+wandb: uploading artifact run-iudtt2wc-requests; uploading artifact run-p3_continuous_batch-chat_short-c16-0921-020257
+wandb: uploading wandb-metadata.json; uploading requirements.txt; uploading output.log
+wandb: 
+wandb: Run summary:
+wandb:       allocator_slack_gb 0.01556
+wandb:               e2e_p50_ms 7071.3994
+wandb:               e2e_p99_ms 16436.58453
+wandb:   engine/admission_iters 227
+wandb:  engine/admission_stalls 0
+wandb:         engine/attn_impl broadcast
+wandb: engine/block_utilization 0
+wandb:  engine/blocks_peak_used 488
+wandb:      engine/blocks_total 1820
+wandb:       engine/blocks_used 0
+wandb:                      +65 ...
+wandb: 
+wandb: 🚀 View run p3_continuous_batch-chat_short-c16-0921-020257 at: https://wandb.ai/nilesh-auradkar-personal/llm-inference-from-scratch/runs/iudtt2wc
+wandb: ⭐️ View project at: https://wandb.ai/nilesh-auradkar-personal/llm-inference-from-scratch
+wandb: Synced 5 W&B file(s), 1 media file(s), 7 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20260921_020518-iudtt2wc/logs
+[p3] max_running=16 block_size=16 blocks=1820 kv=4.00 GiB attn=broadcast
+
+=== p3_continuous_batch-chat_short-c16-0921-020257 ===
+{
+  "n_measured": 256,
+  "n_warmup": 8,
+  "prompt_len_mean": 261.18359375,
+  "prompt_len_p99": 538.5999999999999,
+  "output_len_mean": 130.73046875,
+  "total_prompt_tokens": 66863,
+  "total_output_tokens": 33467
+}
+{
+  "n_requests": 256,
+  "n_failed": 0,
+  "wall_s": 128.62571057025343,
+  "request_throughput_rps": 1.9902708320524818,
+  "output_throughput_tps": 260.18903881367345,
+  "total_throughput_tps": 780.0151272649433,
+  "goodput_rps": 1.9902708320524818,
+  "slo_attainment": 1.0,
+  "ttft_mean_ms": 92.4034724921512,
+  "ttft_p50_ms": 80.40187926962972,
+  "ttft_p90_ms": 109.21399248763919,
+  "ttft_p99_ms": 413.05217016488274,
+  "ttft_service_p50_ms": 27.306927368044853,
+  "queue_p50_ms": 51.134018227458,
+  "queue_p99_ms": 379.9903283361342,
+  "tpot_mean_ms": 58.7767271507746,
+  "tpot_p50_ms": 58.807770354168696,
+  "tpot_p99_ms": 74.30039739784296,
+  "itl_p99_ms": 123.32991231232882,
+  "per_stream_tps": 17.01353662368425,
+  "e2e_p50_ms": 7071.399401407689,
+  "e2e_p99_ms": 16436.58452914096,
+  "total_prompt_tokens": 66863,
+  "total_output_tokens": 33467,
+  "errors": {},
+  "gpu_util_pct_mean": 94.49122807017544,
+  "gpu_util_pct_max": 98.0,
+  "mem_util_pct_mean": 80.42105263157895,
+  "mem_util_pct_max": 89.0,
+  "mem_used_gb_mean": 13.013516610128837,
+  "mem_used_gb_max": 13.03167724609375,
+  "torch_alloc_gb_mean": 11.540396168915152,
+  "torch_alloc_gb_max": 11.867682933807373,
+  "torch_reserved_gb_mean": 11.890042489035087,
+  "torch_reserved_gb_max": 11.908203125,
+  "nvml_minus_reserved_gb_mean": 1.12347412109375,
+  "nvml_minus_reserved_gb_max": 1.12347412109375,
+  "telemetry_samples": 513,
+  "nvml_physical_device": 0,
+  "foreign_procs_on_gpu": 0,
+  "engine/max_running": 16,
+  "engine/max_running_seen": 16,
+  "engine/iterations": 2533,
+  "engine/admission_iters": 227,
+  "engine/prefill_forwards": 256,
+  "engine/decode_iters": 2306,
+  "engine/mean_decode_batch": 14.401994796183867,
+  "engine/useful_decode_steps": 33467,
+  "engine/padded_decode_steps": 0,
+  "engine/wasted_decode_ratio": 0.0,
+  "engine/prefill_tokens": 66863,
+  "engine/admission_stalls": 0,
+  "engine/oom_count": 0,
+  "engine/attn_impl": "broadcast",
+  "engine/kv_allocated_gb": 3.9990234375,
+  "engine/kv_block_size": 16,
+  "engine/kv_bytes_per_block": 2359296,
+  "engine/kv_bytes_per_token": 147456,
+  "engine/blocks_total": 1820,
+  "engine/blocks_used": 0,
+  "engine/blocks_peak_used": 488,
+  "engine/block_utilization": 0.0,
+  "engine/peak_block_utilization": 0.2681318681318681,
+  "engine/failed_allocs": 0,
+  "engine/gather_ms_per_layer": 0.05026178719832542,
+  "engine/gather_ms_per_step": 1.8094243391397151,
+  "engine/gather_samples": 47,
+  "engine/gather_bytes_per_layer": 66239814.80851064,
+  "engine/gather_effective_gbps": 1317.8961294618978,
+  "gpu_total_gb": 47.37200927734375,
+  "peak_alloc_gb": 11.89264726638794,
+  "peak_reserved_gb": 11.908203125,
+  "fragmentation_gb": 0.015555858612060547,
+  "allocator_slack_gb": 0.015555858612060547,
+  "reserved_headroom_gb": 35.46380615234375
+}
+[saved] runs/p3_continuous_batch/p3_continuous_batch-chat_short-c16-0921-020257
+##### END p3_r16_c16_kv4 exit=0  2670 MHz, 60, 86.16 W
+
+##### BEGIN p3_r32_c32_kv4  2026-09-21T02:05:38-04:00
+{
+  "python": "3.12.13",
+  "platform": "Linux-6.12.43+deb12-amd64-x86_64-with-glibc2.36",
+  "torch": "2.13.0+cu130",
+  "cuda": "13.0",
+  "cudnn": "92000",
+  "gpu_name": "NVIDIA RTX 6000 Ada Generation",
+  "gpu_capability": "8.9",
+  "gpu_count": 1,
+  "gpu_mem_total_gb": 47.37,
+  "driver": "580.95.05",
+  "git_sha": "f5a97080229a2879bbbd68cf59dadf6b0718c437",
+  "git_dirty": true,
+  "cuda_visible_devices": "0",
+  "pytorch_cuda_alloc_conf": "expandable_segments:True",
+  "torch_device_index": 0,
+  "nvml_physical_device": 0
+}
+wandb: [wandb.login()] Loaded credentials for https://api.wandb.ai from /home/nilesh/.netrc.
+wandb: Currently logged in as: nilesh-auradkar (nilesh-auradkar-personal) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: WARNING Using a boolean value for 'reinit' is deprecated. Use 'return_previous' or 'finish_previous' instead.
+wandb: setting up run n9pp98kw
+wandb: Tracking run with wandb version 0.29.0
+wandb: Run data is saved locally in /home/nilesh/InferenceForge/wandb/run-20260921_020804-n9pp98kw
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run p3_continuous_batch-chat_short-c32-0921-020539
+wandb: ⭐️ View project at https://wandb.ai/nilesh-auradkar-personal/llm-inference-from-scratch
+wandb: 🚀 View run at https://wandb.ai/nilesh-auradkar-personal/llm-inference-from-scratch/runs/n9pp98kw
+wandb: Adding directory to artifact (runs/p3_continuous_batch/p3_continuous_batch-chat_short-c32-0921-020539)... Done. 0.0s
+wandb: updating run metadata; uploading artifact run-n9pp98kw-requests; uploading artifact run-p3_continuous_batch-chat_short-c32-0921-020539
+wandb: uploading artifact run-n9pp98kw-requests; uploading artifact run-p3_continuous_batch-chat_short-c32-0921-020539
+wandb: uploading output.log; uploading wandb-summary.json; uploading config.yaml; uploading wandb-metadata.json; uploading requirements.txt (+ 1 more)
+wandb: 
+wandb: Run summary:
+wandb:       allocator_slack_gb 0.01491
+wandb:               e2e_p50_ms 14217.20553
+wandb:               e2e_p99_ms 32990.60747
+wandb:   engine/admission_iters 203
+wandb:  engine/admission_stalls 0
+wandb:         engine/attn_impl broadcast
+wandb: engine/block_utilization 0
+wandb:  engine/blocks_peak_used 930
+wandb:      engine/blocks_total 1820
+wandb:       engine/blocks_used 0
+wandb:                      +65 ...
+wandb: 
+wandb: 🚀 View run p3_continuous_batch-chat_short-c32-0921-020539 at: https://wandb.ai/nilesh-auradkar-personal/llm-inference-from-scratch/runs/n9pp98kw
+wandb: ⭐️ View project at: https://wandb.ai/nilesh-auradkar-personal/llm-inference-from-scratch
+wandb: Synced 5 W&B file(s), 1 media file(s), 7 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20260921_020804-n9pp98kw/logs
+[p3] max_running=32 block_size=16 blocks=1820 kv=4.00 GiB attn=broadcast
+
+=== p3_continuous_batch-chat_short-c32-0921-020539 ===
+{
+  "n_measured": 256,
+  "n_warmup": 8,
+  "prompt_len_mean": 261.18359375,
+  "prompt_len_p99": 538.5999999999999,
+  "output_len_mean": 130.73046875,
+  "total_prompt_tokens": 66863,
+  "total_output_tokens": 33467
+}
+{
+  "n_requests": 256,
+  "n_failed": 0,
+  "wall_s": 133.02155482489616,
+  "request_throughput_rps": 1.9245001333579912,
+  "output_throughput_tps": 251.59080454332772,
+  "total_throughput_tps": 754.2386655461221,
+  "goodput_rps": 0.1277988369808041,
+  "slo_attainment": 0.06640625,
+  "ttft_mean_ms": 179.4630512886215,
+  "ttft_p50_ms": 145.76073130592704,
+  "ttft_p90_ms": 221.70520387589931,
+  "ttft_p99_ms": 874.0479626227168,
+  "ttft_service_p50_ms": 27.838264126330614,
+  "queue_p50_ms": 115.78502412885427,
+  "queue_p99_ms": 849.7748997993765,
+  "tpot_mean_ms": 121.3337100973755,
+  "tpot_p50_ms": 122.96735247639188,
+  "tpot_p99_ms": 148.3193411661908,
+  "itl_p99_ms": 203.51541507989168,
+  "per_stream_tps": 8.241732649545268,
+  "e2e_p50_ms": 14217.205534223467,
+  "e2e_p99_ms": 32990.607469715156,
+  "total_prompt_tokens": 66863,
+  "total_output_tokens": 33467,
+  "errors": {},
+  "gpu_util_pct_mean": 95.34651600753295,
+  "gpu_util_pct_max": 100.0,
+  "mem_util_pct_mean": 87.59887005649718,
+  "mem_util_pct_max": 96.0,
+  "mem_used_gb_mean": 13.382393759747234,
+  "mem_used_gb_max": 13.42230224609375,
+  "torch_alloc_gb_mean": 11.594302066975395,
+  "torch_alloc_gb_max": 12.23106336593628,
+  "torch_reserved_gb_mean": 12.258919638653484,
+  "torch_reserved_gb_max": 12.298828125,
+  "nvml_minus_reserved_gb_mean": 1.12347412109375,
+  "nvml_minus_reserved_gb_max": 1.12347412109375,
+  "telemetry_samples": 531,
+  "nvml_physical_device": 0,
+  "foreign_procs_on_gpu": 0,
+  "engine/max_running": 32,
+  "engine/max_running_seen": 32,
+  "engine/iterations": 1483,
+  "engine/admission_iters": 203,
+  "engine/prefill_forwards": 256,
+  "engine/decode_iters": 1280,
+  "engine/mean_decode_batch": 25.94609375,
+  "engine/useful_decode_steps": 33467,
+  "engine/padded_decode_steps": 0,
+  "engine/wasted_decode_ratio": 0.0,
+  "engine/prefill_tokens": 66863,
+  "engine/admission_stalls": 0,
+  "engine/oom_count": 0,
+  "engine/attn_impl": "broadcast",
+  "engine/kv_allocated_gb": 3.9990234375,
+  "engine/kv_block_size": 16,
+  "engine/kv_bytes_per_block": 2359296,
+  "engine/kv_bytes_per_token": 147456,
+  "engine/blocks_total": 1820,
+  "engine/blocks_used": 0,
+  "engine/blocks_peak_used": 930,
+  "engine/block_utilization": 0.0,
+  "engine/peak_block_utilization": 0.510989010989011,
+  "engine/failed_allocs": 0,
+  "engine/gather_ms_per_layer": 0.09365907655312465,
+  "engine/gather_ms_per_step": 3.3717267559124875,
+  "engine/gather_samples": 26,
+  "engine/gather_bytes_per_layer": 131816526.76923077,
+  "engine/gather_effective_gbps": 1407.4079269238014,
+  "gpu_total_gb": 47.37200927734375,
+  "peak_alloc_gb": 12.283921718597412,
+  "peak_reserved_gb": 12.298828125,
+  "fragmentation_gb": 0.01490640640258789,
+  "allocator_slack_gb": 0.01490640640258789,
+  "reserved_headroom_gb": 35.07318115234375
+}
+[saved] runs/p3_continuous_batch/p3_continuous_batch-chat_short-c32-0921-020539
+##### END p3_r32_c32_kv4 exit=0  2670 MHz, 60, 86.40 W
+
+##### BEGIN p3_r64_c64_kv4  2026-09-21T02:08:24-04:00
+{
+  "python": "3.12.13",
+  "platform": "Linux-6.12.43+deb12-amd64-x86_64-with-glibc2.36",
+  "torch": "2.13.0+cu130",
+  "cuda": "13.0",
+  "cudnn": "92000",
+  "gpu_name": "NVIDIA RTX 6000 Ada Generation",
+  "gpu_capability": "8.9",
+  "gpu_count": 1,
+  "gpu_mem_total_gb": 47.37,
+  "driver": "580.95.05",
+  "git_sha": "f5a97080229a2879bbbd68cf59dadf6b0718c437",
+  "git_dirty": true,
+  "cuda_visible_devices": "0",
+  "pytorch_cuda_alloc_conf": "expandable_segments:True",
+  "torch_device_index": 0,
+  "nvml_physical_device": 0
+}
+wandb: [wandb.login()] Loaded credentials for https://api.wandb.ai from /home/nilesh/.netrc.
+wandb: Currently logged in as: nilesh-auradkar (nilesh-auradkar-personal) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: WARNING Using a boolean value for 'reinit' is deprecated. Use 'return_previous' or 'finish_previous' instead.
+wandb: Tracking run with wandb version 0.29.0
+wandb: Run data is saved locally in /home/nilesh/InferenceForge/wandb/run-20260921_021052-y69as1kc
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run p3_continuous_batch-chat_short-c64-0921-020825
+wandb: ⭐️ View project at https://wandb.ai/nilesh-auradkar-personal/llm-inference-from-scratch
+wandb: 🚀 View run at https://wandb.ai/nilesh-auradkar-personal/llm-inference-from-scratch/runs/y69as1kc
+wandb: Adding directory to artifact (runs/p3_continuous_batch/p3_continuous_batch-chat_short-c64-0921-020825)... Done. 0.0s
+wandb: updating run metadata; uploading artifact run-y69as1kc-requests; uploading artifact run-p3_continuous_batch-chat_short-c64-0921-020825
+wandb: uploading artifact run-y69as1kc-requests; uploading artifact run-p3_continuous_batch-chat_short-c64-0921-020825
+wandb: uploading wandb-metadata.json; uploading requirements.txt; uploading media/table/requests_0_57438c3817af4b0fe693.table.json; uploading output.log; uploading wandb-summary.json (+ 1 more)
+wandb: 
+wandb: Run summary:
+wandb:       allocator_slack_gb 0.01361
+wandb:               e2e_p50_ms 28620.82592
+wandb:               e2e_p99_ms 65961.16404
+wandb:   engine/admission_iters 147
+wandb:  engine/admission_stalls 0
+wandb:         engine/attn_impl broadcast
+wandb: engine/block_utilization 0
+wandb:  engine/blocks_peak_used 1788
+wandb:      engine/blocks_total 1820
+wandb:       engine/blocks_used 0
+wandb:                      +65 ...
+wandb: 
+wandb: 🚀 View run p3_continuous_batch-chat_short-c64-0921-020825 at: https://wandb.ai/nilesh-auradkar-personal/llm-inference-from-scratch/runs/y69as1kc
+wandb: ⭐️ View project at: https://wandb.ai/nilesh-auradkar-personal/llm-inference-from-scratch
+wandb: Synced 5 W&B file(s), 1 media file(s), 7 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20260921_021052-y69as1kc/logs
+[p3] max_running=64 block_size=16 blocks=1820 kv=4.00 GiB attn=broadcast
+
+=== p3_continuous_batch-chat_short-c64-0921-020825 ===
+{
+  "n_measured": 256,
+  "n_warmup": 8,
+  "prompt_len_mean": 261.18359375,
+  "prompt_len_p99": 538.5999999999999,
+  "output_len_mean": 130.73046875,
+  "total_prompt_tokens": 66863,
+  "total_output_tokens": 33467
+}
+{
+  "n_requests": 256,
+  "n_failed": 0,
+  "wall_s": 134.41338087897748,
+  "request_throughput_rps": 1.9045722853329323,
+  "output_throughput_tps": 248.985627629833,
+  "total_throughput_tps": 746.4286616697386,
+  "goodput_rps": 0.007439735489581767,
+  "slo_attainment": 0.00390625,
+  "ttft_mean_ms": 399.80636306790984,
+  "ttft_p50_ms": 257.11127603426576,
+  "ttft_p90_ms": 1139.8323634639382,
+  "ttft_p99_ms": 1910.465034190565,
+  "ttft_service_p50_ms": 29.288801830261946,
+  "queue_p50_ms": 225.9512091986835,
+  "queue_p99_ms": 1872.113224305212,
+  "tpot_mean_ms": 239.94484838973585,
+  "tpot_p50_ms": 240.61977190668603,
+  "tpot_p99_ms": 281.710704354825,
+  "itl_p99_ms": 366.99346639215946,
+  "per_stream_tps": 4.167624379981384,
+  "e2e_p50_ms": 28620.82591559738,
+  "e2e_p99_ms": 65961.1640351824,
+  "total_prompt_tokens": 66863,
+  "total_output_tokens": 33467,
+  "errors": {},
+  "gpu_util_pct_mean": 96.75373134328358,
+  "gpu_util_pct_max": 100.0,
+  "mem_util_pct_mean": 90.11007462686567,
+  "mem_util_pct_max": 98.0,
+  "mem_used_gb_mean": 14.148729922166511,
+  "mem_used_gb_max": 14.20355224609375,
+  "torch_alloc_gb_mean": 11.610574328187687,
+  "torch_alloc_gb_max": 12.837664604187012,
+  "torch_reserved_gb_mean": 13.025255801072761,
+  "torch_reserved_gb_max": 13.080078125,
+  "nvml_minus_reserved_gb_mean": 1.12347412109375,
+  "nvml_minus_reserved_gb_max": 1.12347412109375,
+  "telemetry_samples": 536,
+  "nvml_physical_device": 0,
+  "foreign_procs_on_gpu": 0,
+  "engine/max_running": 64,
+  "engine/max_running_seen": 64,
+  "engine/iterations": 907,
+  "engine/admission_iters": 147,
+  "engine/prefill_forwards": 256,
+  "engine/decode_iters": 760,
+  "engine/mean_decode_batch": 43.69868421052632,
+  "engine/useful_decode_steps": 33467,
+  "engine/padded_decode_steps": 0,
+  "engine/wasted_decode_ratio": 0.0,
+  "engine/prefill_tokens": 66863,
+  "engine/admission_stalls": 0,
+  "engine/oom_count": 0,
+  "engine/attn_impl": "broadcast",
+  "engine/kv_allocated_gb": 3.9990234375,
+  "engine/kv_block_size": 16,
+  "engine/kv_bytes_per_block": 2359296,
+  "engine/kv_bytes_per_token": 147456,
+  "engine/blocks_total": 1820,
+  "engine/blocks_used": 0,
+  "engine/blocks_peak_used": 1788,
+  "engine/block_utilization": 0.0,
+  "engine/peak_block_utilization": 0.9824175824175824,
+  "engine/failed_allocs": 0,
+  "engine/gather_ms_per_layer": 0.20313200051896274,
+  "engine/gather_ms_per_step": 7.312752018682659,
+  "engine/gather_samples": 16,
+  "engine/gather_bytes_per_layer": 235534848.0,
+  "engine/gather_effective_gbps": 1159.516213094216,
+  "gpu_total_gb": 47.37200927734375,
+  "peak_alloc_gb": 13.0664701461792,
+  "peak_reserved_gb": 13.080078125,
+  "fragmentation_gb": 0.013607978820800781,
+  "allocator_slack_gb": 0.013607978820800781,
+  "reserved_headroom_gb": 34.29193115234375
+}
+[saved] runs/p3_continuous_batch/p3_continuous_batch-chat_short-c64-0921-020825
+##### END p3_r64_c64_kv4 exit=0  2670 MHz, 60, 86.73 W
+
+##### BEGIN p3_r128_c128_kv4  2026-09-21T02:11:11-04:00
+{
+  "python": "3.12.13",
+  "platform": "Linux-6.12.43+deb12-amd64-x86_64-with-glibc2.36",
+  "torch": "2.13.0+cu130",
+  "cuda": "13.0",
+  "cudnn": "92000",
+  "gpu_name": "NVIDIA RTX 6000 Ada Generation",
+  "gpu_capability": "8.9",
+  "gpu_count": 1,
+  "gpu_mem_total_gb": 47.37,
+  "driver": "580.95.05",
+  "git_sha": "f5a97080229a2879bbbd68cf59dadf6b0718c437",
+  "git_dirty": true,
+  "cuda_visible_devices": "0",
+  "pytorch_cuda_alloc_conf": "expandable_segments:True",
+  "torch_device_index": 0,
+  "nvml_physical_device": 0
+}
+wandb: [wandb.login()] Loaded credentials for https://api.wandb.ai from /home/nilesh/.netrc.
+wandb: Currently logged in as: nilesh-auradkar (nilesh-auradkar-personal) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: WARNING Using a boolean value for 'reinit' is deprecated. Use 'return_previous' or 'finish_previous' instead.
+wandb: Tracking run with wandb version 0.29.0
+wandb: Run data is saved locally in /home/nilesh/InferenceForge/wandb/run-20260921_021338-wx7zsb8z
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run p3_continuous_batch-chat_short-c128-0921-021112
+wandb: ⭐️ View project at https://wandb.ai/nilesh-auradkar-personal/llm-inference-from-scratch
+wandb: 🚀 View run at https://wandb.ai/nilesh-auradkar-personal/llm-inference-from-scratch/runs/wx7zsb8z
+wandb: Adding directory to artifact (runs/p3_continuous_batch/p3_continuous_batch-chat_short-c128-0921-021112)... Done. 0.2s
+wandb: updating run metadata; uploading artifact run-wx7zsb8z-requests; uploading artifact run-p3_continuous_batch-chat_short-c128-0921-021112
+wandb: uploading artifact run-wx7zsb8z-requests; uploading artifact run-p3_continuous_batch-chat_short-c128-0921-021112
+wandb: 
+wandb: Run summary:
+wandb:       allocator_slack_gb 0.20893
+wandb:               e2e_p50_ms 56402.62837
+wandb:               e2e_p99_ms 94771.49158
+wandb:   engine/admission_iters 130
+wandb:  engine/admission_stalls 513
+wandb:         engine/attn_impl broadcast
+wandb: engine/block_utilization 0
+wandb:  engine/blocks_peak_used 1820
+wandb:      engine/blocks_total 1820
+wandb:       engine/blocks_used 0
+wandb:                      +65 ...
+wandb: 
+wandb: 🚀 View run p3_continuous_batch-chat_short-c128-0921-021112 at: https://wandb.ai/nilesh-auradkar-personal/llm-inference-from-scratch/runs/wx7zsb8z
+wandb: ⭐️ View project at: https://wandb.ai/nilesh-auradkar-personal/llm-inference-from-scratch
+wandb: Synced 5 W&B file(s), 1 media file(s), 7 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20260921_021338-wx7zsb8z/logs
+[p3] max_running=128 block_size=16 blocks=1820 kv=4.00 GiB attn=broadcast
+
+=== p3_continuous_batch-chat_short-c128-0921-021112 ===
+{
+  "n_measured": 256,
+  "n_warmup": 8,
+  "prompt_len_mean": 261.18359375,
+  "prompt_len_p99": 538.5999999999999,
+  "output_len_mean": 130.73046875,
+  "total_prompt_tokens": 66863,
+  "total_output_tokens": 33467
+}
+{
+  "n_requests": 256,
+  "n_failed": 0,
+  "wall_s": 133.97326798923314,
+  "request_throughput_rps": 1.910828957464661,
+  "output_throughput_tps": 249.80356531042895,
+  "total_throughput_tps": 748.880739462615,
+  "goodput_rps": 0.0,
+  "slo_attainment": 0.0,
+  "ttft_mean_ms": 21963.052335097018,
+  "ttft_p50_ms": 28164.277773350477,
+  "ttft_p90_ms": 34271.33557712659,
+  "ttft_p99_ms": 45725.2195247449,
+  "ttft_service_p50_ms": 29.812952037900686,
+  "queue_p50_ms": 28136.69817475602,
+  "queue_p99_ms": 45698.19080433808,
+  "tpot_mean_ms": 259.5200213932893,
+  "tpot_p50_ms": 258.0283049454916,
+  "tpot_p99_ms": 308.1053072142111,
+  "itl_p99_ms": 363.1761716678805,
+  "per_stream_tps": 3.8532672532596286,
+  "e2e_p50_ms": 56402.628366835415,
+  "e2e_p99_ms": 94771.49157682428,
+  "total_prompt_tokens": 66863,
+  "total_output_tokens": 33467,
+  "errors": {},
+  "gpu_util_pct_mean": 96.6310861423221,
+  "gpu_util_pct_max": 100.0,
+  "mem_util_pct_mean": 90.14606741573034,
+  "mem_util_pct_max": 98.0,
+  "mem_used_gb_mean": 14.42087946402446,
+  "mem_used_gb_max": 14.45745849609375,
+  "torch_alloc_gb_mean": 11.633629009518284,
+  "torch_alloc_gb_max": 13.108010292053223,
+  "torch_reserved_gb_mean": 13.29740534293071,
+  "torch_reserved_gb_max": 13.333984375,
+  "nvml_minus_reserved_gb_mean": 1.12347412109375,
+  "nvml_minus_reserved_gb_max": 1.12347412109375,
+  "telemetry_samples": 534,
+  "nvml_physical_device": 0,
+  "foreign_procs_on_gpu": 0,
+  "engine/max_running": 128,
+  "engine/max_running_seen": 74,
+  "engine/iterations": 849,
+  "engine/admission_iters": 130,
+  "engine/prefill_forwards": 256,
+  "engine/decode_iters": 719,
+  "engine/mean_decode_batch": 46.19054242002782,
+  "engine/useful_decode_steps": 33467,
+  "engine/padded_decode_steps": 0,
+  "engine/wasted_decode_ratio": 0.0,
+  "engine/prefill_tokens": 66863,
+  "engine/admission_stalls": 513,
+  "engine/oom_count": 0,
+  "engine/attn_impl": "broadcast",
+  "engine/kv_allocated_gb": 3.9990234375,
+  "engine/kv_block_size": 16,
+  "engine/kv_bytes_per_block": 2359296,
+  "engine/kv_bytes_per_token": 147456,
+  "engine/blocks_total": 1820,
+  "engine/blocks_used": 0,
+  "engine/blocks_peak_used": 1820,
+  "engine/block_utilization": 0.0,
+  "engine/peak_block_utilization": 1.0,
+  "engine/failed_allocs": 0,
+  "engine/gather_ms_per_layer": 0.2187263975540797,
+  "engine/gather_ms_per_step": 7.8741503119468685,
+  "engine/gather_samples": 15,
+  "engine/gather_bytes_per_layer": 254615552.0,
+  "engine/gather_effective_gbps": 1164.0824100211626,
+  "gpu_total_gb": 47.37200927734375,
+  "peak_alloc_gb": 13.125051498413086,
+  "peak_reserved_gb": 13.333984375,
+  "fragmentation_gb": 0.20893287658691406,
+  "allocator_slack_gb": 0.20893287658691406,
+  "reserved_headroom_gb": 34.03802490234375
+}
+[saved] runs/p3_continuous_batch/p3_continuous_batch-chat_short-c128-0921-021112
+##### END p3_r128_c128_kv4 exit=0  2670 MHz, 60, 86.58 W
+
+##### BEGIN p3_r64_c128_kv4  2026-09-21T02:13:59-04:00
+{
+  "python": "3.12.13",
+  "platform": "Linux-6.12.43+deb12-amd64-x86_64-with-glibc2.36",
+  "torch": "2.13.0+cu130",
+  "cuda": "13.0",
+  "cudnn": "92000",
+  "gpu_name": "NVIDIA RTX 6000 Ada Generation",
+  "gpu_capability": "8.9",
+  "gpu_count": 1,
+  "gpu_mem_total_gb": 47.37,
+  "driver": "580.95.05",
+  "git_sha": "f5a97080229a2879bbbd68cf59dadf6b0718c437",
+  "git_dirty": true,
+  "cuda_visible_devices": "0",
+  "pytorch_cuda_alloc_conf": "expandable_segments:True",
+  "torch_device_index": 0,
+  "nvml_physical_device": 0
+}
+wandb: [wandb.login()] Loaded credentials for https://api.wandb.ai from /home/nilesh/.netrc.
+wandb: Currently logged in as: nilesh-auradkar (nilesh-auradkar-personal) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: WARNING Using a boolean value for 'reinit' is deprecated. Use 'return_previous' or 'finish_previous' instead.
+wandb: Tracking run with wandb version 0.29.0
+wandb: Run data is saved locally in /home/nilesh/InferenceForge/wandb/run-20260921_021626-6syzs82i
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run p3_continuous_batch-chat_short-c128-0921-021400
+wandb: ⭐️ View project at https://wandb.ai/nilesh-auradkar-personal/llm-inference-from-scratch
+wandb: 🚀 View run at https://wandb.ai/nilesh-auradkar-personal/llm-inference-from-scratch/runs/6syzs82i
+wandb: Adding directory to artifact (runs/p3_continuous_batch/p3_continuous_batch-chat_short-c128-0921-021400)... Done. 0.2s
+wandb: updating run metadata; uploading artifact run-6syzs82i-requests; uploading artifact run-p3_continuous_batch-chat_short-c128-0921-021400
+wandb: uploading artifact run-6syzs82i-requests; uploading artifact run-p3_continuous_batch-chat_short-c128-0921-021400
+wandb: uploading artifact run-p3_continuous_batch-chat_short-c128-0921-021400
+wandb: uploading requirements.txt; uploading media/table/requests_0_eb52030db5a5d4573ede.table.json; uploading output.log; uploading wandb-summary.json; uploading config.yaml (+ 1 more)
+wandb: 
+wandb: Run summary:
+wandb:       allocator_slack_gb 0.01361
+wandb:               e2e_p50_ms 56660.21203
+wandb:               e2e_p99_ms 92543.85379
+wandb:   engine/admission_iters 153
+wandb:  engine/admission_stalls 0
+wandb:         engine/attn_impl broadcast
+wandb: engine/block_utilization 0
+wandb:  engine/blocks_peak_used 1795
+wandb:      engine/blocks_total 1820
+wandb:       engine/blocks_used 0
+wandb:                      +65 ...
+wandb: 
+wandb: 🚀 View run p3_continuous_batch-chat_short-c128-0921-021400 at: https://wandb.ai/nilesh-auradkar-personal/llm-inference-from-scratch/runs/6syzs82i
+wandb: ⭐️ View project at: https://wandb.ai/nilesh-auradkar-personal/llm-inference-from-scratch
+wandb: Synced 5 W&B file(s), 1 media file(s), 7 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20260921_021626-6syzs82i/logs
+[p3] max_running=64 block_size=16 blocks=1820 kv=4.00 GiB attn=broadcast
+
+=== p3_continuous_batch-chat_short-c128-0921-021400 ===
+{
+  "n_measured": 256,
+  "n_warmup": 8,
+  "prompt_len_mean": 261.18359375,
+  "prompt_len_p99": 538.5999999999999,
+  "output_len_mean": 130.73046875,
+  "total_prompt_tokens": 66863,
+  "total_output_tokens": 33467
+}
+{
+  "n_requests": 256,
+  "n_failed": 0,
+  "wall_s": 134.1691881120205,
+  "request_throughput_rps": 1.9080386756627055,
+  "output_throughput_tps": 249.4387904625147,
+  "total_throughput_tps": 747.7871887860908,
+  "goodput_rps": 0.0,
+  "slo_attainment": 0.0,
+  "ttft_mean_ms": 24056.414063059492,
+  "ttft_p50_ms": 30224.82538362965,
+  "ttft_p90_ms": 37006.4437254332,
+  "ttft_p99_ms": 46830.94204743392,
+  "ttft_service_p50_ms": 29.591371305286884,
+  "queue_p50_ms": 30193.63189022988,
+  "queue_p99_ms": 46803.45010827295,
+  "tpot_mean_ms": 240.47548687034072,
+  "tpot_p50_ms": 241.2547443942555,
+  "tpot_p99_ms": 282.49273485395264,
+  "itl_p99_ms": 346.05916403234005,
+  "per_stream_tps": 4.158428008669253,
+  "e2e_p50_ms": 56660.212030634284,
+  "e2e_p99_ms": 92543.8537923153,
+  "total_prompt_tokens": 66863,
+  "total_output_tokens": 33467,
+  "errors": {},
+  "gpu_util_pct_mean": 96.66915887850467,
+  "gpu_util_pct_max": 100.0,
+  "mem_util_pct_mean": 90.21682242990654,
+  "mem_util_pct_max": 98.0,
+  "mem_used_gb_mean": 14.148700464551695,
+  "mem_used_gb_max": 14.20355224609375,
+  "torch_alloc_gb_mean": 11.607567189118573,
+  "torch_alloc_gb_max": 12.827895641326904,
+  "torch_reserved_gb_mean": 13.025226343457945,
+  "torch_reserved_gb_max": 13.080078125,
+  "nvml_minus_reserved_gb_mean": 1.12347412109375,
+  "nvml_minus_reserved_gb_max": 1.12347412109375,
+  "telemetry_samples": 535,
+  "nvml_physical_device": 0,
+  "foreign_procs_on_gpu": 0,
+  "engine/max_running": 64,
+  "engine/max_running_seen": 64,
+  "engine/iterations": 912,
+  "engine/admission_iters": 153,
+  "engine/prefill_forwards": 256,
+  "engine/decode_iters": 759,
+  "engine/mean_decode_batch": 43.7562582345191,
+  "engine/useful_decode_steps": 33467,
+  "engine/padded_decode_steps": 0,
+  "engine/wasted_decode_ratio": 0.0,
+  "engine/prefill_tokens": 66863,
+  "engine/admission_stalls": 0,
+  "engine/oom_count": 0,
+  "engine/attn_impl": "broadcast",
+  "engine/kv_allocated_gb": 3.9990234375,
+  "engine/kv_block_size": 16,
+  "engine/kv_bytes_per_block": 2359296,
+  "engine/kv_bytes_per_token": 147456,
+  "engine/blocks_total": 1820,
+  "engine/blocks_used": 0,
+  "engine/blocks_peak_used": 1795,
+  "engine/block_utilization": 0.0,
+  "engine/peak_block_utilization": 0.9862637362637363,
+  "engine/failed_allocs": 0,
+  "engine/gather_ms_per_layer": 0.20358400186523795,
+  "engine/gather_ms_per_step": 7.329024067148566,
+  "engine/gather_samples": 16,
+  "engine/gather_bytes_per_layer": 235982848.0,
+  "engine/gather_effective_gbps": 1159.1423974277134,
+  "gpu_total_gb": 47.37200927734375,
+  "peak_alloc_gb": 13.0664701461792,
+  "peak_reserved_gb": 13.080078125,
+  "fragmentation_gb": 0.013607978820800781,
+  "allocator_slack_gb": 0.013607978820800781,
+  "reserved_headroom_gb": 34.29193115234375
+}
+[saved] runs/p3_continuous_batch/p3_continuous_batch-chat_short-c128-0921-021400
+##### END p3_r64_c128_kv4 exit=0  2670 MHz, 60, 88.24 W
+
+##### BEGIN p3_r64_c64_kv3  2026-09-21T02:16:46-04:00
+{
+  "python": "3.12.13",
+  "platform": "Linux-6.12.43+deb12-amd64-x86_64-with-glibc2.36",
+  "torch": "2.13.0+cu130",
+  "cuda": "13.0",
+  "cudnn": "92000",
+  "gpu_name": "NVIDIA RTX 6000 Ada Generation",
+  "gpu_capability": "8.9",
+  "gpu_count": 1,
+  "gpu_mem_total_gb": 47.37,
+  "driver": "580.95.05",
+  "git_sha": "f5a97080229a2879bbbd68cf59dadf6b0718c437",
+  "git_dirty": true,
+  "cuda_visible_devices": "0",
+  "pytorch_cuda_alloc_conf": "expandable_segments:True",
+  "torch_device_index": 0,
+  "nvml_physical_device": 0
+}
+wandb: [wandb.login()] Loaded credentials for https://api.wandb.ai from /home/nilesh/.netrc.
+wandb: Currently logged in as: nilesh-auradkar (nilesh-auradkar-personal) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: WARNING Using a boolean value for 'reinit' is deprecated. Use 'return_previous' or 'finish_previous' instead.
+wandb: setting up run 3c0uuw9h
+wandb: Tracking run with wandb version 0.29.0
+wandb: Run data is saved locally in /home/nilesh/InferenceForge/wandb/run-20260921_021915-3c0uuw9h
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run p3_continuous_batch-chat_short-c64-0921-021647
+wandb: ⭐️ View project at https://wandb.ai/nilesh-auradkar-personal/llm-inference-from-scratch
+wandb: 🚀 View run at https://wandb.ai/nilesh-auradkar-personal/llm-inference-from-scratch/runs/3c0uuw9h
+wandb: Adding directory to artifact (runs/p3_continuous_batch/p3_continuous_batch-chat_short-c64-0921-021647)... Done. 0.0s
+wandb: updating run metadata; uploading artifact run-3c0uuw9h-requests; uploading artifact run-p3_continuous_batch-chat_short-c64-0921-021647
+wandb: uploading artifact run-3c0uuw9h-requests; uploading artifact run-p3_continuous_batch-chat_short-c64-0921-021647
+wandb: uploading artifact run-p3_continuous_batch-chat_short-c64-0921-021647
+wandb: uploading output.log; uploading wandb-summary.json; uploading config.yaml; uploading wandb-metadata.json; uploading requirements.txt (+ 1 more)
+wandb: 
+wandb: Run summary:
+wandb:       allocator_slack_gb 0.0154
+wandb:               e2e_p50_ms 29328.55354
+wandb:               e2e_p99_ms 63802.35222
+wandb:   engine/admission_iters 143
+wandb:  engine/admission_stalls 700
+wandb:         engine/attn_impl broadcast
+wandb: engine/block_utilization 0
+wandb:  engine/blocks_peak_used 1365
+wandb:      engine/blocks_total 1365
+wandb:       engine/blocks_used 0
+wandb:                      +65 ...
+wandb: 
+wandb: 🚀 View run p3_continuous_batch-chat_short-c64-0921-021647 at: https://wandb.ai/nilesh-auradkar-personal/llm-inference-from-scratch/runs/3c0uuw9h
+wandb: ⭐️ View project at: https://wandb.ai/nilesh-auradkar-personal/llm-inference-from-scratch
+wandb: Synced 5 W&B file(s), 1 media file(s), 7 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20260921_021915-3c0uuw9h/logs
+[p3] max_running=64 block_size=16 blocks=1365 kv=3.00 GiB attn=broadcast
+
+=== p3_continuous_batch-chat_short-c64-0921-021647 ===
+{
+  "n_measured": 256,
+  "n_warmup": 8,
+  "prompt_len_mean": 261.18359375,
+  "prompt_len_p99": 538.5999999999999,
+  "output_len_mean": 130.73046875,
+  "total_prompt_tokens": 66863,
+  "total_output_tokens": 33467
+}
+{
+  "n_requests": 256,
+  "n_failed": 0,
+  "wall_s": 135.50680088065565,
+  "request_throughput_rps": 1.8892040719451848,
+  "output_throughput_tps": 246.97653388980274,
+  "total_throughput_tps": 740.4056427275797,
+  "goodput_rps": 0.0,
+  "slo_attainment": 0.0,
+  "ttft_mean_ms": 5533.754473075533,
+  "ttft_p50_ms": 5818.684725090861,
+  "ttft_p90_ms": 8272.48058328405,
+  "ttft_p99_ms": 18577.960326010358,
+  "ttft_service_p50_ms": 28.75242242589593,
+  "queue_p50_ms": 5774.544374551624,
+  "queue_p99_ms": 18540.377251850434,
+  "tpot_mean_ms": 198.97013915308145,
+  "tpot_p50_ms": 195.4934798315574,
+  "tpot_p99_ms": 235.74310881816672,
+  "itl_p99_ms": 291.5695635601878,
+  "per_stream_tps": 5.025879784054586,
+  "e2e_p50_ms": 29328.55354435742,
+  "e2e_p99_ms": 63802.35221628095,
+  "total_prompt_tokens": 66863,
+  "total_output_tokens": 33467,
+  "errors": {},
+  "gpu_util_pct_mean": 96.42037037037036,
+  "gpu_util_pct_max": 100.0,
+  "mem_util_pct_mean": 89.80555555555556,
+  "mem_util_pct_max": 98.0,
+  "mem_used_gb_mean": 12.87523193359375,
+  "mem_used_gb_max": 12.89495849609375,
+  "torch_alloc_gb_mean": 10.603160568519876,
+  "torch_alloc_gb_max": 11.66486406326294,
+  "torch_reserved_gb_mean": 11.7517578125,
+  "torch_reserved_gb_max": 11.771484375,
+  "nvml_minus_reserved_gb_mean": 1.12347412109375,
+  "nvml_minus_reserved_gb_max": 1.12347412109375,
+  "telemetry_samples": 540,
+  "nvml_physical_device": 0,
+  "foreign_procs_on_gpu": 0,
+  "engine/max_running": 64,
+  "engine/max_running_seen": 56,
+  "engine/iterations": 1040,
+  "engine/admission_iters": 143,
+  "engine/prefill_forwards": 256,
+  "engine/decode_iters": 897,
+  "engine/mean_decode_batch": 37.02452619843924,
+  "engine/useful_decode_steps": 33467,
+  "engine/padded_decode_steps": 0,
+  "engine/wasted_decode_ratio": 0.0,
+  "engine/prefill_tokens": 66863,
+  "engine/admission_stalls": 700,
+  "engine/oom_count": 0,
+  "engine/attn_impl": "broadcast",
+  "engine/kv_allocated_gb": 2.999267578125,
+  "engine/kv_block_size": 16,
+  "engine/kv_bytes_per_block": 2359296,
+  "engine/kv_bytes_per_token": 147456,
+  "engine/blocks_total": 1365,
+  "engine/blocks_used": 0,
+  "engine/blocks_peak_used": 1365,
+  "engine/block_utilization": 0.0,
+  "engine/peak_block_utilization": 1.0,
+  "engine/failed_allocs": 0,
+  "engine/gather_ms_per_layer": 0.1708906673722797,
+  "engine/gather_ms_per_step": 6.152064025402069,
+  "engine/gather_samples": 18,
+  "engine/gather_bytes_per_layer": 209484913.7777778,
+  "engine/gather_effective_gbps": 1225.841744309078,
+  "gpu_total_gb": 47.37200927734375,
+  "peak_alloc_gb": 11.756088733673096,
+  "peak_reserved_gb": 11.771484375,
+  "fragmentation_gb": 0.015395641326904297,
+  "allocator_slack_gb": 0.015395641326904297,
+  "reserved_headroom_gb": 35.60052490234375
+}
+[saved] runs/p3_continuous_batch/p3_continuous_batch-chat_short-c64-0921-021647
+##### END p3_r64_c64_kv3 exit=0  2670 MHz, 60, 86.45 W
+
+##### BEGIN p3_r64_c64_kv1.5  2026-09-21T02:19:35-04:00
+{
+  "python": "3.12.13",
+  "platform": "Linux-6.12.43+deb12-amd64-x86_64-with-glibc2.36",
+  "torch": "2.13.0+cu130",
+  "cuda": "13.0",
+  "cudnn": "92000",
+  "gpu_name": "NVIDIA RTX 6000 Ada Generation",
+  "gpu_capability": "8.9",
+  "gpu_count": 1,
+  "gpu_mem_total_gb": 47.37,
+  "driver": "580.95.05",
+  "git_sha": "f5a97080229a2879bbbd68cf59dadf6b0718c437",
+  "git_dirty": true,
+  "cuda_visible_devices": "0",
+  "pytorch_cuda_alloc_conf": "expandable_segments:True",
+  "torch_device_index": 0,
+  "nvml_physical_device": 0
+}
+wandb: [wandb.login()] Loaded credentials for https://api.wandb.ai from /home/nilesh/.netrc.
+wandb: Currently logged in as: nilesh-auradkar (nilesh-auradkar-personal) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: WARNING Using a boolean value for 'reinit' is deprecated. Use 'return_previous' or 'finish_previous' instead.
+wandb: setting up run jindxufg
+wandb: Tracking run with wandb version 0.29.0
+wandb: Run data is saved locally in /home/nilesh/InferenceForge/wandb/run-20260921_022202-jindxufg
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run p3_continuous_batch-chat_short-c64-0921-021936
+wandb: ⭐️ View project at https://wandb.ai/nilesh-auradkar-personal/llm-inference-from-scratch
+wandb: 🚀 View run at https://wandb.ai/nilesh-auradkar-personal/llm-inference-from-scratch/runs/jindxufg
+wandb: Adding directory to artifact (runs/p3_continuous_batch/p3_continuous_batch-chat_short-c64-0921-021936)... Done. 0.0s
+wandb: updating run metadata; uploading artifact run-jindxufg-requests; uploading artifact run-p3_continuous_batch-chat_short-c64-0921-021936
+wandb: uploading artifact run-jindxufg-requests; uploading artifact run-p3_continuous_batch-chat_short-c64-0921-021936
+wandb: uploading artifact run-p3_continuous_batch-chat_short-c64-0921-021936
+wandb: 
+wandb: Run summary:
+wandb:       allocator_slack_gb 0.01223
+wandb:               e2e_p50_ms 30234.06954
+wandb:               e2e_p99_ms 46965.38176
+wandb:   engine/admission_iters 177
+wandb:  engine/admission_stalls 1399
+wandb:         engine/attn_impl broadcast
+wandb: engine/block_utilization 0
+wandb:  engine/blocks_peak_used 682
+wandb:      engine/blocks_total 682
+wandb:       engine/blocks_used 0
+wandb:                      +65 ...
+wandb: 
+wandb: 🚀 View run p3_continuous_batch-chat_short-c64-0921-021936 at: https://wandb.ai/nilesh-auradkar-personal/llm-inference-from-scratch/runs/jindxufg
+wandb: ⭐️ View project at: https://wandb.ai/nilesh-auradkar-personal/llm-inference-from-scratch
+wandb: Synced 5 W&B file(s), 1 media file(s), 7 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20260921_022202-jindxufg/logs
+[p3] max_running=64 block_size=16 blocks=682 kv=1.50 GiB attn=broadcast
+
+=== p3_continuous_batch-chat_short-c64-0921-021936 ===
+{
+  "n_measured": 256,
+  "n_warmup": 8,
+  "prompt_len_mean": 261.18359375,
+  "prompt_len_p99": 538.5999999999999,
+  "output_len_mean": 130.73046875,
+  "total_prompt_tokens": 66863,
+  "total_output_tokens": 33467
+}
+{
+  "n_requests": 256,
+  "n_failed": 0,
+  "wall_s": 134.03054486680776,
+  "request_throughput_rps": 1.910012380046644,
+  "output_throughput_tps": 249.69681376180094,
+  "total_throughput_tps": 748.5607112893742,
+  "goodput_rps": 0.2014466182080445,
+  "slo_attainment": 0.10546875,
+  "ttft_mean_ms": 17170.688235928537,
+  "ttft_p50_ms": 19524.589125066996,
+  "ttft_p90_ms": 22657.826740760356,
+  "ttft_p99_ms": 24087.93491353281,
+  "ttft_service_p50_ms": 27.955558616667986,
+  "queue_p50_ms": 19495.627356227487,
+  "queue_p99_ms": 24053.56127396226,
+  "tpot_mean_ms": 98.2891897626852,
+  "tpot_p50_ms": 99.08777705867237,
+  "tpot_p99_ms": 113.97327634577567,
+  "itl_p99_ms": 164.06838037073612,
+  "per_stream_tps": 10.174058840188374,
+  "e2e_p50_ms": 30234.069544821978,
+  "e2e_p99_ms": 46965.381758753196,
+  "total_prompt_tokens": 66863,
+  "total_output_tokens": 33467,
+  "errors": {},
+  "gpu_util_pct_mean": 95.53644859813085,
+  "gpu_util_pct_max": 100.0,
+  "mem_util_pct_mean": 86.30654205607476,
+  "mem_util_pct_max": 95.0,
+  "mem_used_gb_mean": 10.708747193523656,
+  "mem_used_gb_max": 10.72698974609375,
+  "torch_alloc_gb_mean": 9.074240232628082,
+  "torch_alloc_gb_max": 9.538990020751953,
+  "torch_reserved_gb_mean": 9.585273072429906,
+  "torch_reserved_gb_max": 9.603515625,
+  "nvml_minus_reserved_gb_mean": 1.12347412109375,
+  "nvml_minus_reserved_gb_max": 1.12347412109375,
+  "telemetry_samples": 535,
+  "nvml_physical_device": 0,
+  "foreign_procs_on_gpu": 0,
+  "engine/max_running": 64,
+  "engine/max_running_seen": 29,
+  "engine/iterations": 1715,
+  "engine/admission_iters": 177,
+  "engine/prefill_forwards": 256,
+  "engine/decode_iters": 1538,
+  "engine/mean_decode_batch": 21.593628088426527,
+  "engine/useful_decode_steps": 33467,
+  "engine/padded_decode_steps": 0,
+  "engine/wasted_decode_ratio": 0.0,
+  "engine/prefill_tokens": 66863,
+  "engine/admission_stalls": 1399,
+  "engine/oom_count": 0,
+  "engine/attn_impl": "broadcast",
+  "engine/kv_allocated_gb": 1.49853515625,
+  "engine/kv_block_size": 16,
+  "engine/kv_bytes_per_block": 2359296,
+  "engine/kv_bytes_per_token": 147456,
+  "engine/blocks_total": 682,
+  "engine/blocks_used": 0,
+  "engine/blocks_peak_used": 682,
+  "engine/block_utilization": 0.0,
+  "engine/peak_block_utilization": 1.0,
+  "engine/failed_allocs": 0,
+  "engine/gather_ms_per_layer": 0.07266993532257696,
+  "engine/gather_ms_per_step": 2.6161176716127703,
+  "engine/gather_samples": 31,
+  "engine/gather_bytes_per_layer": 107902909.93548387,
+  "engine/gather_effective_gbps": 1484.8356401654976,
+  "gpu_total_gb": 47.37200927734375,
+  "peak_alloc_gb": 9.591286659240723,
+  "peak_reserved_gb": 9.603515625,
+  "fragmentation_gb": 0.012228965759277344,
+  "allocator_slack_gb": 0.012228965759277344,
+  "reserved_headroom_gb": 37.76849365234375
+}
+[saved] runs/p3_continuous_batch/p3_continuous_batch-chat_short-c64-0921-021936
+##### END p3_r64_c64_kv1.5 exit=0  2670 MHz, 60, 84.23 W
+
+##### BEGIN p3_r64_c64_kv0.75  2026-09-21T02:22:22-04:00
+{
+  "python": "3.12.13",
+  "platform": "Linux-6.12.43+deb12-amd64-x86_64-with-glibc2.36",
+  "torch": "2.13.0+cu130",
+  "cuda": "13.0",
+  "cudnn": "92000",
+  "gpu_name": "NVIDIA RTX 6000 Ada Generation",
+  "gpu_capability": "8.9",
+  "gpu_count": 1,
+  "gpu_mem_total_gb": 47.37,
+  "driver": "580.95.05",
+  "git_sha": "f5a97080229a2879bbbd68cf59dadf6b0718c437",
+  "git_dirty": true,
+  "cuda_visible_devices": "0",
+  "pytorch_cuda_alloc_conf": "expandable_segments:True",
+  "torch_device_index": 0,
+  "nvml_physical_device": 0
+}
+wandb: [wandb.login()] Loaded credentials for https://api.wandb.ai from /home/nilesh/.netrc.
+wandb: Currently logged in as: nilesh-auradkar (nilesh-auradkar-personal) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: WARNING Using a boolean value for 'reinit' is deprecated. Use 'return_previous' or 'finish_previous' instead.
+wandb: setting up run df2j1h84
+wandb: Tracking run with wandb version 0.29.0
+wandb: Run data is saved locally in /home/nilesh/InferenceForge/wandb/run-20260921_022444-df2j1h84
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run p3_continuous_batch-chat_short-c64-0921-022223
+wandb: ⭐️ View project at https://wandb.ai/nilesh-auradkar-personal/llm-inference-from-scratch
+wandb: 🚀 View run at https://wandb.ai/nilesh-auradkar-personal/llm-inference-from-scratch/runs/df2j1h84
+wandb: Adding directory to artifact (runs/p3_continuous_batch/p3_continuous_batch-chat_short-c64-0921-022223)... Done. 0.0s
+wandb: updating run metadata; uploading artifact run-df2j1h84-requests; uploading artifact run-p3_continuous_batch-chat_short-c64-0921-022223
+wandb: uploading artifact run-df2j1h84-requests; uploading artifact run-p3_continuous_batch-chat_short-c64-0921-022223
+wandb: uploading wandb-metadata.json; uploading requirements.txt; uploading media/table/requests_0_3ee3d2cc1b74e8266e32.table.json; uploading output.log; uploading wandb-summary.json (+ 1 more)
+wandb: 
+wandb: Run summary:
+wandb:       allocator_slack_gb 0.02393
+wandb:               e2e_p50_ms 30806.20717
+wandb:               e2e_p99_ms 38440.57826
+wandb:   engine/admission_iters 193
+wandb:  engine/admission_stalls 2736
+wandb:         engine/attn_impl broadcast
+wandb: engine/block_utilization 0
+wandb:  engine/blocks_peak_used 341
+wandb:      engine/blocks_total 341
+wandb:       engine/blocks_used 0
+wandb:                      +65 ...
+wandb: 
+wandb: 🚀 View run p3_continuous_batch-chat_short-c64-0921-022223 at: https://wandb.ai/nilesh-auradkar-personal/llm-inference-from-scratch/runs/df2j1h84
+wandb: ⭐️ View project at: https://wandb.ai/nilesh-auradkar-personal/llm-inference-from-scratch
+wandb: Synced 5 W&B file(s), 1 media file(s), 7 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20260921_022444-df2j1h84/logs
+[p3] max_running=64 block_size=16 blocks=341 kv=0.75 GiB attn=broadcast
+
+=== p3_continuous_batch-chat_short-c64-0921-022223 ===
+{
+  "n_measured": 256,
+  "n_warmup": 8,
+  "prompt_len_mean": 261.18359375,
+  "prompt_len_p99": 538.5999999999999,
+  "output_len_mean": 130.73046875,
+  "total_prompt_tokens": 66863,
+  "total_output_tokens": 33467
+}
+{
+  "n_requests": 256,
+  "n_failed": 0,
+  "wall_s": 128.93363820482045,
+  "request_throughput_rps": 1.985517538823541,
+  "output_throughput_tps": 259.56763856174786,
+  "total_throughput_tps": 778.1522448053355,
+  "goodput_rps": 0.10082706251838294,
+  "slo_attainment": 0.05078125,
+  "ttft_mean_ms": 22202.137652457168,
+  "ttft_p50_ms": 25375.792731065303,
+  "ttft_p90_ms": 27442.37122684717,
+  "ttft_p99_ms": 28312.039292184632,
+  "ttft_service_p50_ms": 27.277722023427486,
+  "queue_p50_ms": 25343.693954870105,
+  "queue_p99_ms": 28281.98440992273,
+  "tpot_mean_ms": 47.0778400450353,
+  "tpot_p50_ms": 47.425322935518594,
+  "tpot_p99_ms": 56.37693760344182,
+  "itl_p99_ms": 103.95148396492004,
+  "per_stream_tps": 21.241416323335702,
+  "e2e_p50_ms": 30806.20717117563,
+  "e2e_p99_ms": 38440.578262926996,
+  "total_prompt_tokens": 66863,
+  "total_output_tokens": 33467,
+  "errors": {},
+  "gpu_util_pct_mean": 94.48832684824903,
+  "gpu_util_pct_max": 98.0,
+  "mem_util_pct_mean": 77.06031128404669,
+  "mem_util_pct_max": 87.0,
+  "mem_used_gb_mean": 9.680129945510092,
+  "mem_used_gb_max": 9.69183349609375,
+  "torch_alloc_gb_mean": 8.279927183218039,
+  "torch_alloc_gb_max": 8.519995212554932,
+  "torch_reserved_gb_mean": 8.556655824416342,
+  "torch_reserved_gb_max": 8.568359375,
+  "nvml_minus_reserved_gb_mean": 1.12347412109375,
+  "nvml_minus_reserved_gb_max": 1.12347412109375,
+  "telemetry_samples": 514,
+  "nvml_physical_device": 0,
+  "foreign_procs_on_gpu": 0,
+  "engine/max_running": 64,
+  "engine/max_running_seen": 15,
+  "engine/iterations": 3012,
+  "engine/admission_iters": 193,
+  "engine/prefill_forwards": 256,
+  "engine/decode_iters": 2819,
+  "engine/mean_decode_batch": 11.781128059595602,
+  "engine/useful_decode_steps": 33467,
+  "engine/padded_decode_steps": 0,
+  "engine/wasted_decode_ratio": 0.0,
+  "engine/prefill_tokens": 66863,
+  "engine/admission_stalls": 2736,
+  "engine/oom_count": 0,
+  "engine/attn_impl": "broadcast",
+  "engine/kv_allocated_gb": 0.749267578125,
+  "engine/kv_block_size": 16,
+  "engine/kv_bytes_per_block": 2359296,
+  "engine/kv_bytes_per_token": 147456,
+  "engine/blocks_total": 341,
+  "engine/blocks_used": 0,
+  "engine/blocks_peak_used": 341,
+  "engine/block_utilization": 0.0,
+  "engine/peak_block_utilization": 1.0,
+  "engine/failed_allocs": 0,
+  "engine/gather_ms_per_layer": 0.04467986001257311,
+  "engine/gather_ms_per_step": 1.608474960452632,
+  "engine/gather_samples": 57,
+  "engine/gather_bytes_per_layer": 53162199.578947365,
+  "engine/gather_effective_gbps": 1189.8470488490182,
+  "gpu_total_gb": 47.37200927734375,
+  "peak_alloc_gb": 8.544427871704102,
+  "peak_reserved_gb": 8.568359375,
+  "fragmentation_gb": 0.023931503295898438,
+  "allocator_slack_gb": 0.023931503295898438,
+  "reserved_headroom_gb": 38.80364990234375
+}
+[saved] runs/p3_continuous_batch/p3_continuous_batch-chat_short-c64-0921-022223
+##### END p3_r64_c64_kv0.75 exit=0  2655 MHz, 60, 82.86 W
+
+##### BEGIN p3_r16_c16_kv0.1_livelock  2026-09-21T02:25:04-04:00
+{
+  "python": "3.12.13",
+  "platform": "Linux-6.12.43+deb12-amd64-x86_64-with-glibc2.36",
+  "torch": "2.13.0+cu130",
+  "cuda": "13.0",
+  "cudnn": "92000",
+  "gpu_name": "NVIDIA RTX 6000 Ada Generation",
+  "gpu_capability": "8.9",
+  "gpu_count": 1,
+  "gpu_mem_total_gb": 47.37,
+  "driver": "580.95.05",
+  "git_sha": "f5a97080229a2879bbbd68cf59dadf6b0718c437",
+  "git_dirty": true,
+  "cuda_visible_devices": "0",
+  "pytorch_cuda_alloc_conf": "expandable_segments:True",
+  "torch_device_index": 0,
+  "nvml_physical_device": 0
+}
+##### END p3_r16_c16_kv0.1_livelock exit=124  210 MHz, 27, 15.54 W
+
+##### SUMMARY
+engine	c	b	maxlen	kv	N	fail	out_tps	ttft50	ttft99	tpot50	tpot99	slo	run_seen	stalls	oom	peak_res
+p1_scratch_kv	1	1	4096	None	256	0	45.83	27.20	55.13	21.75	22.10	1.00	None	None	0	8.29
+p1_scratch_kv	2	1	4096	None	256	0	45.75	2625.64	6384.69	21.75	22.18	0.00	None	None	0	8.29
+p1_scratch_kv	4	1	4096	None	256	0	45.41	8487.33	13182.21	21.91	22.44	0.00	None	None	0	8.29
+p1_scratch_kv	8	1	4096	None	256	0	45.57	19770.73	26024.54	21.81	22.38	0.00	None	None	0	8.29
+p1_scratch_kv	16	1	4096	None	256	0	45.48	42562.87	51823.77	21.87	22.40	0.00	None	None	0	8.29
+p1_scratch_kv	32	1	4096	None	256	0	45.58	88020.76	97194.89	21.81	22.32	0.00	None	None	0	8.29
+p1_scratch_kv	64	1	4096	None	256	0	45.54	179317.53	187774.15	21.80	22.46	0.00	None	None	0	8.29
+p1_scratch_kv	128	1	4096	None	256	0	45.44	355637.32	373998.32	21.81	22.58	0.00	None	None	0	8.29
+p2_static_batch	1	1	4096	None	256	0	46.46	25.57	53.79	21.47	21.91	1.00	None	None	0	8.29
+p2_static_batch	2	2	4096	None	256	0	71.56	52.60	140.93	22.77	23.53	1.00	None	None	0	9.05
+p2_static_batch	4	4	4096	None	256	0	120.66	129.11	302.81	22.67	24.77	1.00	None	None	0	10.57
+p2_static_batch	8	8	4096	None	256	0	152.68	364.16	681.16	28.92	38.54	1.00	None	None	0	13.60
+p2_static_batch	16	16	4096	None	256	0	145.26	918.48	1435.56	53.04	70.44	0.62	None	None	0	19.66
+p2_static_batch	32	32	4096	None	256	0	125.94	2054.88	2874.53	103.38	133.20	0.00	None	None	0	31.90
+p2_static_batch	32	32	1152	None	256	0	126.06	2051.83	2864.14	103.37	132.93	0.00	None	None	0	18.97
+p2_static_batch	64	64	4096	None	256	238	111.78	755.88	827.47	49.06	58.64	1.00	None	None	4	46.80
+p2_static_batch	64	64	1152	None	256	0	119.62	4321.39	79109.77	170.89	236.28	0.00	None	None	0	29.17
+p2_static_batch	128	128	1152	None	256	0	115.99	11207.29	142671.10	237.86	408.19	0.00	None	None	0	46.84
+p3_continuous_batch	1	1	4096	4.00	256	0	44.26	26.26	54.06	22.55	22.99	1.00	1	0	0	11.73
+p3_continuous_batch	2	2	4096	4.00	256	0	80.74	49.80	77.64	24.57	25.13	1.00	2	0	0	11.73
+p3_continuous_batch	4	4	4096	4.00	256	0	158.35	50.19	91.96	24.81	26.22	1.00	4	0	0	11.73
+p3_continuous_batch	8	8	4096	4.00	256	0	236.47	57.49	161.96	32.66	39.91	1.00	8	0	0	11.73
+p3_continuous_batch	16	16	4096	4.00	256	0	260.19	80.40	413.05	58.81	74.30	1.00	16	0	0	11.91
+p3_continuous_batch	32	32	4096	4.00	256	0	251.59	145.76	874.05	122.97	148.32	0.07	32	0	0	12.30
+p3_continuous_batch	64	64	4096	4.00	256	0	248.99	257.11	1910.47	240.62	281.71	0.00	64	0	0	13.08
+p3_continuous_batch	64	64	4096	3.00	256	0	246.98	5818.68	18577.96	195.49	235.74	0.00	56	700	0	11.77
+p3_continuous_batch	64	64	4096	1.50	256	0	249.70	19524.59	24087.93	99.09	113.97	0.11	29	1399	0	9.60
+p3_continuous_batch	64	64	4096	0.75	256	0	259.57	25375.79	28312.04	47.43	56.38	0.05	15	2736	0	8.57
+p3_continuous_batch	128	64	4096	4.00	256	0	249.44	30224.83	46830.94	241.25	282.49	0.00	64	0	0	13.08
+p3_continuous_batch	128	128	4096	4.00	256	0	249.80	28164.28	45725.22	258.03	308.11	0.00	74	513	0	13.33
